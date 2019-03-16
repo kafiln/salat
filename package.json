@@ -2,8 +2,10 @@
   "name": "react-prayer-times",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://kafiil.github.io/react-prayers-time",
   "dependencies": {
     "axios": "^0.18.0",
+    "gh-pages": "^2.0.1",
     "jsdom": "^14.0.0",
     "react": "^16.8.4",
     "react-autocomplete": "^1.8.1",
@@ -14,7 +16,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
