@@ -1,6 +1,5 @@
-const API_URL = "http://www.habous.gov.ma/horaire%20de%20priere/horaire-pub.php";
+const API_URL = "https://maroc-salat.herokuapp.com/prayer";
 
 module.exports = {
-    API_URL,
-    DEFAULT_CITY: 80 // Casablanca
-}
+  API_URL
+};

@@ -1,62 +1,78 @@
-import React, { Component } from 'react';
-import cities from './data/fr/cities_fr.json'
-import './App.css';
-import Autocomplete from 'react-autocomplete';
-import getPrayers from './getPrayers'
+import React, { Component } from "react";
+import "./App.css";
+import axios from "axios";
+import cities from "./data/cities";
+
+const PrayerCard = ({ prayer }) => {
+  return (
+    <div>
+      <h1>
+        {prayer.city} - {prayer.date}
+      </h1>
+      <ul>
+        <li>Fajr : {prayer.fajr}</li>
+        <li>Chorouq : {prayer.chorouq}</li>
+        <li>Dhuhr : {prayer.dhuhr}</li>
+        <li>Asr : {prayer.asr}</li>
+        <li>Maghrib : {prayer.maghrib}</li>
+        <li>Ishae : {prayer.ishae}</li>
+      </ul>
+    </div>
+  );
+};
+
+const SelectCity = ({ onChange }) => {
+  return (
+    <select onChange={onChange}>
+      {cities.map(c => {
+        return (
+          <option value={c.id} key={c.id}>
+            {c.name}
+          </option>
+        );
+      })}
+    </select>
+  );
+};
 
 export default class App extends Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
-      id: '',
-      value: '',
-      result: null
-    }
+      id: "",
+      value: "",
+      prayers: null,
+      current: null
+    };
   }
 
-  shouldItemRender = (item, value) => item.name.toLowerCase().indexOf(value.toLowerCase()) > -1;
-  getItemValue = city => {
-    console.log("getting!")
-    return city.name;
-  }
-  onSelect = value => {
-    this.setState({ value: value })
-    const id = cities.filter(e => e.name === value)[0].id;
-    getPrayers(id);
+  componentDidMount() {
+    axios.get("https://maroc-salat.herokuapp.com/prayer").then(res => {
+      console.log(res.data[0]);
+      this.setState({ prayers: res.data, current: res.data[0] });
+    });
   }
 
   onChange = e => {
-    console.log("changing!")
-    this.setState({ value: e.target.value })
-  }
+    console.log("value changed");
+    const value = +e.target.value;
+    const newCurrent = this.state.prayers.filter(p => p.id === value)[0];
+    console.log(newCurrent);
+    this.setState({
+      current: newCurrent
+    });
+  };
 
   render() {
     return (
       <div className="App">
         <header className="App-header">
           <h1>Please choose your city</h1>
-          <Autocomplete
-            getItemValue={this.getItemValue}
-            items={cities}
-            key={city => city.id}
-            shouldItemRender={this.shouldItemRender}
-            renderItem={(city, isHighlighted) =>
-              <div key={city.id} style={{ background: isHighlighted ? '#eee' : 'transparent', borderRadius: '20' }}>
-                {city.name}
-              </div>
-            }
-            value={this.state.value}
-            onChange={this.onChange}
-            onSelect={this.onSelect}
-          />
-
+          <SelectCity onChange={this.onChange} />
+          {this.state.current && <PrayerCard prayer={this.state.current} />}
         </header>
-        {this.state.result && <table>
-          {this.result.length}
-        </table>}
       </div>
     );
   }
 }
-
