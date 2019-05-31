@@ -3,15 +3,13 @@ import "./App.css";
 import axios from "axios";
 const API_URL = "https://maroc-salat.herokuapp.com/";
 
-const dateFromPrayer = prayer =>
-  new Date(new Date().getFullYear(), prayer.month - 1, prayer.day);
+const byName = (a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0);
 
 const PrayerCard = ({ prayer }) => {
-  const date = dateFromPrayer(prayer);
   return (
     <div>
       <h1>{prayer.city}</h1>
-      <h2>{date.toDateString()}</h2>
+      <h2>{prayer.day}</h2>
       <ul>
         <li>Fajr : {prayer.fajr}</li>
         <li>Chorouq : {prayer.chorouq}</li>
@@ -32,7 +30,7 @@ const SelectCity = ({ cities, onChange }) => {
         {cities.map(c => {
           return (
             <option value={c.id} key={c.id}>
-              {c.names.fr}
+              {c.name}
             </option>
           );
         })}
@@ -55,23 +53,21 @@ export default class App extends Component {
 
   componentDidMount() {
     axios.get(`${API_URL}city`).then(res => {
-      this.setState({ cities: res.data, id: res.data[0].id });
+      this.setState({ cities: res.data.sort(byName), id: res.data[0].id });
       const day = new Date().getDate();
       const month = new Date().getMonth() + 1;
       axios.get(`${API_URL}prayer?month=${month}&day=${day}`).then(res => {
         this.setState({
           prayers: res.data,
-          current: res.data.filter(p => p.cityId === this.state.id)[0]
+          current: res.data.filter(p => p.id === this.state.id)[0]
         });
       });
     });
   }
 
   onChange = e => {
-    console.log("value changed");
     const value = +e.target.value;
-    const newCurrent = this.state.prayers.filter(p => p.cityId === value)[0];
-    console.log(this.state.prayers);
+    const newCurrent = this.state.prayers.filter(p => p.id === value)[0];
     this.setState({
       current: newCurrent
     });
@@ -81,6 +77,7 @@ export default class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
+          {/* ADD A LOADER  */}
           {this.state.cities && (
             <SelectCity cities={this.state.cities} onChange={this.onChange} />
           )}
