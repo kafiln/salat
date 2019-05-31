@@ -1,14 +1,17 @@
 import React, { Component } from "react";
 import "./App.css";
 import axios from "axios";
-import cities from "./data/cities";
+const API_URL = "https://maroc-salat.herokuapp.com/";
+
+const dateFromPrayer = prayer =>
+  new Date(new Date().getFullYear(), prayer.month - 1, prayer.day);
 
 const PrayerCard = ({ prayer }) => {
+  const date = dateFromPrayer(prayer);
   return (
     <div>
-      <h1>
-        {prayer.city} - {prayer.date}
-      </h1>
+      <h1>{prayer.city}</h1>
+      <h2>{date.toDateString()}</h2>
       <ul>
         <li>Fajr : {prayer.fajr}</li>
         <li>Chorouq : {prayer.chorouq}</li>
@@ -21,17 +24,20 @@ const PrayerCard = ({ prayer }) => {
   );
 };
 
-const SelectCity = ({ onChange }) => {
+const SelectCity = ({ cities, onChange }) => {
   return (
-    <select onChange={onChange}>
-      {cities.map(c => {
-        return (
-          <option value={c.id} key={c.id}>
-            {c.name}
-          </option>
-        );
-      })}
-    </select>
+    <div>
+      <h1>Please choose your city</h1>
+      <select onChange={onChange}>
+        {cities.map(c => {
+          return (
+            <option value={c.id} key={c.id}>
+              {c.names.fr}
+            </option>
+          );
+        })}
+      </select>
+    </div>
   );
 };
 
@@ -48,17 +54,24 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    axios.get("https://maroc-salat.herokuapp.com/prayer").then(res => {
-      console.log(res.data[0]);
-      this.setState({ prayers: res.data, current: res.data[0] });
+    axios.get(`${API_URL}city`).then(res => {
+      this.setState({ cities: res.data, id: res.data[0].id });
+      const day = new Date().getDate();
+      const month = new Date().getMonth() + 1;
+      axios.get(`${API_URL}prayer?month=${month}&day=${day}`).then(res => {
+        this.setState({
+          prayers: res.data,
+          current: res.data.filter(p => p.cityId === this.state.id)[0]
+        });
+      });
     });
   }
 
   onChange = e => {
     console.log("value changed");
     const value = +e.target.value;
-    const newCurrent = this.state.prayers.filter(p => p.id === value)[0];
-    console.log(newCurrent);
+    const newCurrent = this.state.prayers.filter(p => p.cityId === value)[0];
+    console.log(this.state.prayers);
     this.setState({
       current: newCurrent
     });
@@ -68,8 +81,9 @@ export default class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1>Please choose your city</h1>
-          <SelectCity onChange={this.onChange} />
+          {this.state.cities && (
+            <SelectCity cities={this.state.cities} onChange={this.onChange} />
+          )}
           {this.state.current && <PrayerCard prayer={this.state.current} />}
         </header>
       </div>
