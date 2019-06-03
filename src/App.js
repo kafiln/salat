@@ -1,23 +1,28 @@
 import React, { Component } from "react";
+import "reset-css";
 import "./App.css";
 import axios from "axios";
+const NAMES = require("./data/prayers.json");
 const API_URL = "https://maroc-salat.herokuapp.com/";
 
 const byName = (a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0);
 
-const PrayerCard = ({ prayer }) => {
+const PrayerCard = ({ prayer, local }) => {
   return (
-    <div>
+    <div id="times">
       <h1>{prayer.city}</h1>
-      <h2>{prayer.day}</h2>
+      <h2>{new Date(prayer.day).toLocaleDateString(local)}</h2>
       <ul>
-        <li>Fajr : {prayer.fajr}</li>
-        <li>Chorouq : {prayer.chorouq}</li>
-        <li>Dhuhr : {prayer.dhuhr}</li>
-        <li>Asr : {prayer.asr}</li>
-        <li>Maghrib : {prayer.maghrib}</li>
-        <li>Ishae : {prayer.ishae}</li>
+        {NAMES.map(name => {
+          return (
+            <li key={name}>
+              <span className="name">{name}</span>
+              <span className="time">{prayer[name]}</span>
+            </li>
+          );
+        })}
       </ul>
+      <dl />
     </div>
   );
 };
@@ -25,7 +30,7 @@ const PrayerCard = ({ prayer }) => {
 const SelectCity = ({ cities, onChange }) => {
   return (
     <div>
-      <h1>Please choose your city</h1>
+      {/* <h1>Please choose your city</h1> */}
       <select onChange={onChange}>
         {cities.map(c => {
           return (
@@ -44,14 +49,12 @@ export default class App extends Component {
     super(props);
 
     this.state = {
-      id: "",
-      value: "",
-      prayers: null,
-      current: null
+      local: "fr-FR"
     };
   }
 
   componentDidMount() {
+    console.log(NAMES);
     axios.get(`${API_URL}city`).then(res => {
       this.setState({ cities: res.data.sort(byName), id: res.data[0].id });
       const day = new Date().getDate();
@@ -75,14 +78,13 @@ export default class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          {/* ADD A LOADER  */}
-          {this.state.cities && (
-            <SelectCity cities={this.state.cities} onChange={this.onChange} />
-          )}
-          {this.state.current && <PrayerCard prayer={this.state.current} />}
-        </header>
+      <div id="main">
+        {/* {this.state.cities && (
+          <SelectCity cities={this.state.cities} onChange={this.onChange} />
+        )} */}
+        {this.state.current && (
+          <PrayerCard local={this.state.local} prayer={this.state.current} />
+        )}
       </div>
     );
   }

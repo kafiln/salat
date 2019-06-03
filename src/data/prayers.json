@@ -1,20 +1,8 @@
 [
-    {
-        "name": "fajr"
-    },
-    {
-        "name": "chorouq"
-    },
-    {
-        "name": "dhuhr"
-    },
-    {
-        "name": "asr"
-    },
-    {
-        "name": "maghrib"
-    },
-    {
-        "name": "ishae"
-    }
+    "fajr",
+    "chorouq",
+    "dhuhr",
+    "asr",
+    "maghrib",
+    "ishae"
 ]

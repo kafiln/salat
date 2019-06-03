@@ -1,19 +1,63 @@
-.App {
-  text-align: center;
+html,
+body {
+  width: 100%;
+  height: 100%;
 }
 
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+html {
+  background: #1bb8bf;
+  background: -moz-radial-gradient(
+    center,
+    ellipse cover,
+    #1bb8bf 0%,
+    #0080c9 100%
+  );
+  background: -webkit-radial-gradient(
+    center,
+    ellipse cover,
+    #1bb8bf 0%,
+    #0080c9 100%
+  );
+  background: radial-gradient(ellipse at center, #1bb8bf 0%, #0080c9 100%);
+}
+body {
+  background: url(img/salah.com.bg.png) no-repeat top center;
+  background-size: auto 50%;
+  font-size: 42px;
+  font-family: Lato;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+#main {
+  /* text-align: center; */
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+#main h1,
+h2 {
+  text-align: center;
+}
+
+#main h1 {
+  font-size: 46px;
+  margin: 50px 0 60px 0;
+}
+
+#times {
+  margin-top: 250px;
+}
+li {
+  margin: 25px 0;
+  width: 330px;
+}
+
+.name {
+  text-transform: capitalize;
+  /* clear: both; */
+}
+.time {
+  float: right;
+  color: #d9d9d9;
 }
