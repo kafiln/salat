@@ -4,18 +4,21 @@
   "private": true,
   "homepage": "https://kafiil.github.io/react-prayers-time",
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.19.0",
     "gh-pages": "^2.0.1",
     "jsdom": "^14.0.0",
+    "moment": "^2.24.0",
     "react": "^16.8.4",
-    "react-autocomplete": "^1.8.1",
     "react-dom": "^16.8.4",
+    "react-icons": "^3.7.0",
     "react-scripts": "2.1.8",
+    "react-typeahead": "^2.0.0-alpha.8",
     "reset-css": "^4.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "ext-build": "cross-env INLINE_RUNTIME_CHUNK=false react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "yarn run build",
@@ -29,5 +32,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "cross-env": "^5.2.0"
+  }
 }
