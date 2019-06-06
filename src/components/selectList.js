@@ -1,10 +1,9 @@
-import React from "react";
-// import { Typeahead } from "react-typeahead";
+import React from 'react';
 
-const SelectList = ({ values, onChange }) => {
+const SelectList = ({ values, onChange, value }) => {
   return (
     <div className="select">
-      <select onChange={onChange}>
+      <select value={value} onChange={onChange}>
         {values.map(c => {
           return (
             <option value={c.id} key={c.id}>
@@ -13,8 +12,6 @@ const SelectList = ({ values, onChange }) => {
           );
         })}
       </select>
-
-      {/* <Typeahead options={values} /> */}
     </div>
   );
 };
