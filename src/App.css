@@ -65,3 +65,15 @@ h2 {
   float: right;
   color: #d9d9d9;
 }
+
+.difference {
+  float: right;
+  margin-right: 20px;
+  color:red !important;
+}
+
+.next-prayer{
+  font-weight: 700;
+  background-color: white;
+  color:black;
+}
