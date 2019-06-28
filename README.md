@@ -6,6 +6,6 @@ A small web app to get prayer's time in cities of Morocco
 
 ## Todo
 
+- [x] Use a cutom domain => buy one
 - Update UX/UI
 - Use typeahead instead of the boring list
-- Use a cutom domain => buy one
