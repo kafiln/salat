@@ -10,6 +10,12 @@ import SelectList from './components/selectList';
 
 const API_URL = 'https://maroc-salat.herokuapp.com/';
 
+const cleanLocalStorage = (...args) => {
+  const existing = Object.keys({ ...localStorage });
+  const toDelete = existing.filter(e => !args.includes(e));
+  toDelete.forEach(e => localStorage.removeItem(e));
+};
+
 const App = () => {
   let [cities, setCities] = useState();
   let [prayers, setPrayers] = useState();
@@ -18,12 +24,7 @@ const App = () => {
   useEffect(() => {
     async function init() {
       const today = moment();
-      const yesterday = moment().subtract(1, 'day');
-
-      const day = moment().date();
-      const month = moment().month() + 1;
-      const PRAYERS_KEY = `prayers_${day}_${month}`;
-      const YESTERDAY_KEY = `prayers_${yesterday.date()}_${yesterday.month()}`;
+      const PRAYERS_KEY = `prayers_${today.date()}_${today.month()}`;
 
       //TODO: Extract a custom hook
       const cities = localStorage.getItem('cities')
@@ -39,8 +40,9 @@ const App = () => {
         ? JSON.parse(localStorage.getItem(PRAYERS_KEY))
         : (await axios.get(URL)).data;
       setPrayers(prayers);
-      localStorage.removeItem(YESTERDAY_KEY);
       localStorage.setItem(PRAYERS_KEY, JSON.stringify(prayers));
+
+      cleanLocalStorage('cities', 'id', PRAYERS_KEY);
     }
 
     init();
