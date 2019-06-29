@@ -10,10 +10,16 @@ import SelectList from './components/selectList';
 
 const API_URL = 'https://maroc-salat.herokuapp.com/';
 
+
+/**
+ *Delete all items in the localStorage that are not specified as arguments
+ *
+ * @param {*} args keys that should not be deleted from localStorage
+ */
 const cleanLocalStorage = (...args) => {
-  const existing = Object.keys({ ...localStorage });
-  const toDelete = existing.filter(e => !args.includes(e));
-  toDelete.forEach(e => localStorage.removeItem(e));
+  Object.keys({ ...localStorage })
+    .filter(e => !args.includes(e))
+    .forEach(e => localStorage.removeItem(e));
 };
 
 const App = () => {
