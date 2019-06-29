@@ -1,22 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import moment from 'moment';
 import 'moment/locale/fr';
-import 'moment/locale/ar-ma';
 import { timesFromStringtoDate } from '../utils/dates';
 import { toTitleCase } from '../utils/strings';
 const NAMES = require('../data/prayers');
 
 //TODO: extract to a lib
 
-
-const PrayerCard = ({ prayer, local }) => {
+const PrayerCard = ({ prayer }) => {
   let [difference, setDifference] = useState();
   let [nextOne, setNextOne] = useState();
   const times = timesFromStringtoDate(prayer);
 
   const updateDifference = () => {
-    const nexOnes = Object.keys(times).filter(t => moment().isBefore(times[t]));
-    nextOne = nexOnes.length === 0 ? 'fajr' : nexOnes[0];
+    const nextOnes = Object.keys(times).filter(t =>
+      moment().isBefore(times[t])
+    );
+    nextOne = nextOnes.length === 0 ? NAMES[0] : nextOnes[0];
     setNextOne(nextOne);
     const diff = moment(times[nextOne].diff(moment())).format('HH:mm');
     setDifference(diff);
@@ -30,13 +30,16 @@ const PrayerCard = ({ prayer, local }) => {
     };
   }, [prayer]);
 
-  let date = moment(prayer.date)
-    .locale(local)
-    .format('dddd LL');
+  let date = toTitleCase(
+    moment(prayer.date)
+      // .locale(local)
+      .format('dddd LL')
+  );
 
-  if (local === 'fr') {
-    date = toTitleCase(date);
-  }
+  // toTitleCase function does not work for arabic
+  // if (local !== 'ar') {
+  //   date = toTitleCase(date);
+  // }
 
   return (
     <div className="card">

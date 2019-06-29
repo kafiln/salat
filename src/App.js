@@ -1,81 +1,72 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import 'reset-css';
 import './App.css';
 import axios from 'axios';
 import moment from 'moment';
 
-import PrayerCard from './components/prayerCard';
 import Spinner from './common/spinner';
+import PrayerCard from './components/prayerCard';
 import SelectList from './components/selectList';
 
 const API_URL = 'https://maroc-salat.herokuapp.com/';
 
-const byName = (a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0);
+const App = () => {
+  let [cities, setCities] = useState();
+  let [prayers, setPrayers] = useState();
+  let [id, setId] = useState(+localStorage.getItem('id') || 1);
 
-export default class App extends Component {
-  constructor(props) {
-    super(props);
+  useEffect(() => {
+    async function init() {
+      const today = moment();
+      const yesterday = moment().subtract(1, 'day');
 
-    this.state = {
-      local: 'fr'
-    };
-  }
+      const day = moment().date();
+      const month = moment().month() + 1;
+      const PRAYERS_KEY = `prayers_${day}_${month}`;
+      const YESTERDAY_KEY = `prayers_${yesterday.date()}_${yesterday.month()}`;
 
-  async componentDidMount() {
-    //TODO: Refactor this mess
-    if (!localStorage.getItem('cities')) {
-      const cities = (await axios.get(`${API_URL}city`)).data.sort(byName);
+      //TODO: Extract a custom hook
+      const cities = localStorage.getItem('cities')
+        ? JSON.parse(localStorage.getItem('cities'))
+        : (await axios.get(`${API_URL}city`)).data;
+
+      setCities(cities);
       localStorage.setItem('cities', JSON.stringify(cities));
-    }
-    const cities = JSON.parse(localStorage.getItem('cities'));
 
-    if (!localStorage.getItem('id')) {
-      localStorage.setItem('id', cities[0].id);
-    }
-    const id = +localStorage.getItem('id');
+      const URL = `${API_URL}prayer?month=${today.month()}&day=${today.date()}`;
 
-    const day = moment().date();
-    const month = moment().month() + 1;
-
-    const PRAYERS_KEY = `prayers_${day}_${month}`;
-    if (!localStorage.getItem(PRAYERS_KEY)) {
-      const prayers = (await axios.get(
-        `${API_URL}prayer?month=${month}&day=${day}`
-      )).data;
+      const prayers = localStorage.getItem(PRAYERS_KEY)
+        ? JSON.parse(localStorage.getItem(PRAYERS_KEY))
+        : (await axios.get(URL)).data;
+      setPrayers(prayers);
+      localStorage.removeItem(YESTERDAY_KEY);
       localStorage.setItem(PRAYERS_KEY, JSON.stringify(prayers));
     }
-    const prayers = JSON.parse(localStorage.getItem(PRAYERS_KEY));
-    this.setState({
-      cities,
-      id,
-      prayers,
-      current: prayers.filter(p => p.id === id)[0]
-    });
-  }
 
-  onChange = e => {
-    const id = +e.target.value;
+    init();
+  }, []);
+
+  useEffect(() => {
     localStorage.setItem('id', id);
-    const current = this.state.prayers.filter(p => p.id === id)[0];
-    this.setState({ current, id });
+  }, [id]);
+
+  const onChange = e => {
+    const id = +e.target.value;
+    setId(id);
   };
 
-  render() {
-    return (
-      <div id="main">
-        {this.state.prayers ? (
-          <React.Fragment>
-            <PrayerCard local={this.state.local} prayer={this.state.current} />
-            <SelectList
-              value={this.state.id}
-              values={this.state.cities}
-              onChange={this.onChange}
-            />
-          </React.Fragment>
-        ) : (
-          <Spinner />
-        )}
-      </div>
-    );
-  }
-}
+  return (
+    <div id="main">
+      {id && prayers ? (
+        <>
+          <PrayerCard prayer={prayers.find(e => e.id === id)} />
+          <SelectList value={id} values={cities} onChange={onChange} />
+        </>
+      ) : (
+        <Spinner />
+      )}
+    </div>
+  );
+};
+
+export default App;
