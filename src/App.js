@@ -7,20 +7,9 @@ import moment from 'moment';
 import Spinner from './common/spinner';
 import PrayerCard from './components/prayerCard';
 import SelectList from './components/selectList';
+import { cleanLocalStorage } from './utils/localStorage';
 
 const API_URL = 'https://maroc-salat.herokuapp.com/';
-
-
-/**
- *Delete all items in the localStorage that are not specified as arguments
- *
- * @param {*} args  keys that should not be deleted from localStorage
- */
-const cleanLocalStorage = (...args) => {
-  Object.keys({ ...localStorage })
-    .filter(e => !args.includes(e))
-    .forEach(e => localStorage.removeItem(e));
-};
 
 const App = () => {
   let [cities, setCities] = useState();
@@ -30,7 +19,7 @@ const App = () => {
   useEffect(() => {
     async function init() {
       const today = moment();
-      const PRAYERS_KEY = `prayers_${today.date()}_${today.month()}`;
+      const PRAYERS_KEY = `prayers_${today.date()}_${today.month() + 1}`;
 
       //TODO: Extract a custom hook
       const cities = localStorage.getItem('cities')
@@ -58,13 +47,16 @@ const App = () => {
     localStorage.setItem('id', id);
   }, [id]);
 
-
   return (
     <div id="main">
       {id && prayers ? (
         <>
           <PrayerCard prayer={prayers.find(e => e.id === id)} />
-          <SelectList value={id} values={cities} onChange={e=>setId(e.value)} />
+          <SelectList
+            value={id}
+            values={cities}
+            onChange={e => setId(e.value)}
+          />
         </>
       ) : (
         <Spinner />

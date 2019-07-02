@@ -5,8 +5,6 @@ import { timesFromStringtoDate } from '../utils/dates';
 import { toTitleCase } from '../utils/strings';
 const NAMES = require('../data/prayers');
 
-//TODO: extract to a lib
-
 const PrayerCard = ({ prayer }) => {
   let [difference, setDifference] = useState();
   let [nextOne, setNextOne] = useState();
@@ -30,16 +28,7 @@ const PrayerCard = ({ prayer }) => {
     };
   }, [prayer]);
 
-  let date = toTitleCase(
-    moment(prayer.date)
-      // .locale(local)
-      .format('dddd LL')
-  );
-
-  // toTitleCase function does not work for arabic
-  // if (local !== 'ar') {
-  //   date = toTitleCase(date);
-  // }
+  let date = toTitleCase(moment(prayer.date).format('dddd LL'));
 
   return (
     <div className="card">
