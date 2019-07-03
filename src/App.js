@@ -19,7 +19,8 @@ const App = () => {
   const [cities, setCities] = useState();
   const [prayers, setPrayers] = useState();
   const PRAYERS_KEY = `prayers_${moment().date()}_${moment().month() + 1}`;
-  const URL = `${API_URL}prayer?month=${moment().month()}&day=${moment().date()}`;
+  const URL = `${API_URL}prayer?month=${moment().month() +
+    1}&day=${moment().date()}`;
 
   useEffect(() => {
     async function init() {
