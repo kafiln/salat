@@ -7,14 +7,14 @@ import moment from 'moment';
 import Spinner from './common/spinner';
 import PrayerCard from './components/prayerCard';
 import SelectList from './components/selectList';
-import { cleanLocalStorage } from './utils/localStorage';
+import { cleanLocalStorage, useLocalStorage } from './utils/localStorage';
 
 const API_URL = 'https://maroc-salat.herokuapp.com/';
 
 const App = () => {
   let [cities, setCities] = useState();
   let [prayers, setPrayers] = useState();
-  let [id, setId] = useState(+localStorage.getItem('id') || 1);
+  let [id, setId] = useLocalStorage('id', 1);
 
   useEffect(() => {
     async function init() {
@@ -42,10 +42,6 @@ const App = () => {
 
     init();
   }, []);
-
-  useEffect(() => {
-    localStorage.setItem('id', id);
-  }, [id]);
 
   return (
     <div id="main">
