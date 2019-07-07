@@ -27,12 +27,12 @@ body {
 
 #main {
   color: white;
-  width: 25vh;
+  width: 35vh;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin-top: 20vh;
+  /* margin-top: 20vh; */
   zoom: 170%;
 }
 
@@ -52,13 +52,13 @@ h2 {
 
 .select {
   width: 100%;
-  color:black;
+  color: black;
   /* margin-top: 2vh; */
 }
 
 .select select {
   width: 100%;
-  padding: .8rem;
+  padding: 0.8rem;
   border-radius: 2px;
 }
 
@@ -72,13 +72,13 @@ h2 {
 .difference {
   float: right;
   margin-right: 20px;
-  color:red !important;
+  color: red !important;
 }
 
-.next-prayer{
+.next-prayer {
   font-weight: 700;
   background-color: white;
-  color:black;
-  padding: .5rem .4rem .5rem;
+  color: black;
+  padding: 0.5rem 0.4rem 0.5rem;
   border-radius: 2px;
 }

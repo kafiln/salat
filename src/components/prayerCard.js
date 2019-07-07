@@ -17,13 +17,13 @@ const PrayerCard = ({ prayer }) => {
     );
     nextOne = nextOnes.length === 0 ? NAMES[0] : nextOnes[0];
     setNextOne(nextOne);
-    const diff = moment(times[nextOne].diff(moment())).format('HH:mm');
+    const diff = moment(times[nextOne].diff(moment())).format('HH:mm:ss');
     setDifference(diff);
   };
 
   useEffect(() => {
     updateDifference();
-    const interval = setInterval(updateDifference, 60000);
+    const interval = setInterval(updateDifference, 1000);
     return () => {
       clearInterval(interval);
     };
