@@ -4,8 +4,10 @@ import './App.css';
 import moment from 'moment';
 
 import Spinner from './common/spinner';
+import Clock from './components/clock';
 import PrayerCard from './components/prayerCard';
 import SelectList from './components/selectList';
+
 import { useLocalStorage } from './utils/customHooks';
 import {
   cleanLocalStorage,
@@ -31,7 +33,6 @@ const App = () => {
       setCities(initalCities);
       const initialPrayers = await getFromLocalStorageOrApi(PRAYERS_KEY, URL);
       setPrayers(initialPrayers);
-
       cleanLocalStorage('id', 'cities', PRAYERS_KEY);
     }
     init();
@@ -41,6 +42,7 @@ const App = () => {
     <div id="main">
       {id && prayers ? (
         <>
+          <Clock city={cities.find(e => e.id === id).name} />
           <PrayerCard prayer={prayers.find(e => e.id === id)} />
           <SelectList
             value={id}
@@ -50,7 +52,7 @@ const App = () => {
         </>
       ) : (
         <Spinner />
-      )}
+        )}
     </div>
   );
 };
