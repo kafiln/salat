@@ -8,6 +8,7 @@ export const parseDateTime = (timeString, day) => {
   newDay.date(day);
   newDay.hour(hour);
   newDay.minute(minute)
+  newDay.second(0);
   return newDay;
 };
 
