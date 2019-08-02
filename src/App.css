@@ -14,7 +14,7 @@ html {
 
 body {
   background-size: auto 50%;
-  font-size: calc(.8rem + 1vh);
+  font-size: calc(0.8rem + 1vh);
   font-family: Lato;
   display: flex;
   align-items: center;
@@ -40,7 +40,8 @@ h2 {
   margin-top: 2vh;
 }
 
-.card {
+.clock h2 {
+  text-transform: capitalize;
 }
 
 .card ul {
@@ -73,8 +74,6 @@ h2 {
 .name {
   text-transform: capitalize;
 }
-.time {
-}
 
 .difference {
   color: red !important;
@@ -90,31 +89,31 @@ li.next-prayer {
 
 /* Media Queryes */
 
-@media  (min-width: 500px) and (max-width: 600px) {
+@media (min-width: 500px) and (max-width: 600px) {
   #main {
     width: 70vw;
     font-size: calc(1rem + 1vh);
   }
 }
-@media  (min-width: 600px) and (max-width: 700px) {
+@media (min-width: 600px) and (max-width: 700px) {
   #main {
     width: 65vw;
     font-size: calc(1.2rem + 1vh);
   }
 }
-@media  (min-width: 700px) and (max-width: 800px) {
+@media (min-width: 700px) and (max-width: 800px) {
   #main {
     width: 60vw;
     font-size: calc(1.4rem + 1vh);
   }
 }
-@media  (min-width: 800px) and (max-width: 1200px) {
+@media (min-width: 800px) and (max-width: 1200px) {
   #main {
     width: 45vw;
     font-size: calc(1.6rem + 1vh);
   }
 }
-@media  (min-width: 1200px) {
+@media (min-width: 1200px) {
   #main {
     width: 450px;
     font-size: 2rem;

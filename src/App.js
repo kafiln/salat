@@ -3,10 +3,10 @@ import 'reset-css';
 import './App.css';
 import moment from 'moment';
 
-import Spinner from './common/spinner';
-import Clock from './components/clock';
-import PrayerCard from './components/prayerCard';
-import SelectList from './components/selectList';
+import Spinner from './common/Spinner';
+import Clock from './components/Clock';
+import PrayerCard from './components/PrayerCard';
+import SelectList from './components/SelectList';
 
 import { useLocalStorage } from './utils/customHooks';
 import {
@@ -36,7 +36,7 @@ const App = () => {
       cleanLocalStorage('id', 'cities', PRAYERS_KEY);
     }
     init();
-  }, []);
+  }, [PRAYERS_KEY, URL]);
 
   return (
     <div id="main">
@@ -52,7 +52,7 @@ const App = () => {
         </>
       ) : (
         <Spinner />
-        )}
+      )}
     </div>
   );
 };
