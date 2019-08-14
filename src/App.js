@@ -19,6 +19,7 @@ import {
   LOAD_CITIES,
   LOAD_PRAYERS,
   CHANGE_CITY,
+  CHANGE_LANGUAGE,
   REFRESH_TIME
 } from './context/types';
 
@@ -60,6 +61,17 @@ const App = () => {
       <div id="main">
         {state.id && state.prayers ? (
           <>
+            <select
+              onChange={e =>
+                dispatch({ payload: e.target.value, type: CHANGE_LANGUAGE })
+              }
+            >
+              {state.languages.map(lang => (
+                <option value={lang} key={lang}>
+                  {lang}
+                </option>
+              ))}
+            </select>
             <Clock />
             <PrayerCard />
             <SelectList

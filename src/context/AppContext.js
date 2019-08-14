@@ -6,6 +6,8 @@ export const initialState = {
   prayers: null,
   cities: null,
   id: +localStorage.getItem('id') || 1,
+  lang: localStorage.getItem('lang') || 'fr',
+  languages: ['ar', 'fr'],
   time: new moment()
 };
 

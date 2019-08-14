@@ -1,4 +1,10 @@
-import { CHANGE_CITY, LOAD_CITIES, LOAD_PRAYERS, REFRESH_TIME } from './types';
+import {
+  CHANGE_CITY,
+  LOAD_CITIES,
+  LOAD_PRAYERS,
+  REFRESH_TIME,
+  CHANGE_LANGUAGE
+} from './types';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -7,6 +13,13 @@ const reducer = (state, action) => {
       return {
         ...state,
         id: action.payload
+      };
+    case CHANGE_LANGUAGE:
+      console.log(action);
+      localStorage.setItem('lang', action.payload);
+      return {
+        ...state,
+        lang: action.payload
       };
     case REFRESH_TIME:
       return {
