@@ -1,15 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import moment from 'moment';
+import { AppContext } from '../context/AppContext';
 
-export default function Clock({ format, city }) {
-  const [time, setTime] = useState(moment());
+export default function Clock({ format }) {
+  const { cities, time, id } = useContext(AppContext);
+  const city = cities.find(e => e.id === id).name;
   const defaultFormat = 'HH:mm:ss';
-  useEffect(() => {
-    const interval = setInterval(() => setTime(moment()), 1000);
-    return () => {
-      clearInterval(interval);
-    };
-  }, []);
 
   return (
     <div className="clock">

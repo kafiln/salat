@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useReducer } from 'react';
 import 'reset-css';
 import './App.css';
 import moment from 'moment';
@@ -8,18 +8,24 @@ import Clock from './components/Clock';
 import PrayerCard from './components/PrayerCard';
 import SelectList from './components/SelectList';
 
-import { useLocalStorage } from './utils/customHooks';
 import {
   cleanLocalStorage,
   getFromLocalStorageOrApi
 } from './utils/localStorage';
 
+import AppReducer from './context/AppReducer';
+import { AppContext, initialState } from './context/AppContext';
+import {
+  LOAD_CITIES,
+  LOAD_PRAYERS,
+  CHANGE_CITY,
+  REFRESH_TIME
+} from './context/types';
+
 const API_URL = 'https://maroc-salat.herokuapp.com/';
 
 const App = () => {
-  const [id, setId] = useLocalStorage('id', 1);
-  const [cities, setCities] = useState();
-  const [prayers, setPrayers] = useState();
+  const [state, dispatch] = useReducer(AppReducer, initialState);
   const PRAYERS_KEY = `prayers_${moment().date()}_${moment().month() + 1}`;
   const URL = `${API_URL}prayer?month=${moment().month() +
     1}&day=${moment().date()}`;
@@ -30,30 +36,41 @@ const App = () => {
         'cities',
         `${API_URL}city`
       );
-      setCities(initalCities);
+      dispatch({ type: LOAD_CITIES, payload: initalCities });
       const initialPrayers = await getFromLocalStorageOrApi(PRAYERS_KEY, URL);
-      setPrayers(initialPrayers);
+      dispatch({ type: LOAD_PRAYERS, payload: initialPrayers });
       cleanLocalStorage('id', 'cities', PRAYERS_KEY);
     }
     init();
-  }, [PRAYERS_KEY, URL]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(
+      () => dispatch({ type: REFRESH_TIME, payload: new moment() }),
+      1000
+    );
+    return () => {
+      clearInterval(interval);
+    };
+  });
 
   return (
-    <div id="main">
-      {id && prayers ? (
-        <>
-          <Clock city={cities.find(e => e.id === id).name} />
-          <PrayerCard prayer={prayers.find(e => e.id === id)} />
-          <SelectList
-            value={id}
-            values={cities}
-            onChange={e => setId(e.value)}
-          />
-        </>
-      ) : (
-        <Spinner />
-      )}
-    </div>
+    <AppContext.Provider value={{ ...state, dispatch }}>
+      <div id="main">
+        {state.id && state.prayers ? (
+          <>
+            <Clock />
+            <PrayerCard />
+            <SelectList
+              onChange={e => dispatch({ payload: e.value, type: CHANGE_CITY })}
+            />
+          </>
+        ) : (
+          <Spinner />
+        )}
+      </div>
+    </AppContext.Provider>
   );
 };
 

@@ -1,16 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Select from 'react-select';
+import { AppContext } from '../context/AppContext';
 
-const SelectList = ({ values, onChange, value }) => {
-  const options = values.map(e => ({
+const SelectList = ({ onChange }) => {
+  const { cities, id } = useContext(AppContext);
+  const options = cities.map(e => ({
     value: e.id,
     label: e.name
   }));
 
   const customStyles = {
-    singleValue: (provided) => {
+    singleValue: provided => {
       const padding = '20px 0';
-      return { ...provided, padding};
+      return { ...provided, padding };
     }
   };
 
@@ -20,7 +22,7 @@ const SelectList = ({ values, onChange, value }) => {
         styles={customStyles}
         options={options}
         menuPlacement={'top'}
-        defaultValue={options.find(e => e.value === value)}
+        defaultValue={options.find(e => e.value === id)}
         onChange={onChange}
       />
     </div>
