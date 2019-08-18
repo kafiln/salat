@@ -7,6 +7,7 @@ import Spinner from './common/Spinner';
 import Clock from './components/Clock';
 import PrayerCard from './components/PrayerCard';
 import SelectList from './components/SelectList';
+import ChangeLanguage from './components/ChangeLanguage';
 
 import {
   cleanLocalStorage,
@@ -59,18 +60,11 @@ const App = () => {
   return (
     <AppContext.Provider value={{ ...state, dispatch }}>
       <div id="main">
-        <select
-          value={state.lang}
+        <ChangeLanguage
           onChange={e =>
             dispatch({ payload: e.target.value, type: CHANGE_LANGUAGE })
           }
-        >
-          {state.languages.map(lang => (
-            <option value={lang} key={lang}>
-              {lang}
-            </option>
-          ))}
-        </select>
+        />
 
         {state.id && state.prayers ? (
           <>
