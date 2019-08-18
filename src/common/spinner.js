@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled, { keyframes } from 'styled-components';
+
+import { AppContext } from '../context/AppContext';
 
 const spin = keyframes`
   0% {
@@ -39,11 +41,13 @@ const Container = styled(Wrapper)`
 `;
 
 export default function Loader() {
+  const { lang } = useContext(AppContext);
+  const text = lang === 'fr' ? 'Chargement en cours ...' : '... جار التحميل';
   return (
     <Container>
       <Wrapper>
         <Spinner />
-        <h1>Loading ...</h1>
+        <h1>{text}</h1>
       </Wrapper>
     </Container>
   );

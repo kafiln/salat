@@ -1,8 +1,26 @@
-[
-    "fajr",
-    "chorouq",
-    "dhuhr",
-    "asr",
-    "maghrib",
-    "ishae"
-]
+{
+  "fajr": {
+    "ar": "الفجر",
+    "fr": "fajr"
+  },
+  "chorouq": {
+    "fr": "chorouq",
+    "ar": "الشروق"
+  },
+  "dhuhr": {
+    "fr": "dhuhr",
+    "ar": "الظهر"
+  },
+  "asr": {
+    "fr": "asr",
+    "ar": "العصر"
+  },
+  "maghrib": {
+    "fr": "maghrib",
+    "ar": "المغرب"
+  },
+  "ishae": {
+    "fr": "ishae",
+    "ar": "العشاء"
+  }
+}

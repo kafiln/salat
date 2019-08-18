@@ -15,7 +15,6 @@ const reducer = (state, action) => {
         id: action.payload
       };
     case CHANGE_LANGUAGE:
-      console.log(action);
       localStorage.setItem('lang', action.payload);
       return {
         ...state,

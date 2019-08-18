@@ -2,13 +2,12 @@ import React, { useState, useEffect, useContext } from 'react';
 import moment from 'moment';
 import { AppContext } from '../context/AppContext';
 
-import 'moment/locale/fr';
 import { timesFromStringtoDate } from '../utils/dates';
 const NAMES = require('../data/prayers');
 const DEFAULT_TIME_FORMAT = 'HH:mm:ss';
 
 const PrayerCard = () => {
-  const { prayers, id, time } = useContext(AppContext);
+  const { prayers, id, time, lang } = useContext(AppContext);
   const prayer = prayers.find(e => e.id === id);
 
   let [difference, setDifference] = useState();
@@ -35,10 +34,14 @@ const PrayerCard = () => {
   return (
     <div className="card">
       <ul>
-        {NAMES.map(name => {
+        {Object.keys(NAMES).map(name => {
           return (
-            <li key={name} className={name === nextOne ? 'next-prayer' : ''}>
-              <div className="name">{name}</div>
+            <li
+              style={{ flexDirection: `row${lang === 'fr' ? '' : '-reverse'}` }}
+              key={name}
+              className={name === nextOne ? 'next-prayer' : ''}
+            >
+              <div className="name">{NAMES[name][lang]}</div>
               {name === nextOne && (
                 <div className="difference">{difference}</div>
               )}

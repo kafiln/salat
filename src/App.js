@@ -27,24 +27,24 @@ const API_URL = 'https://maroc-salat.herokuapp.com/';
 
 const App = () => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
-  const PRAYERS_KEY = `prayers_${moment().date()}_${moment().month() + 1}`;
-  const URL = `${API_URL}prayer?month=${moment().month() +
-    1}&day=${moment().date()}`;
 
   useEffect(() => {
     async function init() {
+      const PRAYERS_KEY = `prayers_${moment().date()}_${moment().month() + 1}`;
+      const URL = `${API_URL}prayer?month=${moment().month() +
+        1}&day=${moment().date()}`;
       const initalCities = await getFromLocalStorageOrApi(
-        'cities',
-        `${API_URL}city`
+        `cities_${state.lang}`,
+        `${API_URL}city?lang=${state.lang}`
       );
       dispatch({ type: LOAD_CITIES, payload: initalCities });
       const initialPrayers = await getFromLocalStorageOrApi(PRAYERS_KEY, URL);
       dispatch({ type: LOAD_PRAYERS, payload: initialPrayers });
-      cleanLocalStorage('id', 'cities', PRAYERS_KEY);
+      cleanLocalStorage('id', 'cities_ar', 'cities_fr', 'lang', PRAYERS_KEY);
     }
     init();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [state.lang]);
 
   useEffect(() => {
     const interval = setInterval(
@@ -59,19 +59,21 @@ const App = () => {
   return (
     <AppContext.Provider value={{ ...state, dispatch }}>
       <div id="main">
+        <select
+          value={state.lang}
+          onChange={e =>
+            dispatch({ payload: e.target.value, type: CHANGE_LANGUAGE })
+          }
+        >
+          {state.languages.map(lang => (
+            <option value={lang} key={lang}>
+              {lang}
+            </option>
+          ))}
+        </select>
+
         {state.id && state.prayers ? (
           <>
-            <select
-              onChange={e =>
-                dispatch({ payload: e.target.value, type: CHANGE_LANGUAGE })
-              }
-            >
-              {state.languages.map(lang => (
-                <option value={lang} key={lang}>
-                  {lang}
-                </option>
-              ))}
-            </select>
             <Clock />
             <PrayerCard />
             <SelectList

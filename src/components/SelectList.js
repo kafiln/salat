@@ -22,7 +22,7 @@ const SelectList = ({ onChange }) => {
         styles={customStyles}
         options={options}
         menuPlacement={'top'}
-        defaultValue={options.find(e => e.value === id)}
+        value={options.find(e => e.value === id)}
         onChange={onChange}
       />
     </div>
