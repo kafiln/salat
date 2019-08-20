@@ -1,14 +1,14 @@
-import axios from 'axios';
+import axios from "axios";
 
 //TODO: Add JSDoc
-export const getFromLocalStorageOrApi = async (name, url) => {
+export const getFromLocalStorageOrApi = async (name: string, url: string) => {
   if (!localStorage.getItem(name)) {
     const value = (await axios.get(url)).data;
     localStorage.setItem(name, JSON.stringify(value));
     return value;
   }
 
-  return JSON.parse(localStorage.getItem(name));
+  return JSON.parse(localStorage.getItem(name) || "");
 };
 
 /**
@@ -17,7 +17,7 @@ export const getFromLocalStorageOrApi = async (name, url) => {
  * @param {*} args  keys that should not be deleted from localStorage
  */
 
-export const cleanLocalStorage = (...args) => {
+export const cleanLocalStorage = (...args: any) => {
   Object.keys({ ...localStorage })
     .filter(e => !args.includes(e))
     .forEach(e => localStorage.removeItem(e));

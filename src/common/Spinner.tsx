@@ -40,7 +40,7 @@ const Container = styled(Wrapper)`
   height: 100vh;
 `;
 
-export default function Loader() {
+export default () => {
   const { lang } = useContext(AppContext);
   const text = lang === 'fr' ? 'Chargement en cours ...' : '... جار التحميل';
   return (
@@ -51,4 +51,4 @@ export default function Loader() {
       </Wrapper>
     </Container>
   );
-}
+};

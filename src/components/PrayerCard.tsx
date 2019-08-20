@@ -8,7 +8,11 @@ const DEFAULT_TIME_FORMAT = 'HH:mm:ss';
 
 const PrayerCard = () => {
   const { prayers, id, time, lang } = useContext(AppContext);
-  const prayer = prayers.find(e => e.id === id);
+  const myStyles = {
+    flexDirection: `${lang === 'fr' ? 'row' : 'row-reverse'}`
+  } as React.CSSProperties;
+
+  const prayer = (prayers || []).find((e: any) => e.id === id);
 
   let [difference, setDifference] = useState();
   let [nextOne, setNextOne] = useState();
@@ -37,7 +41,7 @@ const PrayerCard = () => {
         {Object.keys(NAMES).map(name => {
           return (
             <li
-              style={{ flexDirection: `row${lang === 'fr' ? '' : '-reverse'}` }}
+              style={myStyles}
               key={name}
               className={name === nextOne ? 'next-prayer' : ''}
             >
@@ -45,7 +49,7 @@ const PrayerCard = () => {
               {name === nextOne && (
                 <div className="difference">{difference}</div>
               )}
-              <div className="time">{prayer[name]}</div>
+              <div className="time">{(prayer as any)[name]}</div>
             </li>
           );
         })}

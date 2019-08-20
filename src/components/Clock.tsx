@@ -2,9 +2,11 @@ import React, { useContext } from 'react';
 import moment from 'moment';
 import { AppContext } from '../context/AppContext';
 
-export default function Clock({ format }) {
+type ClockProps = { format?: string };
+
+export default ({ format }: ClockProps) => {
   const { cities, time, id, lang } = useContext(AppContext);
-  const city = cities.find(e => e.id === id).name;
+  const city = cities ? cities.find((e: any) => e.id === id)!.name : null;
   const defaultFormat = 'HH:mm:ss';
 
   return (
@@ -16,4 +18,4 @@ export default function Clock({ format }) {
       </h2>
     </div>
   );
-}
+};

@@ -1,18 +1,18 @@
 import moment from 'moment';
 const NAMES = require('../data/prayers');
 
-export const parseDateTime = (timeString, day) => {
+export const parseDateTime = (timeString: string, day: number) => {
   const [hour, minute] = timeString.split(':');
-  const newDay = new moment();
+  const newDay = moment();
   newDay.date(day);
-  newDay.hour(hour);
-  newDay.minute(minute);
+  newDay.hour(parseInt(hour));
+  newDay.minute(parseInt(minute));
   newDay.second(0);
   return newDay;
 };
 
-export const timesFromStringtoDate = prayer => {
-  let result = {};
+export const timesFromStringtoDate = (prayer: any) => {
+  let result: any = {};
   Object.keys(NAMES).forEach(name => {
     result[name] = moment(parseDateTime(prayer[name], prayer.day));
   });

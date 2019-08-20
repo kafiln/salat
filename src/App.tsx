@@ -49,7 +49,7 @@ const App = () => {
 
   useEffect(() => {
     const interval = setInterval(
-      () => dispatch({ type: REFRESH_TIME, payload: new moment() }),
+      () => dispatch({ type: REFRESH_TIME, payload: moment() }),
       1000
     );
     return () => {
@@ -57,22 +57,22 @@ const App = () => {
     };
   });
 
+  const changeCity = (e: any) =>
+    dispatch({ payload: e.value, type: CHANGE_CITY });
+
+  const changeLanguage = (e: any) =>
+    dispatch({ payload: e.target.value, type: CHANGE_LANGUAGE });
+
   return (
-    <AppContext.Provider value={{ ...state, dispatch }}>
+    <AppContext.Provider value={state}>
       <div id="main">
-        <ChangeLanguage
-          onChange={e =>
-            dispatch({ payload: e.target.value, type: CHANGE_LANGUAGE })
-          }
-        />
+        <ChangeLanguage onChange={changeLanguage} />
 
         {state.id && state.prayers ? (
           <>
             <Clock />
             <PrayerCard />
-            <SelectList
-              onChange={e => dispatch({ payload: e.value, type: CHANGE_CITY })}
-            />
+            <SelectList onChange={changeCity} />
           </>
         ) : (
           <Spinner />

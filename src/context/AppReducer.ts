@@ -3,10 +3,12 @@ import {
   LOAD_CITIES,
   LOAD_PRAYERS,
   REFRESH_TIME,
-  CHANGE_LANGUAGE
+  CHANGE_LANGUAGE,
+  IState,
+  IAction
 } from './types';
 
-const reducer = (state, action) => {
+const reducer = (state: IState, action: IAction) => {
   switch (action.type) {
     case CHANGE_CITY:
       localStorage.setItem('id', action.payload);
