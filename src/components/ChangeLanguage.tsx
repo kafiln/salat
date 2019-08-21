@@ -1,15 +1,28 @@
 import React, { useContext } from 'react';
+// import styled from 'styled-components';
 import { AppContext } from '../context/AppContext';
 
-export default ({ onChange }: any) => {
-  const { lang, languages } = useContext(AppContext);
+export default ({ changeCity }: any) => {
+  const { lang } = useContext(AppContext);
+  const languages = ['ar', 'fr'];
+
+  // const StyledUl = styled.ul`
+  //   display: flex;
+  //   align-items: center;
+  // `;
+
   return (
-    <select value={lang} onChange={onChange}>
-      {languages.map((lang: string) => (
-        <option value={lang} key={lang}>
-          {lang}
-        </option>
+    <ul className="changeCity">
+      {languages.map((currentLang: string) => (
+        <li
+          className={currentLang === lang ? 'activeLang' : ''}
+          value={lang}
+          key={currentLang}
+          onClick={() => changeCity(currentLang)}
+        >
+          {currentLang}
+        </li>
       ))}
-    </select>
+    </ul>
   );
 };

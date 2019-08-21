@@ -1,7 +1,9 @@
 import React, { useEffect, useReducer } from 'react';
+import moment from 'moment';
+import styled from 'styled-components';
+
 import 'reset-css';
 import './App.css';
-import moment from 'moment';
 
 import Spinner from './common/Spinner';
 import Clock from './components/Clock';
@@ -28,6 +30,39 @@ const API_URL = 'https://maroc-salat.herokuapp.com/';
 
 const App = () => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
+  const AppWrapper = styled.div`
+    color: white;
+    width: 75vw;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+    @media (min-width: 500px) and (max-width: 600px) {
+      
+        width: 70vw;
+        font-size: calc(1rem + 1vh);
+    }
+    @media (min-width: 600px) and (max-width: 700px) {
+      
+        width: 65vw;
+        font-size: calc(1.2rem + 1vh);
+    }
+    @media (min-width: 700px) and (max-width: 800px) {
+      
+        width: 60vw;
+        font-size: calc(1.4rem + 1vh);
+    }
+    @media (min-width: 800px) and (max-width: 1200px) {
+      
+        width: 45vw;
+        font-size: calc(1.6rem + 1vh);
+    }
+    @media (min-width: 1200px) {
+      
+        width: 450px;
+        font-size: 2rem;
+  `;
 
   useEffect(() => {
     async function init() {
@@ -60,13 +95,13 @@ const App = () => {
   const changeCity = (e: any) =>
     dispatch({ payload: e.value, type: CHANGE_CITY });
 
-  const changeLanguage = (e: any) =>
-    dispatch({ payload: e.target.value, type: CHANGE_LANGUAGE });
+  const changeLanguage = (lang: string) =>
+    dispatch({ payload: lang, type: CHANGE_LANGUAGE });
 
   return (
     <AppContext.Provider value={state}>
-      <div id="main">
-        <ChangeLanguage onChange={changeLanguage} />
+      <AppWrapper>
+        <ChangeLanguage changeCity={changeLanguage} />
 
         {state.id && state.prayers ? (
           <>
@@ -77,7 +112,7 @@ const App = () => {
         ) : (
           <Spinner />
         )}
-      </div>
+      </AppWrapper>
     </AppContext.Provider>
   );
 };

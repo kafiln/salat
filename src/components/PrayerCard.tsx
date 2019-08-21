@@ -1,61 +1,76 @@
 import React, { useState, useEffect, useContext } from 'react';
 import moment from 'moment';
+import styled, { css } from 'styled-components';
 import { AppContext } from '../context/AppContext';
-
 import { timesFromStringtoDate } from '../utils/dates';
+
 const NAMES = require('../data/prayers');
 const DEFAULT_TIME_FORMAT = 'HH:mm:ss';
 
 const PrayerCard = () => {
   const { prayers, id, time, lang } = useContext(AppContext);
-  const myStyles = {
-    flexDirection: `${lang === 'fr' ? 'row' : 'row-reverse'}`
-  } as React.CSSProperties;
+
+  const StyledUl = styled.ul`
+    height: 50vh;
+    margin: 1vh 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    @media (min-width: 1200px) {
+      height: 50vh;
+    }
+  `;
+
+  const StyledName = styled.div`
+    text-transform: capitalize;
+  `;
+  const StyledDifference = styled.div`
+    color: red !important;
+  `;
+
+  const StyledNext = css`
+    font-weight: 700;
+    background-color: white;
+    color: black;
+    padding: 0.5rem 0.4rem 0.5rem;
+    border-radius: 2px;
+  `;
+
+  const StyledLi = styled.li`
+    margin: 1.2rem 0;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    flex-direction: ${() => (lang === 'fr' ? 'row' : 'row-reverse')};
+    ${props => (props.className === 'next' ? StyledNext : '')}
+  `;
 
   const prayer = (prayers || []).find((e: any) => e.id === id);
 
-  let [difference, setDifference] = useState();
-  let [nextOne, setNextOne] = useState();
-  const times = timesFromStringtoDate(prayer);
-
-  const updateDifference = () => {
-    const nextOnes = Object.keys(times).filter(t => time.isBefore(times[t]));
-    nextOne = nextOnes.length === 0 ? NAMES[0] : nextOnes[0];
-    setNextOne(nextOne);
-    const diff = moment(times[nextOne].diff(time)).format(DEFAULT_TIME_FORMAT);
-    setDifference(diff);
-  };
+  let [diff, setDifference] = useState();
+  let [next, setNextOne] = useState();
 
   useEffect(() => {
-    updateDifference();
-    const interval = setInterval(updateDifference, 1000);
-    return () => {
-      clearInterval(interval);
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [time]);
+    const times = timesFromStringtoDate(prayer);
+    const nextOnes = Object.keys(times).filter(t => time.isBefore(times[t]));
+    const next = nextOnes.length === 0 ? Object.keys(NAMES)[0] : nextOnes[0];
+    setNextOne(next);
+    const diff = moment(times[next].diff(time)).format(DEFAULT_TIME_FORMAT);
+    setDifference(diff);
+  }, [time, prayer]);
 
   return (
-    <div className="card">
-      <ul>
-        {Object.keys(NAMES).map(name => {
-          return (
-            <li
-              style={myStyles}
-              key={name}
-              className={name === nextOne ? 'next-prayer' : ''}
-            >
-              <div className="name">{NAMES[name][lang]}</div>
-              {name === nextOne && (
-                <div className="difference">{difference}</div>
-              )}
-              <div className="time">{(prayer as any)[name]}</div>
-            </li>
-          );
-        })}
-      </ul>
-      <dl />
-    </div>
+    <StyledUl>
+      {Object.keys(NAMES).map(name => {
+        return (
+          <StyledLi key={name} className={name === next ? 'next' : ''}>
+            <StyledName>{NAMES[name][lang]}</StyledName>
+            {name === next && <StyledDifference>{diff}</StyledDifference>}
+            <div>{(prayer as any)[name]}</div>
+          </StyledLi>
+        );
+      })}
+    </StyledUl>
   );
 };
 

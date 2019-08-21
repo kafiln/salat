@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
 import Select from 'react-select';
 import { AppContext } from '../context/AppContext';
+// import styled from 'styled-components';
 
 type SelectListProps = { onChange: any };
-export default ({ onChange }: SelectListProps) => {
+const SelectList = ({ onChange }: SelectListProps) => {
   const { cities, id, lang } = useContext(AppContext);
   const options = cities
     ? cities.map((e: any) => ({
@@ -24,6 +25,18 @@ export default ({ onChange }: SelectListProps) => {
     }
   };
 
+  // const StyledWrapper = styled.div`
+  //   width: 100%;
+  //   color: black;
+  //   margin-bottom: 2vh;
+  // `;
+
+  // .select select {
+  //   width: 100%;
+  //   padding: 0.8rem;
+  //   border-radius: 2px;
+  // }
+
   return (
     <div className="select">
       <Select
@@ -36,3 +49,5 @@ export default ({ onChange }: SelectListProps) => {
     </div>
   );
 };
+
+export default SelectList;
