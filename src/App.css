@@ -1,4 +1,12 @@
 /* App component */
+#main {
+  color: white;
+  width: 75vw;
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
 
 /* Change City Component  */
 .select {

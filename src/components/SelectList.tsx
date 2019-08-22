@@ -50,4 +50,4 @@ const SelectList = ({ onChange }: SelectListProps) => {
   );
 };
 
-export default SelectList;
+export default React.memo(SelectList);
