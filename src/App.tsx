@@ -61,13 +61,13 @@ const App = () => {
     []
   );
 
-  const changeLanguage = (lang: string) =>
-    dispatch({ payload: lang, type: CHANGE_LANGUAGE });
+  const changeLanguage = () =>
+    dispatch({ payload: null, type: CHANGE_LANGUAGE });
 
   return (
     <AppContext.Provider value={state}>
       <div id="main">
-        <ChangeLanguage changeCity={changeLanguage} />
+        <ChangeLanguage changeLanguage={changeLanguage} />
         {state.id && state.prayers ? (
           <>
             <Clock />

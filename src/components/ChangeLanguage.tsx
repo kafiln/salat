@@ -1,28 +1,28 @@
 import React, { useContext } from 'react';
-// import styled from 'styled-components';
+import styled from 'styled-components';
 import { AppContext } from '../context/AppContext';
+import Switch from 'react-switch';
 
-export default ({ changeCity }: any) => {
+export default ({ changeLanguage }: any) => {
   const { lang } = useContext(AppContext);
-  const languages = ['ar', 'fr'];
 
-  // const StyledUl = styled.ul`
-  //   display: flex;
-  //   align-items: center;
-  // `;
+  const StyledWrapper = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  `;
 
   return (
-    <ul className="changeCity">
-      {languages.map((currentLang: string) => (
-        <li
-          className={currentLang === lang ? 'activeLang' : ''}
-          value={lang}
-          key={currentLang}
-          onClick={() => changeCity(currentLang)}
-        >
-          {currentLang}
-        </li>
-      ))}
-    </ul>
+    <StyledWrapper>
+      <div>Français</div>
+      <Switch
+        onChange={() => changeLanguage()}
+        checked={lang === 'ar'}
+        onColor="#888"
+        checkedIcon={false}
+        uncheckedIcon={false}
+      />
+      <div>العربية</div>
+    </StyledWrapper>
   );
 };

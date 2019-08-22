@@ -17,10 +17,11 @@ const reducer = (state: IState, action: IAction) => {
         id: action.payload
       };
     case CHANGE_LANGUAGE:
-      localStorage.setItem('lang', action.payload);
+      const lang = state.lang === 'fr' ? 'ar' : 'fr';
+      localStorage.setItem('lang', lang);
       return {
         ...state,
-        lang: action.payload
+        lang
       };
     case REFRESH_TIME:
       return {

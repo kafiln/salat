@@ -15,6 +15,7 @@ const spin = keyframes`
 const Spinner = styled.div`
   width: 64px;
   height: 64px;
+  margin-bottom: 1rem;
   flex: 1;
   &:after {
     content: ' ';
