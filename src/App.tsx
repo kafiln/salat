@@ -1,12 +1,10 @@
-import React, { useEffect, useReducer, useCallback } from 'react';
+import React, { useEffect, useReducer } from 'react';
 import moment from 'moment';
-// import styled from 'styled-components';
 import './App.css';
 
 import Spinner from './common/Spinner';
 import Clock from './components/Clock';
 import PrayerCard from './components/PrayerCard';
-import SelectList from './components/SelectList';
 import ChangeLanguage from './components/ChangeLanguage';
 
 import {
@@ -56,10 +54,8 @@ const App = () => {
     };
   });
 
-  const changeCity = useCallback(
-    (e: any) => dispatch({ payload: e.value, type: CHANGE_CITY }),
-    []
-  );
+  const changeCity = (e: any) =>
+    dispatch({ payload: e.value, type: CHANGE_CITY });
 
   const changeLanguage = () =>
     dispatch({ payload: null, type: CHANGE_LANGUAGE });
@@ -70,9 +66,8 @@ const App = () => {
         <ChangeLanguage changeLanguage={changeLanguage} />
         {state.id && state.prayers ? (
           <>
-            <Clock />
+            <Clock changeCity={changeCity} />
             <PrayerCard />
-            <SelectList onChange={changeCity} />
           </>
         ) : (
           <Spinner />

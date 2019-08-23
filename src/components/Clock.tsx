@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import moment from 'moment';
 import { AppContext } from '../context/AppContext';
 import styled, { css } from 'styled-components';
+import SelectList from './SelectList';
 
 const StyledWrapper = styled.div`
   margin-top: 2vh;
@@ -23,16 +24,17 @@ const StyledH3 = styled.h3`
   ${StyledH}
 `;
 
-type ClockProps = { format?: string };
+type ClockProps = { format?: string; changeCity: any };
 
-export default ({ format }: ClockProps) => {
-  const { cities, time, id, lang } = useContext(AppContext);
-  const city = cities ? cities.find((e: any) => e.id === id)!.name : null;
+export default ({ format, changeCity }: ClockProps) => {
+  const { time, lang } = useContext(AppContext);
   const defaultFormat = 'HH:mm:ss';
 
   return (
     <StyledWrapper>
-      <StyledH1>{city}</StyledH1>
+      <StyledH1>
+        <SelectList onChange={changeCity} />
+      </StyledH1>
       <StyledH2>{time.locale(lang).format('dddd LL')}</StyledH2>
       <StyledH3>
         <span>{moment(time).format(format ? format : defaultFormat)}</span>
