@@ -7,6 +7,7 @@ import {
   IState,
   IAction
 } from './types';
+import moment from 'moment';
 
 const reducer = (state: IState, action: IAction) => {
   switch (action.type) {
@@ -26,7 +27,7 @@ const reducer = (state: IState, action: IAction) => {
     case REFRESH_TIME:
       return {
         ...state,
-        time: action.payload
+        time: moment(state.time).add(1, 'seconds')
       };
     case LOAD_CITIES:
       return {

@@ -3,7 +3,7 @@ const NAMES = require('../data/prayers');
 
 export const parseDateTime = (timeString: string, day: number) => {
   const [hour, minute] = timeString.split(':');
-  const newDay = moment();
+  const newDay = moment().utcOffset(1);
   newDay.date(day);
   newDay.hour(parseInt(hour));
   newDay.minute(parseInt(minute));
