@@ -1,14 +1,15 @@
-import moment from 'moment';
+import moment, { Moment } from 'moment';
+import { TIME_OFFSET } from '../settings';
 const NAMES = require('../data/prayers');
 
-export const parseDateTime = (timeString: string, day: number) => {
+export const parseDateTime = (timeString: string, day: number): Moment => {
   const [hour, minute] = timeString.split(':');
-  const newDay = moment().utcOffset(1);
+  const newDay = moment();
   newDay.date(day);
   newDay.hour(parseInt(hour));
   newDay.minute(parseInt(minute));
   newDay.second(0);
-  return newDay;
+  return newDay.utcOffset(TIME_OFFSET);
 };
 
 export const timesFromStringtoDate = (prayer: any) => {

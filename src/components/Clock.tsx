@@ -3,6 +3,7 @@ import moment from 'moment';
 import { AppContext } from '../context/AppContext';
 import styled, { css } from 'styled-components';
 import SelectList from './SelectList';
+import { DEFAULT_TIME_FORMAT } from '../settings';
 
 const StyledWrapper = styled.div`
   margin-top: 2vh;
@@ -24,11 +25,10 @@ const StyledH3 = styled.h3`
   ${StyledH}
 `;
 
-type ClockProps = { format?: string; changeCity: any };
+type ClockProps = { changeCity: any };
 
-export default ({ format, changeCity }: ClockProps) => {
+export default ({ changeCity }: ClockProps) => {
   const { time, lang } = useContext(AppContext);
-  const defaultFormat = 'HH:mm:ss';
 
   return (
     <StyledWrapper>
@@ -37,7 +37,7 @@ export default ({ format, changeCity }: ClockProps) => {
       </StyledH1>
       <StyledH2>{time.locale(lang).format('dddd LL')}</StyledH2>
       <StyledH3>
-        <span>{moment(time).format(format ? format : defaultFormat)}</span>
+        <span>{moment(time).format(DEFAULT_TIME_FORMAT)}</span>
       </StyledH3>
     </StyledWrapper>
   );

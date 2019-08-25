@@ -21,8 +21,7 @@ import {
   CHANGE_LANGUAGE,
   REFRESH_TIME
 } from './context/types';
-
-const API_URL = 'https://maroc-salat.herokuapp.com/';
+import { API_URL } from './settings';
 
 const App = () => {
   const [state, dispatch] = useReducer(AppReducer, initialState);

@@ -3,9 +3,9 @@ import moment from 'moment';
 import styled, { css } from 'styled-components';
 import { AppContext } from '../context/AppContext';
 import { timesFromStringtoDate } from '../utils/dates';
+import { DEFAULT_TIME_FORMAT, TIME_OFFSET } from '../settings';
 
 const NAMES = require('../data/prayers');
-const DEFAULT_TIME_FORMAT = 'HH:mm:ss';
 
 const PrayerCard = () => {
   const { prayers, id, time, lang } = useContext(AppContext);
