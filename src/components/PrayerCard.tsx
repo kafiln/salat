@@ -3,7 +3,7 @@ import moment from 'moment';
 import styled, { css } from 'styled-components';
 import { AppContext } from '../context/AppContext';
 import { timesFromStringtoDate } from '../utils/dates';
-import { DEFAULT_TIME_FORMAT, TIME_OFFSET } from '../settings';
+import { DEFAULT_TIME_FORMAT } from '../settings';
 
 const NAMES = require('../data/prayers');
 

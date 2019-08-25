@@ -58,8 +58,8 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
     <script type="text/javascript">
-      var bg_colour = Math.floor(Math.random() * 16777215).toString(16);
-      document.bgColor = '#' + ('000000' + bg_colour).slice(-6);
+      document.bgColor =
+        '#' + Math.floor(Math.random() * 16777215).toString(16);
     </script>
   </body>
 </html>
