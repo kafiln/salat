@@ -46,7 +46,7 @@ const App = () => {
   useEffect(() => {
     const interval = setInterval(
       () => dispatch({ type: REFRESH_TIME, payload: null }),
-      1000
+      500
     );
     return () => {
       clearInterval(interval);

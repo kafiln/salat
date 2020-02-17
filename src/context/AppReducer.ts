@@ -8,6 +8,7 @@ import {
   IAction
 } from './types';
 import moment from 'moment';
+import { TIME_OFFSET } from '../settings';
 
 const reducer = (state: IState, action: IAction) => {
   switch (action.type) {
@@ -15,6 +16,7 @@ const reducer = (state: IState, action: IAction) => {
       localStorage.setItem('id', action.payload);
       return {
         ...state,
+        time: moment().utcOffset(TIME_OFFSET),
         id: action.payload
       };
     case CHANGE_LANGUAGE:
@@ -22,21 +24,24 @@ const reducer = (state: IState, action: IAction) => {
       localStorage.setItem('lang', lang);
       return {
         ...state,
+        time: moment().utcOffset(TIME_OFFSET),
         lang
       };
     case REFRESH_TIME:
       return {
         ...state,
-        time: moment(state.time).add(1, 'seconds')
+        time: moment().utcOffset(TIME_OFFSET)
       };
     case LOAD_CITIES:
       return {
         ...state,
+        time: moment().utcOffset(TIME_OFFSET),
         cities: action.payload
       };
     case LOAD_PRAYERS:
       return {
         ...state,
+        time: moment().utcOffset(TIME_OFFSET),
         prayers: action.payload
       };
     default:
