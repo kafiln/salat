@@ -4,7 +4,7 @@
   width: 75vw;
   /* height: 100vh; */
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   flex-direction: column;
 }
 
@@ -12,7 +12,8 @@
 .select {
   width: 100%;
   color: black;
-  margin-bottom: 2vh;
+  margin: 2vh 0;
+  text-align: center;
 }
 
 .select select {
@@ -56,13 +57,16 @@ ul.changeCity {
 @media (min-width: 800px) and (max-width: 1200px) {
   #main {
     width: 45vw;
-    font-size: calc(1.6rem + 1vh);
+    font-size: 1.4em;
   }
 }
 @media (min-width: 1200px) {
   #main {
     width: 450px;
-    font-size: 2rem;
+    font-size: 1.8rem;
+  }
+  .card {
+    padding-top: 1em;
   }
 
   .card ul {

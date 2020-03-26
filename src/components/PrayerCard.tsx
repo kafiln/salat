@@ -11,6 +11,7 @@ const PrayerCard = () => {
   const { prayers, id, time, lang } = useContext(AppContext);
 
   const StyledUl = styled.ul`
+    padding-top: 1em;
     height: 50vh;
     margin: 1vh 0;
     display: flex;
@@ -47,8 +48,8 @@ const PrayerCard = () => {
 
   const prayer = (prayers || []).find((e: any) => e.id === id);
 
-  let [diff, setDifference] = useState();
-  let [next, setNextOne] = useState();
+  let [diff, setDifference] = useState('');
+  let [next, setNextOne] = useState('');
 
   useEffect(() => {
     const times = timesFromStringtoDate(prayer);

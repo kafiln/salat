@@ -1,17 +1,13 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { AppContext } from '../context/AppContext';
 import Switch from 'react-switch';
 
-export default ({ changeLanguage }: any) => {
-  const { lang } = useContext(AppContext);
-
+const ChangeLanguage = ({ changeLanguage, lang }: any) => {
   const StyledWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-evenly;
   `;
-
   return (
     <StyledWrapper>
       <div>Français</div>
@@ -26,3 +22,5 @@ export default ({ changeLanguage }: any) => {
     </StyledWrapper>
   );
 };
+
+export default React.memo(ChangeLanguage);

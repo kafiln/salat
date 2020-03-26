@@ -1,10 +1,8 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import Select from 'react-select';
-import { AppContext } from '../context/AppContext';
 
-type SelectListProps = { onChange: any };
-const SelectList = ({ onChange }: SelectListProps) => {
-  const { cities, id } = useContext(AppContext);
+type SelectListProps = { onChange: any; cities: any[]; id: Number };
+const SelectList = ({ onChange, cities, id }: SelectListProps) => {
   const options = cities
     ? cities.map((e: any) => ({
         value: e.id,
@@ -33,4 +31,4 @@ const SelectList = ({ onChange }: SelectListProps) => {
   );
 };
 
-export default SelectList;
+export default React.memo(SelectList);
