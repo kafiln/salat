@@ -15,13 +15,14 @@ export interface IPrayer {
   id: number;
   day: Date;
 }
+
 export interface ICity {
-  name: string;
+  names: any;
   id: number;
 }
 export interface IState {
   prayers: IPrayer[] | null;
-  cities: ICity[] | null;
+  cities: ICity[];
   id: number;
   lang: string;
   languages: string[];

@@ -1,14 +1,28 @@
 import React from 'react';
 import Select from 'react-select';
+import { ICity } from '../context/types';
 
-type SelectListProps = { onChange: any; cities: any[]; id: Number };
-const SelectList = ({ onChange, cities, id }: SelectListProps) => {
+type SelectListProps = {
+  onChange: any;
+  cities: ICity[];
+  id: number;
+  lang: string;
+};
+
+const byLabel = (a: any, b: any) =>
+  a.label > b.label ? 1 : b.label > a.label ? -1 : 0;
+
+const SelectList = ({ onChange, cities, id, lang }: SelectListProps) => {
   const options = cities
-    ? cities.map((e: any) => ({
-        value: e.id,
-        label: e.name
-      }))
+    ? cities
+        .map((e: ICity) => ({
+          value: e.id,
+          label: e.names[lang]
+        }))
+        .sort(byLabel)
     : [];
+
+  const value = options.find((e: any) => e.value === id);
 
   const customStyles = {
     singleValue: (provided: any) => {
@@ -24,7 +38,7 @@ const SelectList = ({ onChange, cities, id }: SelectListProps) => {
         styles={customStyles}
         options={options}
         menuPlacement={'top'}
-        value={options.find((e: any) => e.value === id)}
+        value={value}
         onChange={onChange}
       />
     </div>

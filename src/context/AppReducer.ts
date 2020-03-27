@@ -1,6 +1,5 @@
 import {
   CHANGE_CITY,
-  LOAD_CITIES,
   LOAD_PRAYERS,
   REFRESH_TIME,
   CHANGE_LANGUAGE,
@@ -31,12 +30,6 @@ const reducer = (state: IState, action: IAction) => {
       return {
         ...state,
         time: moment().utcOffset(TIME_OFFSET)
-      };
-    case LOAD_CITIES:
-      return {
-        ...state,
-        time: moment().utcOffset(TIME_OFFSET),
-        cities: action.payload
       };
     case LOAD_PRAYERS:
       return {

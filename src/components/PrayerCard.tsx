@@ -8,7 +8,7 @@ import { DEFAULT_TIME_FORMAT } from '../settings';
 const NAMES = require('../data/prayers');
 
 const PrayerCard = () => {
-  const { prayers, id, time, lang } = useContext(AppContext);
+  const { prayers, time, lang } = useContext(AppContext);
 
   const StyledUl = styled.ul`
     padding-top: 1em;
@@ -46,7 +46,7 @@ const PrayerCard = () => {
     ${props => (props.className === 'next' ? StyledNext : '')}
   `;
 
-  const prayer = (prayers || []).find((e: any) => e.id === id);
+  const prayer = (prayers || [])[0];
 
   let [diff, setDifference] = useState('');
   let [next, setNextOne] = useState('');

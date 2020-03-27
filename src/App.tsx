@@ -16,7 +16,6 @@ import {
 import AppReducer from './context/AppReducer';
 import { AppContext, initialState } from './context/AppContext';
 import {
-  LOAD_CITIES,
   LOAD_PRAYERS,
   CHANGE_CITY,
   CHANGE_LANGUAGE,
@@ -29,25 +28,31 @@ const App = () => {
 
   useEffect(() => {
     async function init() {
-      const PRAYERS_KEY = `prayers_${moment().date()}_${moment().month() + 1}`;
-      const URL = `${API_URL}prayer?month=${moment().month() +
+      // Form the key string
+      const PRAYERS_KEY = `prayers_${moment().date()}_${moment().month() + 1}_${
+        state.id
+      }`;
+
+      // Form the URL
+      const URL = `${API_URL}prayer?city=${state.id}&month=${moment().month() +
         1}&day=${moment().date()}`;
-      const initalCities = await getFromLocalStorageOrApi(
-        `cities_${state.lang}`,
-        `${API_URL}city?lang=${state.lang}`
-      );
-      dispatch({ type: LOAD_CITIES, payload: initalCities });
+
+      // Load initial values from localstorage or API
       const initialPrayers = await getFromLocalStorageOrApi(PRAYERS_KEY, URL);
+
+      // Update the store
       dispatch({ type: LOAD_PRAYERS, payload: initialPrayers });
-      cleanLocalStorage('id', 'cities_ar', 'cities_fr', 'lang', PRAYERS_KEY);
+
+      // Clean the localStorage
+      cleanLocalStorage(PRAYERS_KEY);
     }
     init();
-  }, [state.lang]);
+  }, [state.lang, state.id]);
 
   useEffect(() => {
     const interval = setInterval(
       () => dispatch({ type: REFRESH_TIME, payload: null }),
-      500
+      1000
     );
     return () => {
       clearInterval(interval);
@@ -73,6 +78,7 @@ const App = () => {
             <SelectList
               onChange={changeCity}
               cities={state.cities}
+              lang={state.lang}
               id={state.id}
             />
             <Clock changeCity={changeCity} />

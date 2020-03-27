@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios';
 
 //TODO: Add JSDoc
 export const getFromLocalStorageOrApi = async (name: string, url: string) => {
@@ -8,7 +8,7 @@ export const getFromLocalStorageOrApi = async (name: string, url: string) => {
     return value;
   }
 
-  return JSON.parse(localStorage.getItem(name) || "");
+  return JSON.parse(localStorage.getItem(name) || '');
 };
 
 /**
@@ -17,8 +17,14 @@ export const getFromLocalStorageOrApi = async (name: string, url: string) => {
  * @param {*} args  keys that should not be deleted from localStorage
  */
 
-export const cleanLocalStorage = (...args: any) => {
+export const cleanLocalStorage = (prayersKey: string) => {
+  const rest = ['id', 'lang'];
+  prayersKey = prayersKey
+    .split('_')
+    .slice(0, 3)
+    .join('_');
   Object.keys({ ...localStorage })
-    .filter(e => !args.includes(e))
+    .filter(e => e.startsWith('prayer') && !e.startsWith(prayersKey))
+    .filter(e => !rest.includes(e))
     .forEach(e => localStorage.removeItem(e));
 };
