@@ -22,9 +22,7 @@ const StyledH3 = styled.h3`
   ${StyledH}
 `;
 
-type ClockProps = { changeCity: any };
-
-const Clock = ({ changeCity }: ClockProps) => {
+const Clock = () => {
   const { time, lang } = useContext(AppContext);
 
   return (

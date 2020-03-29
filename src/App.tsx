@@ -84,7 +84,7 @@ const App = () => {
           lang={state.lang}
           id={state.id}
         />
-        <Clock changeCity={changeCity} />
+        <Clock />
         <PrayerCard />
       </>
     </AppContext.Provider>
