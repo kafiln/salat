@@ -1,8 +1,9 @@
+/* TODO: Move those styles to respective components */
+
 /* App component */
-#main {
+#root {
   color: white;
   width: 75vw;
-  /* height: 100vh; */
   display: flex;
   justify-content: space-evenly;
   flex-direction: column;
@@ -37,31 +38,31 @@ ul.changeCity {
 /* Media Queryes */
 
 @media (min-width: 500px) and (max-width: 600px) {
-  #main {
+  #root {
     width: 70vw;
     font-size: calc(1rem + 1vh);
   }
 }
 @media (min-width: 600px) and (max-width: 700px) {
-  #main {
+  #root {
     width: 65vw;
     font-size: calc(1.2rem + 1vh);
   }
 }
 @media (min-width: 700px) and (max-width: 800px) {
-  #main {
+  #root {
     width: 60vw;
     font-size: calc(1.4rem + 1vh);
   }
 }
 @media (min-width: 800px) and (max-width: 1200px) {
-  #main {
+  #root {
     width: 45vw;
     font-size: 1.4em;
   }
 }
 @media (min-width: 1200px) {
-  #main {
+  #root {
     width: 450px;
     font-size: 1.8rem;
   }

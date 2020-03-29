@@ -8,8 +8,8 @@ import cities from '../data/cities.json';
 export const initialState: IState = {
   prayers: null,
   cities,
-  id: parseInt(localStorage.getItem('id') || '1'),
-  lang: localStorage.getItem('lang') || 'ar',
+  id: parseInt(localStorage.getItem('id') || '80'),
+  lang: localStorage.getItem('lang') || 'fr',
   languages: ['ar', 'fr'],
   time: moment().utcOffset(1)
 };

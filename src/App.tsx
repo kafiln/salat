@@ -2,7 +2,6 @@ import React, { useEffect, useReducer, useCallback } from 'react';
 import moment from 'moment';
 import './App.css';
 
-import Spinner from './common/Spinner';
 import Clock from './components/Clock';
 import SelectList from './components/SelectList';
 import PrayerCard from './components/PrayerCard';
@@ -28,6 +27,9 @@ const App = () => {
 
   useEffect(() => {
     async function init() {
+      // Init the prayers
+      dispatch({ type: LOAD_PRAYERS, payload: null });
+
       // Form the key string
       const PRAYERS_KEY = `prayers_${moment().date()}_${moment().month() + 1}_${
         state.id
@@ -45,6 +47,9 @@ const App = () => {
 
       // Clean the localStorage
       cleanLocalStorage(PRAYERS_KEY);
+      // Assign a random color
+      document.bgColor =
+        '#' + Math.floor(Math.random() * 16777215).toString(16);
     }
     init();
   }, [state.lang, state.id]);
@@ -71,23 +76,17 @@ const App = () => {
 
   return (
     <AppContext.Provider value={state}>
-      <div id="main">
-        {state.id && state.prayers ? (
-          <>
-            <ChangeLanguage changeLanguage={changeLanguage} lang={state.lang} />
-            <SelectList
-              onChange={changeCity}
-              cities={state.cities}
-              lang={state.lang}
-              id={state.id}
-            />
-            <Clock changeCity={changeCity} />
-            <PrayerCard />
-          </>
-        ) : (
-          <Spinner />
-        )}
-      </div>
+      <>
+        <ChangeLanguage changeLanguage={changeLanguage} lang={state.lang} />
+        <SelectList
+          onChange={changeCity}
+          cities={state.cities}
+          lang={state.lang}
+          id={state.id}
+        />
+        <Clock changeCity={changeCity} />
+        <PrayerCard />
+      </>
     </AppContext.Provider>
   );
 };

@@ -4,6 +4,7 @@ import styled, { css } from 'styled-components';
 import { AppContext } from '../context/AppContext';
 import { timesFromStringtoDate } from '../utils/dates';
 import { DEFAULT_TIME_FORMAT } from '../settings';
+import Spinner from '../common/Spinner';
 
 const NAMES = require('../data/prayers');
 
@@ -52,15 +53,17 @@ const PrayerCard = () => {
   let [next, setNextOne] = useState('');
 
   useEffect(() => {
-    const times = timesFromStringtoDate(prayer);
-    const nextOnes = Object.keys(times).filter(t => time.isBefore(times[t]));
-    const next = nextOnes.length === 0 ? Object.keys(NAMES)[0] : nextOnes[0];
-    setNextOne(next);
-    const diff = moment(times[next].diff(time)).format(DEFAULT_TIME_FORMAT);
-    setDifference(diff);
+    if (prayer) {
+      const times = timesFromStringtoDate(prayer);
+      const nextOnes = Object.keys(times).filter(t => time.isBefore(times[t]));
+      const next = nextOnes.length === 0 ? Object.keys(NAMES)[0] : nextOnes[0];
+      setNextOne(next);
+      const diff = moment(times[next].diff(time)).format(DEFAULT_TIME_FORMAT);
+      setDifference(diff);
+    }
   }, [time, prayer]);
 
-  return (
+  return prayer ? (
     <StyledUl>
       {Object.keys(NAMES).map(name => {
         return (
@@ -72,7 +75,8 @@ const PrayerCard = () => {
         );
       })}
     </StyledUl>
+  ) : (
+    <Spinner />
   );
 };
-
 export default PrayerCard;

@@ -38,7 +38,7 @@ const Wrapper = styled.div`
 `;
 
 const Container = styled(Wrapper)`
-  height: 100vh;
+  height: 50vh;
 `;
 
 export default () => {
