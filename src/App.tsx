@@ -1,10 +1,9 @@
 import React, { useEffect, useReducer, useCallback } from 'react';
 import moment from 'moment';
 
-import Clock from './components/Clock';
-import SelectList from './components/SelectList';
-import PrayerCard from './components/PrayerCard';
-import ChangeLanguage from './components/ChangeLanguage';
+import Clock from './components/clock';
+import SelectList from './components/select-list';
+import PrayerCard from './components/prayer-card';
 
 import {
   cleanLocalStorage,
@@ -24,7 +23,7 @@ import { API_URL } from './settings';
 
 import { GlobalStyles, light, dark } from './themes';
 import { ThemeProvider } from 'styled-components';
-import ToggleTheme from './components/ToggleTheme';
+import Toggle from './common/toggle';
 
 const App = () => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
@@ -55,15 +54,15 @@ const App = () => {
     init();
   }, [state.lang, state.id]);
 
-  // useEffect(() => {
-  //   const interval = setInterval(
-  //     () => dispatch({ type: REFRESH_TIME, payload: null }),
-  //     1000
-  //   );
-  //   return () => {
-  //     clearInterval(interval);
-  //   };
-  // });
+  useEffect(() => {
+    const interval = setInterval(
+      () => dispatch({ type: REFRESH_TIME, payload: null }),
+      1000
+    );
+    return () => {
+      clearInterval(interval);
+    };
+  });
 
   const changeCity = useCallback(
     (e: any) => dispatch({ payload: e.value, type: CHANGE_CITY }),
@@ -84,7 +83,12 @@ const App = () => {
       <>
         <GlobalStyles />
         <AppContext.Provider value={state}>
-          <ChangeLanguage changeLanguage={changeLanguage} lang={state.lang} />
+          <Toggle
+            left={'Français'}
+            right={'العربية'}
+            onChange={changeLanguage}
+            checked={state.lang === 'ar'}
+          ></Toggle>
           <SelectList
             onChange={changeCity}
             cities={state.cities}
@@ -93,7 +97,12 @@ const App = () => {
           />
           <Clock />
           <PrayerCard />
-          <ToggleTheme toggleTheme={changeTheme} theme={state.theme} />
+          <Toggle
+            left={'Dark'}
+            right={'Light'}
+            onChange={changeTheme}
+            checked={state.theme === 'light'}
+          ></Toggle>
         </AppContext.Provider>
       </>
     </ThemeProvider>

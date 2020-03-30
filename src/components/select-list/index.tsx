@@ -1,7 +1,6 @@
 import React from 'react';
-import Select from 'react-select';
-import { ICity } from '../context/types';
-import styled from 'styled-components';
+import { ICity } from '../../context/types';
+import { Container, Select } from './styles';
 
 type SelectListProps = {
   onChange: any;
@@ -9,21 +8,6 @@ type SelectListProps = {
   id: number;
   lang: string;
 };
-
-/* Change City Component  */
-
-const StyledSelect = styled(Select)`
-  width: 100%;
-  padding: 0.8rem;
-  border-radius: 2px;
-`;
-
-const Container = styled.div`
-  width: 100%;
-  color: black;
-  margin: 2vh 0;
-  text-align: center;
-`;
 
 const byLabel = (a: any, b: any) =>
   a.label > b.label ? 1 : b.label > a.label ? -1 : 0;
@@ -50,7 +34,7 @@ const SelectList = ({ onChange, cities, id, lang }: SelectListProps) => {
 
   return (
     <Container>
-      <StyledSelect
+      <Select
         styles={customStyles}
         options={options}
         menuPlacement={'top'}

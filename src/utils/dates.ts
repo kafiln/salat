@@ -1,8 +1,9 @@
 import moment, { Moment } from 'moment';
 import { TIME_OFFSET } from '../settings';
+
 const NAMES = require('../data/prayers');
 
-export const parseDateTime = (timeString: string, day: number): Moment => {
+const parseDateTime = (timeString: string, day: number): Moment => {
   const [hour, minute] = timeString.split(':');
   const newDay = moment().utcOffset(TIME_OFFSET);
   newDay.date(day);
