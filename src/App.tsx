@@ -1,6 +1,5 @@
 import React, { useEffect, useReducer, useCallback } from 'react';
 import moment from 'moment';
-import './App.css';
 
 import Clock from './components/Clock';
 import SelectList from './components/SelectList';
@@ -18,9 +17,14 @@ import {
   LOAD_PRAYERS,
   CHANGE_CITY,
   CHANGE_LANGUAGE,
+  CHANGE_THEME,
   REFRESH_TIME
 } from './context/types';
 import { API_URL } from './settings';
+
+import { GlobalStyles, light, dark } from './themes';
+import { ThemeProvider } from 'styled-components';
+import ToggleTheme from './components/ToggleTheme';
 
 const App = () => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
@@ -47,22 +51,19 @@ const App = () => {
 
       // Clean the localStorage
       cleanLocalStorage(PRAYERS_KEY);
-      // Assign a random color
-      document.bgColor =
-        '#' + Math.floor(Math.random() * 16777215).toString(16);
     }
     init();
   }, [state.lang, state.id]);
 
-  useEffect(() => {
-    const interval = setInterval(
-      () => dispatch({ type: REFRESH_TIME, payload: null }),
-      1000
-    );
-    return () => {
-      clearInterval(interval);
-    };
-  });
+  // useEffect(() => {
+  //   const interval = setInterval(
+  //     () => dispatch({ type: REFRESH_TIME, payload: null }),
+  //     1000
+  //   );
+  //   return () => {
+  //     clearInterval(interval);
+  //   };
+  // });
 
   const changeCity = useCallback(
     (e: any) => dispatch({ payload: e.value, type: CHANGE_CITY }),
@@ -73,21 +74,29 @@ const App = () => {
     () => dispatch({ payload: null, type: CHANGE_LANGUAGE }),
     []
   );
+  const changeTheme = useCallback(
+    () => dispatch({ payload: null, type: CHANGE_THEME }),
+    []
+  );
 
   return (
-    <AppContext.Provider value={state}>
+    <ThemeProvider theme={state.theme === 'light' ? light : dark}>
       <>
-        <ChangeLanguage changeLanguage={changeLanguage} lang={state.lang} />
-        <SelectList
-          onChange={changeCity}
-          cities={state.cities}
-          lang={state.lang}
-          id={state.id}
-        />
-        <Clock />
-        <PrayerCard />
+        <GlobalStyles />
+        <AppContext.Provider value={state}>
+          <ChangeLanguage changeLanguage={changeLanguage} lang={state.lang} />
+          <SelectList
+            onChange={changeCity}
+            cities={state.cities}
+            lang={state.lang}
+            id={state.id}
+          />
+          <Clock />
+          <PrayerCard />
+          <ToggleTheme toggleTheme={changeTheme} theme={state.theme} />
+        </AppContext.Provider>
       </>
-    </AppContext.Provider>
+    </ThemeProvider>
   );
 };
 

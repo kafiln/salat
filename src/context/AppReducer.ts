@@ -3,6 +3,7 @@ import {
   LOAD_PRAYERS,
   REFRESH_TIME,
   CHANGE_LANGUAGE,
+  CHANGE_THEME,
   IState,
   IAction
 } from './types';
@@ -25,6 +26,14 @@ const reducer = (state: IState, action: IAction) => {
         ...state,
         time: moment().utcOffset(TIME_OFFSET),
         lang
+      };
+    case CHANGE_THEME:
+      const theme = state.theme === 'light' ? 'dark' : 'light';
+      localStorage.setItem('theme', theme);
+      return {
+        ...state,
+        time: moment().utcOffset(TIME_OFFSET),
+        theme
       };
     case REFRESH_TIME:
       return {

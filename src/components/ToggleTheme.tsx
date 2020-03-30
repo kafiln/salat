@@ -2,25 +2,27 @@ import React from 'react';
 import styled from 'styled-components';
 import Switch from 'react-switch';
 
-const ChangeLanguage = ({ changeLanguage, lang }: any) => {
+const ToggleTheme = ({ toggleTheme, theme }: any) => {
   const StyledWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    width: 100%;
+    margin-top: 10vh;
   `;
   return (
     <StyledWrapper>
-      <div>Français</div>
+      <div>Dark</div>
       <Switch
-        onChange={changeLanguage}
-        checked={lang === 'ar'}
+        onChange={toggleTheme}
+        checked={theme === 'light'}
         onColor="#888"
         checkedIcon={false}
         uncheckedIcon={false}
       />
-      <div>العربية</div>
+      <div>Light</div>
     </StyledWrapper>
   );
 };
 
-export default React.memo(ChangeLanguage);
+export default React.memo(ToggleTheme);

@@ -27,13 +27,14 @@ const PrayerCard = () => {
     text-transform: capitalize;
   `;
   const StyledDifference = styled.div`
-    color: red !important;
+    color: ${props => props.theme.differenceColor};
   `;
+  const StyledTime = styled.div``;
 
   const StyledNext = css`
     font-weight: 700;
-    background-color: white;
-    color: black;
+    background-color: ${props => props.theme.color};
+    color: ${props => props.theme.backgroundColor};
     padding: 0.5rem 0.4rem 0.5rem;
     border-radius: 2px;
   `;
@@ -70,7 +71,7 @@ const PrayerCard = () => {
           <StyledLi key={name} className={name === next ? 'next' : ''}>
             <StyledName>{NAMES[name][lang]}</StyledName>
             {name === next && <StyledDifference>{diff}</StyledDifference>}
-            <div>{(prayer as any)[name]}</div>
+            <StyledTime>{(prayer as any)[name]}</StyledTime>
           </StyledLi>
         );
       })}

@@ -12,7 +12,8 @@ export const initialState: IState = {
   id: parseInt(localStorage.getItem('id') || '80'),
   lang: localStorage.getItem('lang') || 'fr',
   languages: ['ar', 'fr'],
-  time: moment().utcOffset(TIME_OFFSET)
+  time: moment().utcOffset(TIME_OFFSET),
+  theme: localStorage.getItem('theme') || 'light'
 };
 
 export const AppContext = React.createContext(initialState);

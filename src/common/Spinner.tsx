@@ -48,7 +48,7 @@ export default () => {
     <Container>
       <Wrapper>
         <Spinner />
-        <h1>{text}</h1>
+        <h4>{text}</h4>
       </Wrapper>
     </Container>
   );

@@ -1,4 +1,5 @@
 export const CHANGE_CITY: string = 'CHANGE_CITY';
+export const CHANGE_THEME: string = 'CHANGE_THEME';
 export const LOAD_CITIES: string = 'LOAD_CITIES';
 export const LOAD_PRAYERS: string = 'LOAD_PRAYERS';
 export const REFRESH_TIME: string = 'REFRESH_TIME';
@@ -27,6 +28,7 @@ export interface IState {
   lang: string;
   languages: string[];
   time: any;
+  theme: string;
 }
 
 export interface IAction {
