@@ -1,16 +1,22 @@
 import React, { useState, useEffect, useContext } from 'react';
 import moment from 'moment';
+
 import { AppContext } from '../../context/AppContext';
+import { REFRESH_TIME } from '../../context/types';
+
 import { timesFromStringtoDate } from '../../utils/dates';
 import { DEFAULT_TIME_FORMAT } from '../../settings';
+
 import Spinner from '../../common/spinner';
+
 import { Ul, Li, Name, Difference, Time } from './styles';
 
+import usePrayers from '../../hooks/usePrayers';
 const NAMES = require('../../data/prayers.json');
 
-const PrayerCard = () => {
-  const { prayers, time, lang } = useContext(AppContext);
-
+const Daily = () => {
+  const { time, lang, dispatch, id } = useContext(AppContext);
+  const prayers = usePrayers(id, true);
   const prayer = (prayers || [])[0];
 
   let [diff, setDifference] = useState('');
@@ -26,6 +32,16 @@ const PrayerCard = () => {
       setDifference(diff);
     }
   }, [time, prayer]);
+
+  useEffect(() => {
+    const interval = setInterval(
+      () => dispatch({ type: REFRESH_TIME, payload: null }),
+      1000
+    );
+    return () => {
+      clearInterval(interval);
+    };
+  });
 
   return prayer ? (
     <Ul>
@@ -43,4 +59,4 @@ const PrayerCard = () => {
     <Spinner />
   );
 };
-export default PrayerCard;
+export default Daily;

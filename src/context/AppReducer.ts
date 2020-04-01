@@ -1,8 +1,8 @@
 import {
   CHANGE_CITY,
-  LOAD_PRAYERS,
   REFRESH_TIME,
   CHANGE_LANGUAGE,
+  // CHANGE_PERIOD,
   CHANGE_THEME,
   IState,
   IAction
@@ -10,41 +10,47 @@ import {
 import moment from 'moment';
 import { TIME_OFFSET } from '../settings';
 
+const withTime = (state: IState) => {
+  const time = moment().utcOffset(TIME_OFFSET);
+  return {
+    ...state,
+    time
+  };
+};
+
 const reducer = (state: IState, action: IAction) => {
   switch (action.type) {
     case CHANGE_CITY:
       localStorage.setItem('id', action.payload);
       return {
-        ...state,
-        time: moment().utcOffset(TIME_OFFSET),
+        ...withTime(state),
         id: action.payload
       };
     case CHANGE_LANGUAGE:
       const lang = state.lang === 'fr' ? 'ar' : 'fr';
       localStorage.setItem('lang', lang);
       return {
-        ...state,
-        time: moment().utcOffset(TIME_OFFSET),
+        ...withTime(state),
         lang
       };
+    // case CHANGE_PERIOD:
+    //   const isDaily = `${!state.isDaily}`;
+    //   localStorage.setItem('isDaily', isDaily);
+    //   return {
+    //     ...withTime(state),
+    //     isDaily
+    //   };
     case CHANGE_THEME:
       const theme = state.theme === 'light' ? 'dark' : 'light';
       localStorage.setItem('theme', theme);
       return {
-        ...state,
-        time: moment().utcOffset(TIME_OFFSET),
+        ...withTime(state),
         theme
       };
     case REFRESH_TIME:
+      // console.log('refreshing time');
       return {
-        ...state,
-        time: moment().utcOffset(TIME_OFFSET)
-      };
-    case LOAD_PRAYERS:
-      return {
-        ...state,
-        time: moment().utcOffset(TIME_OFFSET),
-        prayers: action.payload
+        ...withTime(state)
       };
     default:
       return state;

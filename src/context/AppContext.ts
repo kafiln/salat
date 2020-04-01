@@ -7,13 +7,14 @@ import cities from '../data/cities.json';
 import { TIME_OFFSET } from '../settings';
 
 export const initialState: IState = {
-  prayers: null,
   cities,
   id: parseInt(localStorage.getItem('id') || '80'),
   lang: localStorage.getItem('lang') || 'fr',
   languages: ['ar', 'fr'],
   time: moment().utcOffset(TIME_OFFSET),
-  theme: localStorage.getItem('theme') || 'light'
+  theme: localStorage.getItem('theme') || 'light',
+  // isDaily: Boolean(localStorage.getItem('isDaily')),
+  dispatch: () => ({})
 };
 
-export const AppContext = React.createContext(initialState);
+export const AppContext = React.createContext<IState>(initialState);

@@ -1,25 +1,18 @@
-import React, { useEffect, useReducer, useCallback } from 'react';
-import moment from 'moment';
+import React, { useReducer, useCallback, useState } from 'react';
 
+import Monthly from './components/monthly';
 import Clock from './components/clock';
 import SelectList from './components/select-list';
-import PrayerCard from './components/prayer-card';
-
-import {
-  cleanLocalStorage,
-  getFromLocalStorageOrApi
-} from './utils/localStorage';
+import Daily from './components/daily';
 
 import AppReducer from './context/AppReducer';
 import { AppContext, initialState } from './context/AppContext';
 import {
-  LOAD_PRAYERS,
   CHANGE_CITY,
   CHANGE_LANGUAGE,
-  CHANGE_THEME,
-  REFRESH_TIME
+  CHANGE_THEME
+  // CHANGE_PERIOD
 } from './context/types';
-import { API_URL } from './settings';
 
 import { GlobalStyles, light, dark } from './themes';
 import { ThemeProvider } from 'styled-components';
@@ -27,42 +20,7 @@ import Toggle from './common/toggle';
 
 const App = () => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
-
-  useEffect(() => {
-    async function init() {
-      // Init the prayers
-      dispatch({ type: LOAD_PRAYERS, payload: null });
-
-      // Form the key string
-      const PRAYERS_KEY = `prayers_${moment().date()}_${moment().month() + 1}_${
-        state.id
-      }`;
-
-      // Form the URL
-      const URL = `${API_URL}prayer?city=${state.id}&month=${moment().month() +
-        1}&day=${moment().date()}`;
-
-      // Load initial values from localstorage or API
-      const initialPrayers = await getFromLocalStorageOrApi(PRAYERS_KEY, URL);
-
-      // Update the store
-      dispatch({ type: LOAD_PRAYERS, payload: initialPrayers });
-
-      // Clean the localStorage
-      cleanLocalStorage(PRAYERS_KEY);
-    }
-    init();
-  }, [state.lang, state.id]);
-
-  useEffect(() => {
-    const interval = setInterval(
-      () => dispatch({ type: REFRESH_TIME, payload: null }),
-      1000
-    );
-    return () => {
-      clearInterval(interval);
-    };
-  });
+  const [isDaily, setIsDaily] = useState(false);
 
   const changeCity = useCallback(
     (e: any) => dispatch({ payload: e.value, type: CHANGE_CITY }),
@@ -78,31 +36,47 @@ const App = () => {
     []
   );
 
+  // const changePeriod = useCallback(
+  //   () => dispatch({ payload: null, type: CHANGE_PERIOD }),
+  //   []
+  // );
+
+  const changePeriod = useCallback(() => setIsDaily(!isDaily), [isDaily]);
+
+  const { theme, lang, id, cities } = state;
   return (
-    <ThemeProvider theme={state.theme === 'light' ? light : dark}>
+    <ThemeProvider theme={theme === 'light' ? light : dark}>
       <>
         <GlobalStyles />
-        <AppContext.Provider value={state}>
+        <AppContext.Provider value={{ ...state, dispatch }}>
           <Toggle
             left={'Français'}
             right={'العربية'}
             onChange={changeLanguage}
-            checked={state.lang === 'ar'}
+            checked={lang === 'ar'}
           ></Toggle>
-          <SelectList
-            onChange={changeCity}
-            cities={state.cities}
-            lang={state.lang}
-            id={state.id}
-          />
-          <Clock />
-          <PrayerCard />
+          <br />
+          <Toggle
+            left={'Mois'}
+            right={'Jour'}
+            onChange={changePeriod}
+            checked={isDaily}
+          ></Toggle>
+          <br />
           <Toggle
             left={'Dark'}
             right={'Light'}
             onChange={changeTheme}
-            checked={state.theme === 'light'}
+            checked={theme === 'light'}
           ></Toggle>
+          <SelectList
+            onChange={changeCity}
+            cities={cities}
+            lang={lang}
+            id={id}
+          />
+          <Clock displayClock={isDaily} />
+          {isDaily ? <Daily /> : <Monthly />}
         </AppContext.Provider>
       </>
     </ThemeProvider>

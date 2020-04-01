@@ -12,7 +12,7 @@ li {
 }
 
 html{
-  font-size: 10px
+  font-size: 10px;
 }
 
 body {
