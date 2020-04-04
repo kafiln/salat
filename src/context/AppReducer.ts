@@ -2,7 +2,7 @@ import {
   CHANGE_CITY,
   REFRESH_TIME,
   CHANGE_LANGUAGE,
-  // CHANGE_PERIOD,
+  CHANGE_PERIOD,
   CHANGE_THEME,
   IState,
   IAction,
@@ -33,13 +33,13 @@ const reducer = (state: IState, action: IAction) => {
         ...withTime(state),
         lang,
       };
-    // case CHANGE_PERIOD:
-    //   const isDaily = `${!state.isDaily}`;
-    //   localStorage.setItem('isDaily', isDaily);
-    //   return {
-    //     ...withTime(state),
-    //     isDaily
-    //   };
+    case CHANGE_PERIOD:
+      const periodicity = state.periodicity == 'daily' ? 'monthly' : 'daily';
+      localStorage.setItem('periodicity', periodicity);
+      return {
+        ...withTime(state),
+        periodicity,
+      };
     case CHANGE_THEME:
       const theme = state.theme === 'light' ? 'dark' : 'light';
       localStorage.setItem('theme', theme);

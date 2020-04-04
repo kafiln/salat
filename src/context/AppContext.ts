@@ -13,7 +13,7 @@ export const initialState: IState = {
   languages: ['ar-ma', 'fr-fr'],
   time: moment().utcOffset(TIME_OFFSET),
   theme: localStorage.getItem('theme') || 'light',
-  // isDaily: Boolean(localStorage.getItem('isDaily')),
+  periodicity: localStorage.getItem('periodicity') || 'daily',
   dispatch: () => ({}),
 };
 

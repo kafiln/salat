@@ -11,7 +11,7 @@ import {
   CHANGE_CITY,
   CHANGE_LANGUAGE,
   CHANGE_THEME,
-  // CHANGE_PERIOD
+  CHANGE_PERIOD,
 } from './context/types';
 
 import { GlobalStyles, light, dark } from './themes';
@@ -23,7 +23,7 @@ import { I18nProvider } from './i18n';
 
 const App = () => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
-  const [isDaily, setIsDaily] = useState(false);
+  // const [isDaily, setIsDaily] = useState(false);
 
   const changeCity = useCallback(
     (e: any) => dispatch({ payload: e.value, type: CHANGE_CITY }),
@@ -39,14 +39,14 @@ const App = () => {
     []
   );
 
-  // const changePeriod = useCallback(
-  //   () => dispatch({ payload: null, type: CHANGE_PERIOD }),
-  //   []
-  // );
+  const changePeriod = useCallback(
+    () => dispatch({ payload: null, type: CHANGE_PERIOD }),
+    []
+  );
 
-  const changePeriod = useCallback(() => setIsDaily(!isDaily), [isDaily]);
+  const { theme, lang, id, cities, periodicity } = state;
+  const isDaily = periodicity === 'daily';
 
-  const { theme, lang, id, cities } = state;
   return (
     <ThemeProvider theme={theme === 'light' ? light : dark}>
       <>
