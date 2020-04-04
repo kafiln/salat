@@ -3,6 +3,7 @@ import { AppContext } from '../../context/AppContext';
 import usePrayers from '../../hooks/usePrayers';
 import { Spinner } from '../../common/spinner/styles';
 import { Table, Tbody, Tr, Td, Thead } from './styles';
+import { FormattedMessage } from 'react-intl';
 
 const NAMES = require('../../data/prayers.json');
 
@@ -19,7 +20,9 @@ const Monthly = () => {
       <Thead>
         <Tr lang={lang} title="header">
           {/* TODO: Fix when handling i18n */}
-          <Td>{lang === 'fr' ? 'Jour' : 'اليوم'}</Td>
+          <Td>
+            <FormattedMessage id="day" />
+          </Td>
           {Object.keys(NAMES).map((name: any, i: number) => {
             return <Td key={i}>{NAMES[name][lang]}</Td>;
           })}

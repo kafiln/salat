@@ -5,7 +5,7 @@ import {
   // CHANGE_PERIOD,
   CHANGE_THEME,
   IState,
-  IAction
+  IAction,
 } from './types';
 import moment from 'moment';
 import { TIME_OFFSET } from '../settings';
@@ -14,7 +14,7 @@ const withTime = (state: IState) => {
   const time = moment().utcOffset(TIME_OFFSET);
   return {
     ...state,
-    time
+    time,
   };
 };
 
@@ -24,14 +24,14 @@ const reducer = (state: IState, action: IAction) => {
       localStorage.setItem('id', action.payload);
       return {
         ...withTime(state),
-        id: action.payload
+        id: action.payload,
       };
     case CHANGE_LANGUAGE:
-      const lang = state.lang === 'fr' ? 'ar' : 'fr';
+      const lang = state.lang === 'fr-fr' ? 'ar-ma' : 'fr-fr';
       localStorage.setItem('lang', lang);
       return {
         ...withTime(state),
-        lang
+        lang,
       };
     // case CHANGE_PERIOD:
     //   const isDaily = `${!state.isDaily}`;
@@ -45,12 +45,12 @@ const reducer = (state: IState, action: IAction) => {
       localStorage.setItem('theme', theme);
       return {
         ...withTime(state),
-        theme
+        theme,
       };
     case REFRESH_TIME:
       // console.log('refreshing time');
       return {
-        ...withTime(state)
+        ...withTime(state),
       };
     default:
       return state;

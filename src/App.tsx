@@ -10,13 +10,16 @@ import { AppContext, initialState } from './context/AppContext';
 import {
   CHANGE_CITY,
   CHANGE_LANGUAGE,
-  CHANGE_THEME
+  CHANGE_THEME,
   // CHANGE_PERIOD
 } from './context/types';
 
 import { GlobalStyles, light, dark } from './themes';
 import { ThemeProvider } from 'styled-components';
 import Toggle from './common/toggle';
+
+import { FormattedMessage } from 'react-intl';
+import { I18nProvider } from './i18n';
 
 const App = () => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
@@ -49,34 +52,36 @@ const App = () => {
       <>
         <GlobalStyles />
         <AppContext.Provider value={{ ...state, dispatch }}>
-          <Toggle
-            left={'Français'}
-            right={'العربية'}
-            onChange={changeLanguage}
-            checked={lang === 'ar'}
-          ></Toggle>
-          <br />
-          <Toggle
-            left={'Mois'}
-            right={'Jour'}
-            onChange={changePeriod}
-            checked={isDaily}
-          ></Toggle>
-          <br />
-          <Toggle
-            left={'Dark'}
-            right={'Light'}
-            onChange={changeTheme}
-            checked={theme === 'light'}
-          ></Toggle>
-          <SelectList
-            onChange={changeCity}
-            cities={cities}
-            lang={lang}
-            id={id}
-          />
-          <Clock displayClock={isDaily} />
-          {isDaily ? <Daily /> : <Monthly />}
+          <I18nProvider locale={lang}>
+            <Toggle
+              left={'Français'}
+              right={'العربية'}
+              onChange={changeLanguage}
+              checked={lang === 'ar-ma'}
+            ></Toggle>
+            <br />
+            <Toggle
+              left={<FormattedMessage id="month" />}
+              right={<FormattedMessage id="day" />}
+              onChange={changePeriod}
+              checked={isDaily}
+            ></Toggle>
+            <br />
+            <Toggle
+              right={<FormattedMessage id="light" />}
+              left={<FormattedMessage id="dark" />}
+              onChange={changeTheme}
+              checked={theme === 'light'}
+            ></Toggle>
+            <SelectList
+              onChange={changeCity}
+              cities={cities}
+              lang={lang}
+              id={id}
+            />
+            <Clock displayClock={isDaily} />
+            {isDaily ? <Daily /> : <Monthly />}
+          </I18nProvider>
         </AppContext.Provider>
       </>
     </ThemeProvider>

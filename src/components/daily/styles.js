@@ -15,14 +15,14 @@ export const Name = styled.div`
   text-transform: capitalize;
 `;
 export const Difference = styled.div`
-  color: ${props => props.theme.differenceColor};
+  color: ${(props) => props.theme.differenceColor};
 `;
 export const Time = styled.div``;
 
 export const Next = css`
   font-weight: 700;
-  background-color: ${props => props.theme.color};
-  color: ${props => props.theme.backgroundColor};
+  background-color: ${(props) => props.theme.color};
+  color: ${(props) => props.theme.backgroundColor};
   padding: 0.5rem 0.4rem 0.5rem;
   border-radius: 2px;
 `;
@@ -32,6 +32,7 @@ export const Li = styled.li`
   display: flex;
   justify-content: space-between;
   width: 100%;
-  flex-direction: ${props => (props.lang === 'fr' ? 'row' : 'row-reverse')};
-  ${props => (props.className === 'next' ? Next : '')}
+  flex-direction: ${(props) =>
+    props.lang === 'fr-fr' ? 'row' : 'row-reverse'};
+  ${(props) => (props.className === 'next' ? Next : '')}
 `;

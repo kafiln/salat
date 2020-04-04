@@ -18,7 +18,8 @@ export const Tr = styled.tr`
   background-color: ${(props) => props.title === 'true' && '#2d3ede'};
   background-color: ${(props) => props.title === 'header' && 'grey'};
   color: ${(props) => props.title === 'true' && 'white'};
-  flex-direction: ${(props) => (props.lang === 'fr' ? 'row' : 'row-reverse')};
+  flex-direction: ${(props) =>
+    props.lang === 'fr-fr' ? 'row' : 'row-reverse'};
 `;
 
 export const Td = styled.td`

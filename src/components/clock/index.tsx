@@ -2,15 +2,24 @@ import React, { useContext } from 'react';
 import moment from 'moment';
 
 import { AppContext } from '../../context/AppContext';
-import { DEFAULT_TIME_FORMAT, DEFAULT_DATE_FORMAT } from '../../settings';
+import { DEFAULT_TIME_FORMAT } from '../../settings';
 import { Wrapper, H2, H3 } from './styles';
+import { FormattedDate } from 'react-intl';
 
 const Clock = ({ displayClock = false }) => {
   const { time, lang } = useContext(AppContext);
 
   return (
     <Wrapper>
-      <H2>{time.locale(lang).format(DEFAULT_DATE_FORMAT)}</H2>
+      <H2 dir={lang === 'ar-ma' ? 'rtl' : 'ltr'}>
+        <FormattedDate
+          value={new Date(time)}
+          year="numeric"
+          month="long"
+          day="numeric"
+          weekday="long"
+        ></FormattedDate>
+      </H2>
       {displayClock && (
         <H3>
           <span>{moment(time).format(DEFAULT_TIME_FORMAT)}</span>

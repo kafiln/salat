@@ -9,12 +9,12 @@ import { TIME_OFFSET } from '../settings';
 export const initialState: IState = {
   cities,
   id: parseInt(localStorage.getItem('id') || '80'),
-  lang: localStorage.getItem('lang') || 'fr',
-  languages: ['ar', 'fr'],
+  lang: localStorage.getItem('lang') || 'fr-fr',
+  languages: ['ar-ma', 'fr-fr'],
   time: moment().utcOffset(TIME_OFFSET),
   theme: localStorage.getItem('theme') || 'light',
   // isDaily: Boolean(localStorage.getItem('isDaily')),
-  dispatch: () => ({})
+  dispatch: () => ({}),
 };
 
 export const AppContext = React.createContext<IState>(initialState);

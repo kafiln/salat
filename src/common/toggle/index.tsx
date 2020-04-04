@@ -5,8 +5,8 @@ import { StyledWrapper } from './styles';
 type ToogleProps = {
   onChange: () => void;
   checked: boolean;
-  left: React.ReactChild;
-  right: React.ReactChild;
+  left: any;
+  right: any;
 };
 
 const Toggle = ({ onChange, checked, left, right }: ToogleProps) => {
