@@ -34,7 +34,7 @@ const reducer = (state: IState, action: IAction) => {
         lang,
       };
     case CHANGE_PERIOD:
-      const periodicity = state.periodicity == 'daily' ? 'monthly' : 'daily';
+      const periodicity = state.periodicity === 'daily' ? 'monthly' : 'daily';
       localStorage.setItem('periodicity', periodicity);
       return {
         ...withTime(state),

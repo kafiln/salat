@@ -1,4 +1,4 @@
-import React, { useReducer, useCallback, useState } from 'react';
+import React, { useReducer, useCallback } from 'react';
 
 import Monthly from './components/monthly';
 import Clock from './components/clock';
@@ -23,7 +23,6 @@ import { I18nProvider } from './i18n';
 
 const App = () => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
-  // const [isDaily, setIsDaily] = useState(false);
 
   const changeCity = useCallback(
     (e: any) => dispatch({ payload: e.value, type: CHANGE_CITY }),
