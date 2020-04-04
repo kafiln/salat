@@ -25,7 +25,7 @@ export default (cityId, isDayly = false) => {
       }`;
 
       if (isDayly) {
-        URL += `&day=${new Date().getUTCDay()}`;
+        URL += `&day=${new Date().getUTCDate()}`;
       }
 
       // Load initial values from localstorage or API
