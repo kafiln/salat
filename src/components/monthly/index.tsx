@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
 import { AppContext } from '../../context/AppContext';
 import usePrayers from '../../hooks/usePrayers';
-import { Spinner } from '../../common/spinner/styles';
+import  Spinner  from '../../common/spinner';
 import { Table, Tbody, Tr, Td, Thead } from './styles';
 import { FormattedMessage, FormattedDate } from 'react-intl';
+import { KEYS } from '../../i18n';
 
 const NAMES = require('../../data/prayers.json');
 
@@ -22,7 +23,7 @@ const Monthly = () => {
         <Thead>
           <Tr lang={lang} title="header">
             <Td>
-              <FormattedMessage id="day" />
+              <FormattedMessage id={KEYS.DAY}/>
             </Td>
             {Object.keys(NAMES).map((name: any, i: number) => {
               return <Td key={i}>{NAMES[name][lang]}</Td>;

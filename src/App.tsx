@@ -19,7 +19,7 @@ import { ThemeProvider } from 'styled-components';
 import Toggle from './common/toggle';
 
 import { FormattedMessage } from 'react-intl';
-import { I18nProvider } from './i18n';
+import { I18nProvider, KEYS } from './i18n';
 
 const App = () => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
@@ -60,15 +60,15 @@ const App = () => {
             ></Toggle>
             <br />
             <Toggle
-              left={<FormattedMessage id="month" />}
-              right={<FormattedMessage id="day" />}
+              left={<FormattedMessage id={KEYS.MONTH} />}
+              right={<FormattedMessage id={KEYS.DAY} />}
               onChange={changePeriod}
               checked={isDaily}
             ></Toggle>
             <br />
             <Toggle
-              right={<FormattedMessage id="light" />}
-              left={<FormattedMessage id="dark" />}
+              right={<FormattedMessage id={KEYS.LIGHT} />}
+              left={<FormattedMessage id={KEYS.DARK} />}
               onChange={changeTheme}
               checked={theme === 'light'}
             ></Toggle>
