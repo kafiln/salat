@@ -7,11 +7,11 @@ import { Wrapper, H2, H3 } from './styles';
 import { FormattedDate } from 'react-intl';
 
 const Clock = ({ displayClock = false }) => {
-  const { time, lang } = useContext(AppContext);
+  const { time } = useContext(AppContext);
 
   return (
     <Wrapper>
-      <H2 dir={lang === 'ar-ma' ? 'rtl' : 'ltr'}>
+      <H2>
         <FormattedDate
           value={new Date(time)}
           year="numeric"

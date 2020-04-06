@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { AppContext } from '../../context/AppContext';
 import usePrayers from '../../hooks/usePrayers';
-import  Spinner  from '../../common/spinner';
+import Spinner from '../../common/spinner';
 import { Table, Tbody, Tr, Td, Thead } from './styles';
 import { FormattedMessage, FormattedDate } from 'react-intl';
 import { KEYS } from '../../i18n';
@@ -11,7 +11,7 @@ const NAMES = require('../../data/prayers.json');
 const NAMES_FR = Object.keys(NAMES).map((e) => e);
 
 const Monthly = () => {
-  const { lang, id } = useContext(AppContext);
+  const { lang, id, theme } = useContext(AppContext);
   const today = new Date().getDate();
 
   let prayers = usePrayers(id);
@@ -19,11 +19,11 @@ const Monthly = () => {
   const table = (
     <>
       {/* TODO: Add an i18n title */}
-      <Table>
+      <Table dark={theme === 'dark'} striped>
         <Thead>
-          <Tr lang={lang} title="header">
-            <Td>
-              <FormattedMessage id={KEYS.DAY}/>
+          <Tr lang={lang} className="header">
+            <Td className="first">
+              <FormattedMessage id={KEYS.DAY} />
             </Td>
             {Object.keys(NAMES).map((name: any, i: number) => {
               return <Td key={i}>{NAMES[name][lang]}</Td>;
@@ -37,9 +37,11 @@ const Monthly = () => {
               <Tr
                 lang={lang}
                 key={i}
-                title={`${new Date(prayer.day).getDate() === today}`}
+                className={`${
+                  new Date(prayer.day).getDate() === today ? 'today' : ''
+                }`}
               >
-                <Td>
+                <Td className="first">
                   <FormattedDate
                     value={new Date(prayer.day)}
                     month="long"
@@ -47,9 +49,9 @@ const Monthly = () => {
                     weekday="long"
                   ></FormattedDate>
                 </Td>
-                {NAMES_FR.map((name: string, j: number) => {
-                  return <Td key={j}>{prayer[name]}</Td>;
-                })}
+                {NAMES_FR.map((name: string, j: number) => (
+                  <Td key={j}>{prayer[name]}</Td>
+                ))}
               </Tr>
             );
           })}
