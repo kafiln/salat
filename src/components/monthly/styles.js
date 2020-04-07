@@ -15,7 +15,7 @@ export const Tr = styled.tr`
   border-bottom: ${(props) => `1px solid ${props.theme.color}`};
 
   &.today {
-    background-color: #2d3ede;
+    background-color: #2d3edf !important;
     color: white;
     font-weight: bold;
   }

@@ -14,14 +14,14 @@ export const Spinner = styled.div`
   margin-bottom: 1rem;
   flex: 1;
   &:after {
-    content: ' ';
+    content: '';
     display: block;
     width: 46px;
     height: 46px;
     margin: 1px;
     border-radius: 50%;
     border: 5px solid #fff;
-    border-color: ${props =>
+    border-color: ${(props) =>
       `${props.theme.color} transparent ${props.theme.color} transparent`};
     animation: ${spin} 1.2s linear infinite;
   }
