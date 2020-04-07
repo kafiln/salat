@@ -15,7 +15,7 @@ const parseDateTime = (timeString: string, day: number): Moment => {
 
 export const timesFromStringtoDate = (prayer: any) => {
   let result: any = {};
-  Object.keys(NAMES).forEach(name => {
+  Object.keys(NAMES).forEach((name) => {
     result[name] = moment(parseDateTime(prayer[name], prayer.day));
   });
   return result;

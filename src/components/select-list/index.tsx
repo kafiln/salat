@@ -17,7 +17,7 @@ const SelectList = ({ onChange, cities, id, lang }: SelectListProps) => {
     ? cities
         .map((e: ICity) => ({
           value: e.id,
-          label: e.names[lang]
+          label: e.names[lang],
         }))
         .sort(byLabel)
     : [];
@@ -29,7 +29,7 @@ const SelectList = ({ onChange, cities, id, lang }: SelectListProps) => {
       const padding = '20px 10px';
       const textAlign = 'center';
       return { ...provided, padding, width: '100%', textAlign };
-    }
+    },
   };
 
   return (

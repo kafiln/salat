@@ -25,7 +25,9 @@ const Daily = () => {
   useEffect(() => {
     if (prayer) {
       const times = timesFromStringtoDate(prayer);
-      const nextOnes = Object.keys(times).filter(t => time.isBefore(times[t]));
+      const nextOnes = Object.keys(times).filter((t) =>
+        time.isBefore(times[t])
+      );
       const next = nextOnes.length === 0 ? Object.keys(NAMES)[0] : nextOnes[0];
       setNextOne(next);
       const diff = moment(times[next].diff(time)).format(DEFAULT_TIME_FORMAT);
@@ -45,7 +47,7 @@ const Daily = () => {
 
   return prayer ? (
     <Ul>
-      {Object.keys(NAMES).map(name => {
+      {Object.keys(NAMES).map((name) => {
         return (
           <Li key={name} lang={lang} className={name === next ? 'next' : ''}>
             <Name>{NAMES[name][lang]}</Name>

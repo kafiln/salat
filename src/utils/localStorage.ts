@@ -36,20 +36,17 @@ export const getFromLocalStorageOrApi = async (name: string, url: string) => {
  */
 export const cleanLocalStorage = (cityId: number) => {
   const rest = [...NEVER_REMOVE_FROM_STORAGE];
-  const dailyKey = getStorageKey(cityId, true)
-    .split('_')
-    .slice(0, 3)
-    .join('_');
+  const dailyKey = getStorageKey(cityId, true).split('_').slice(0, 3).join('_');
   const monthlyKey = getStorageKey(cityId, false)
     .split('_')
     .slice(0, 2)
     .join('_');
 
   Object.keys({ ...localStorage })
-    .filter(e => !e.startsWith(dailyKey))
-    .filter(e => !e.startsWith(monthlyKey))
-    .filter(e => !rest.includes(e))
-    .forEach(e => localStorage.removeItem(e));
+    .filter((e) => !e.startsWith(dailyKey))
+    .filter((e) => !e.startsWith(monthlyKey))
+    .filter((e) => !rest.includes(e))
+    .forEach((e) => localStorage.removeItem(e));
 };
 
 export const getStorageKey = (cityId: number, isDaily: boolean): string => {

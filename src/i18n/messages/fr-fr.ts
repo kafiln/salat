@@ -1,5 +1,5 @@
 import LOCALES from '../locales';
-import keys from './keys'
+import keys from './keys';
 export default {
   [LOCALES.FRENCH]: {
     [keys.MONTH]: 'Mois',
@@ -7,6 +7,5 @@ export default {
     [keys.LIGHT]: 'Clair',
     [keys.DARK]: 'Sombre',
     [keys.SPINNER_LOADING]: 'Chargement en cours ...',
-
   },
 };
