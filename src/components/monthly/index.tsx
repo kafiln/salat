@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
+import { FormattedDate, FormattedMessage } from 'react-intl';
+import Spinner from '../../common/spinner';
 import { AppContext } from '../../context/AppContext';
 import usePrayers from '../../hooks/usePrayers';
-import Spinner from '../../common/spinner';
-import { Table, Tbody, Tr, Td, Thead } from './styles';
-import { FormattedMessage, FormattedDate } from 'react-intl';
 import { KEYS } from '../../i18n';
+import { parseTime } from '../../utils/dates';
+import { Table, Tbody, Td, Thead, Tr } from './styles';
 
 const NAMES = require('../../data/prayers.json');
 
@@ -50,7 +51,7 @@ const Monthly = () => {
                   ></FormattedDate>
                 </Td>
                 {NAMES_FR.map((name: string, j: number) => (
-                  <Td key={j}>{prayer[name]}</Td>
+                  <Td key={j}>{parseTime(prayer[name])}</Td>
                 ))}
               </Tr>
             );

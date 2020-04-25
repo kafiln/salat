@@ -1,11 +1,13 @@
 import styled, { css } from 'styled-components';
 export const Ul = styled.ul`
+  padding: 0;
   padding-top: 1em;
   height: 50vh;
   margin: 1vh 0;
   display: flex;
+  margin: 0 auto;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   @media (min-width: 1200px) {
     height: 50vh;
   }

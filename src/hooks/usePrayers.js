@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { API_URL } from '../settings';
 import {
-  getStorageKey,
   cleanLocalStorage,
   getFromLocalStorageOrApi,
+  getStorageKey,
 } from '../utils/localStorage';
-import { API_URL } from '../settings';
 
 const byDay = (a, b) => new Date(a.day).getDate() - new Date(b.day).getDate();
 
@@ -20,7 +20,7 @@ export default (cityId, isDayly = false) => {
       const key = getStorageKey(cityId, isDayly);
 
       // Form the URL
-      let URL = `${API_URL}prayer?city=${cityId}&month=${
+      let URL = `${API_URL}prayer?lang=fr&cityId=${cityId}&month=${
         new Date().getUTCMonth() + 1
       }`;
 

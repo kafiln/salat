@@ -1,25 +1,21 @@
-import React, { useReducer, useCallback } from 'react';
-
-import Monthly from './components/monthly';
+import React, { useCallback, useReducer } from 'react';
+import { FormattedMessage } from 'react-intl';
+import { ThemeProvider } from 'styled-components';
+import Toggle from './common/toggle';
 import Clock from './components/clock';
-import SelectList from './components/select-list';
 import Daily from './components/daily';
-
-import AppReducer from './context/AppReducer';
+import Monthly from './components/monthly';
+import SelectList from './components/select-list';
 import { AppContext, initialState } from './context/AppContext';
+import AppReducer from './context/AppReducer';
 import {
   CHANGE_CITY,
   CHANGE_LANGUAGE,
-  CHANGE_THEME,
   CHANGE_PERIOD,
+  CHANGE_THEME,
 } from './context/types';
-
-import { GlobalStyles, light, dark } from './themes';
-import { ThemeProvider } from 'styled-components';
-import Toggle from './common/toggle';
-
-import { FormattedMessage } from 'react-intl';
 import { I18nProvider, KEYS } from './i18n';
+import { dark, GlobalStyles, light } from './themes';
 
 const App = () => {
   const [state, dispatch] = useReducer(AppReducer, initialState);

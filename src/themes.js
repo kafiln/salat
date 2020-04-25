@@ -11,6 +11,8 @@ body {
 #root {
   color: ${(props) => props.theme.color};
   width: 75vw;
+  height:100vh;
+  margin: auto;
 }
 `;
 

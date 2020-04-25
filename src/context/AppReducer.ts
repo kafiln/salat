@@ -1,17 +1,17 @@
+import moment from 'moment';
+import { TIME_OFFSET } from '../settings';
 import {
   CHANGE_CITY,
-  REFRESH_TIME,
   CHANGE_LANGUAGE,
   CHANGE_PERIOD,
   CHANGE_THEME,
-  IState,
   IAction,
+  IState,
+  REFRESH_TIME,
 } from './types';
-import moment from 'moment';
-import { TIME_OFFSET } from '../settings';
 
 const withTime = (state: IState) => {
-  const time = moment().utcOffset(TIME_OFFSET);
+  const time = moment.utc().utcOffset(TIME_OFFSET);
   return {
     ...state,
     time,
