@@ -11,7 +11,6 @@
     "@types/reactstrap": "^8.4.2",
     "@types/styled-components": "^4.1.18",
     "axios": "^0.19.0",
-    "bootstrap": "^4.4.1",
     "gh-pages": "^2.0.1",
     "moment": "^2.24.0",
     "react": "^16.9.0",
@@ -22,16 +21,21 @@
     "react-switch": "^5.0.1",
     "reactstrap": "^8.4.1",
     "styled-components": "^4.3.2",
+    "tailwindcss": "^1.4.6",
     "typescript": "3.5.3"
   },
   "scripts": {
+    "prestart": "npm run watch:css",
+    "prebuild": "npm run build:css",
     "start": "react-scripts start",
     "build": "cross-env GENERATE_SOURCEMAP=false react-scripts build",
     "test": "react-scripts test",
     "format": "prettier --write src/**/*.{js,jsx,ts,tsx}",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "build:css": "cross-env NODE_ENV=production postcss src/assets/styles/tailwind.css -o src/assets/styles/main.css",
+    "watch:css": "postcss src/assets/styles/tailwind.css -o src/assets/styles/main.css"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -49,7 +53,11 @@
     ]
   },
   "devDependencies": {
+    "autoprefixer": "^9.7.6",
     "cross-env": "^7.0.2",
-    "prettier": "^2.0.4"
+    "gh-pages": "^2.2.0",
+    "postcss-cli": "^7.1.0",
+    "prettier": "^2.0.4",
+    "tailwindcss": "^1.4.0"
   }
 }

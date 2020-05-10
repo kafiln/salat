@@ -33,12 +33,12 @@ const Daily = () => {
   }, [time, prayer]);
 
   useEffect(() => {
-    const interval = setInterval(
+    const timeout = setTimeout(
       () => dispatch({ type: REFRESH_TIME, payload: null }),
       1000
     );
     return () => {
-      clearInterval(interval);
+      clearTimeout(timeout);
     };
   });
 
