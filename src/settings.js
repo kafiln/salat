@@ -5,4 +5,4 @@ export const NEVER_REMOVE_FROM_STORAGE = ['id', 'lang', 'theme', 'periodicity'];
 
 export const TIME_OFFSET = 0;
 
-export const API_URL = 'https://maroc-salat.herokuapp.com/';
+export const API_URL = 'https://salat-native.herokuapp.com/';
