@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { Table as ExternalTable } from 'reactstrap';
 
-export const Table = styled(ExternalTable)`
+export const Table = styled.table`
+  width: 100%;
   border: ${(props) => `2px solid ${props.theme.color}`};
 `;
 export const Tbody = styled.tbody``;
@@ -17,23 +17,24 @@ export const Tr = styled.tr`
   &.today {
     background-color: #2d3edf !important;
     color: white;
-    font-weight: bold;
   }
 `;
 
 export const Td = styled.td`
   text-transform: capitalize;
   border-top: none !important;
+  margin: 0 0.5rem;
   flex: 1;
 
   &.first {
-    flex: 2;
+    flex-basis: 0;
+    flex-grow: 2.5;
   }
 `;
 export const Thead = styled.thead`
   & tr {
     background-color: grey;
     color: white;
-    font-weight: bold;
+    /* font-weight: bold; */
   }
 `;

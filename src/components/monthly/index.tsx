@@ -12,7 +12,7 @@ const NAMES = require('../../data/prayers.json');
 const NAMES_FR = Object.keys(NAMES).map((e) => e);
 
 const Monthly = () => {
-  const { lang, id, theme } = useContext(AppContext);
+  const { lang, id } = useContext(AppContext);
   const today = new Date().getDate();
 
   let prayers = usePrayers(id);
@@ -20,7 +20,7 @@ const Monthly = () => {
   const table = (
     <>
       {/* TODO: Add an i18n title */}
-      <Table dark={theme === 'dark'} striped>
+      <Table>
         <Thead>
           <Tr lang={lang} className="header">
             <Td className="first">
