@@ -4,7 +4,7 @@ import Spinner from '../../common/spinner';
 import { AppContext } from '../../context/AppContext';
 import { REFRESH_TIME } from '../../context/types';
 import usePrayers from '../../hooks/usePrayers';
-import { DEFAULT_TIME_FORMAT } from '../../settings';
+import { DEFAULT_TIME_FORMAT, TIME_OFFSET } from '../../settings';
 import { parseTime } from '../../utils/dates';
 import { Difference, Li, Name, Time, Ul } from './styles';
 
@@ -25,9 +25,11 @@ const Daily = () => {
       );
       const next = nextOnes.length === 0 ? Object.keys(NAMES)[0] : nextOnes[0];
       setNextOne(next);
-      const diff = moment(moment(prayer[next]).diff(time)).format(
-        DEFAULT_TIME_FORMAT
-      );
+      //FIXME: Fix this mess
+      const diff = moment(
+        moment.utc(prayer[next]).utcOffset(TIME_OFFSET).diff(time)
+      ).format(DEFAULT_TIME_FORMAT);
+
       setDifference(diff);
     }
   }, [time, prayer]);
