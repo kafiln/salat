@@ -23,3 +23,7 @@ yarn-debug.log*
 yarn-error.log*
 
 .vscode/
+
+# Generated css
+
+src/assets/styles/main.css
