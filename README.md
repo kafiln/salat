@@ -1,3 +1,7 @@
+# Important
+
+This project is no longer maintained. We have moved to a nextjs version https://github.com/kafiln/salat-next
+
 # Description
 
 A small web app to get prayers time in cities of Morocco
