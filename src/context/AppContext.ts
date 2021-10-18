@@ -8,7 +8,7 @@ import { IState } from './types';
 export const initialState: IState = {
   cities,
   id: parseInt(localStorage.getItem('id') || '80'),
-  lang: localStorage.getItem('lang') || 'ar-ma',
+  lang: localStorage.getItem('lang') || 'ar',
   languages: ['ar-ma', 'fr-fr'], //TODO: This should not be here
   time: moment().utcOffset(TIME_OFFSET),
   theme: localStorage.getItem('theme') || 'light',
