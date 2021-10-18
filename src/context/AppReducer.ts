@@ -27,7 +27,7 @@ const reducer = (state: IState, action: IAction) => {
         id: action.payload,
       };
     case CHANGE_LANGUAGE:
-      const lang = state.lang === 'fr-fr' ? 'ar-ma' : 'fr-fr';
+      const lang = state.lang === 'fr' ? 'ar':'fr'
       localStorage.setItem('lang', lang);
       return {
         ...withTime(state),
