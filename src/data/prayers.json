@@ -1,26 +1,26 @@
 {
   "fajr": {
-    "ar-ma": "الفجر",
-    "fr-fr": "fajr"
+    "ar": "الفجر",
+    "fr": "fajr"
   },
   "chorouq": {
-    "fr-fr": "chorouq",
-    "ar-ma": "الشروق"
+    "fr": "chorouq",
+    "ar": "الشروق"
   },
   "dhuhr": {
-    "fr-fr": "dhuhr",
-    "ar-ma": "الظهر"
+    "fr": "dhuhr",
+    "ar": "الظهر"
   },
   "asr": {
-    "fr-fr": "asr",
-    "ar-ma": "العصر"
+    "fr": "asr",
+    "ar": "العصر"
   },
   "maghrib": {
-    "fr-fr": "maghrib",
-    "ar-ma": "المغرب"
+    "fr": "maghrib",
+    "ar": "المغرب"
   },
   "ishae": {
-    "fr-fr": "ishae",
-    "ar-ma": "العشاء"
+    "fr": "ishae",
+    "ar": "العشاء"
   }
 }

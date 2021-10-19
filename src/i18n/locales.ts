@@ -1,10 +1,10 @@
 export default {
   ARABIC: {
-    id: 'ar-ma',
+    id: 'ar',
     displayName: 'العربية',
   },
   FRENCH: {
-    id: 'fr-fr',
+    id: 'fr',
     displayName: 'Français',
   },
 };
