@@ -1,0 +1,454 @@
+[
+    {
+        "name": "Agadir",
+        "id": 95
+    },
+    {
+        "name": "Aghram",
+        "id": 87
+    },
+    {
+        "name": "Ain Chair",
+        "id": 6
+    },
+    {
+        "name": "Akka",
+        "id": 85
+    },
+    {
+        "name": "Aknoul",
+        "id": 14
+    },
+    {
+        "name": "Alnif",
+        "id": 107
+    },
+    {
+        "name": "Aousserd",
+        "id": 109
+    },
+    {
+        "name": "Araich",
+        "id": 57
+    },
+    {
+        "name": "Arbaoua",
+        "id": 51
+    },
+    {
+        "name": "Arfoud",
+        "id": 19
+    },
+    {
+        "name": "Assa",
+        "id": 94
+    },
+    {
+        "name": "Assila",
+        "id": 54
+    },
+    {
+        "name": "Azemour",
+        "id": 86
+    },
+    {
+        "name": "Azilal",
+        "id": 65
+    },
+    {
+        "name": "Azrou",
+        "id": 37
+    },
+    {
+        "name": "Ben Slimane",
+        "id": 73
+    },
+    {
+        "name": "Bengrire",
+        "id": 82
+    },
+    {
+        "name": "Beni Mellal",
+        "id": 62
+    },
+    {
+        "name": "Berkane",
+        "id": 5
+    },
+    {
+        "name": "Berrchid",
+        "id": 78
+    },
+    {
+        "name": "Bouaarfa",
+        "id": 3
+    },
+    {
+        "name": "Bouanane",
+        "id": 10
+    },
+    {
+        "name": "Boujad",
+        "id": 108
+    },
+    {
+        "name": "Boujdour",
+        "id": 104
+    },
+    {
+        "name": "Boulemane",
+        "id": 28
+    },
+    {
+        "name": "Bourd",
+        "id": 18
+    },
+    {
+        "name": "Boutagit",
+        "id": 12
+    },
+    {
+        "name": "Bouznika",
+        "id": 74
+    },
+    {
+        "name": "Casablanca",
+        "id": 80
+    },
+    {
+        "name": "Chefchaouan",
+        "id": 38
+    },
+    {
+        "name": "Chtouka Ait Baha",
+        "id": 111
+    },
+    {
+        "name": "Dakhla",
+        "id": 105
+    },
+    {
+        "name": "Demnat",
+        "id": 72
+    },
+    {
+        "name": "El Hajeb",
+        "id": 41
+    },
+    {
+        "name": "El Hoceima",
+        "id": 15
+    },
+    {
+        "name": "El Jadida",
+        "id": 88
+    },
+    {
+        "name": "Errachidia",
+        "id": 23
+    },
+    {
+        "name": "Essaouira",
+        "id": 97
+    },
+    {
+        "name": "Feguig",
+        "id": 1
+    },
+    {
+        "name": "Fes",
+        "id": 32
+    },
+    {
+        "name": "Fnideq",
+        "id": 112
+    },
+    {
+        "name": "Fquih Ben Salah",
+        "id": 116
+    },
+    {
+        "name": "Guelmim",
+        "id": 98
+    },
+    {
+        "name": "Guelmima",
+        "id": 31
+    },
+    {
+        "name": "Guersif",
+        "id": 11
+    },
+    {
+        "name": "Ifrane",
+        "id": 35
+    },
+    {
+        "name": "Imouzar Kandar",
+        "id": 33
+    },
+    {
+        "name": "Jrada",
+        "id": 4
+    },
+    {
+        "name": "Kalaa Megouna ",
+        "id": 56
+    },
+    {
+        "name": "Kelaat Esraghna",
+        "id": 77
+    },
+    {
+        "name": "Kenitra",
+        "id": 67
+    },
+    {
+        "name": "Kesbat Tadla",
+        "id": 59
+    },
+    {
+        "name": "Khemissat",
+        "id": 55
+    },
+    {
+        "name": "Khenifra",
+        "id": 45
+    },
+    {
+        "name": "Khouribga",
+        "id": 70
+    },
+    {
+        "name": "Laayoune",
+        "id": 103
+    },
+    {
+        "name": "Lagouira",
+        "id": 106
+    },
+    {
+        "name": "Laksar Lakbire",
+        "id": 50
+    },
+    {
+        "name": "Lgara",
+        "id": 75
+    },
+    {
+        "name": "Marrakech",
+        "id": 84
+    },
+    {
+        "name": "Meknes",
+        "id": 43
+    },
+    {
+        "name": "Melilla",
+        "id": 9
+    },
+    {
+        "name": "Menzal Beni Yazgha",
+        "id": 25
+    },
+    {
+        "name": "Meskoura",
+        "id": 63
+    },
+    {
+        "name": "Midelet",
+        "id": 29
+    },
+    {
+        "name": "Missour",
+        "id": 16
+    },
+    {
+        "name": "Mohammedia",
+        "id": 76
+    },
+    {
+        "name": "Moulay Bouaaza",
+        "id": 58
+    },
+    {
+        "name": "Moulay Yaacoub",
+        "id": 36
+    },
+    {
+        "name": "Nador",
+        "id": 8
+    },
+    {
+        "name": "Ouarzazate",
+        "id": 71
+    },
+    {
+        "name": "Ouazzane",
+        "id": 44
+    },
+    {
+        "name": "Oued Amlil",
+        "id": 21
+    },
+    {
+        "name": "Oued Zem",
+        "id": 64
+    },
+    {
+        "name": "Oujda",
+        "id": 2
+    },
+    {
+        "name": "Rabat Sale",
+        "id": 69
+    },
+    {
+        "name": "Remani",
+        "id": 68
+    },
+    {
+        "name": "Rich",
+        "id": 24
+    },
+    {
+        "name": "Rissani",
+        "id": 20
+    },
+    {
+        "name": "Safi",
+        "id": 92
+    },
+    {
+        "name": "Sebta",
+        "id": 39
+    },
+    {
+        "name": "Sefrou",
+        "id": 30
+    },
+    {
+        "name": "Settat",
+        "id": 79
+    },
+    {
+        "name": "Sidi Ifni",
+        "id": 99
+    },
+    {
+        "name": "Sidi Kacem",
+        "id": 46
+    },
+    {
+        "name": "Sidi Slimane",
+        "id": 52
+    },
+    {
+        "name": "Sidi Yahya Lgharb",
+        "id": 60
+    },
+    {
+        "name": "Skhour Rehamna",
+        "id": 113
+    },
+    {
+        "name": "Smara",
+        "id": 101
+    },
+    {
+        "name": "Souq Arbia Gharb",
+        "id": 53
+    },
+    {
+        "name": "Tafraout",
+        "id": 91
+    },
+    {
+        "name": "Talouine",
+        "id": 81
+    },
+    {
+        "name": "Tandit",
+        "id": 13
+    },
+    {
+        "name": "Tanger",
+        "id": 48
+    },
+    {
+        "name": "Tantan",
+        "id": 100
+    },
+    {
+        "name": "Taounat",
+        "id": 26
+    },
+    {
+        "name": "Taourirt",
+        "id": 7
+    },
+    {
+        "name": "Taroudant",
+        "id": 90
+    },
+    {
+        "name": "Tata",
+        "id": 83
+    },
+    {
+        "name": "Taza",
+        "id": 17
+    },
+    {
+        "name": "Tehla",
+        "id": 22
+    },
+    {
+        "name": "Terfaya",
+        "id": 102
+    },
+    {
+        "name": "Tetouan",
+        "id": 40
+    },
+    {
+        "name": "Tiflet",
+        "id": 61
+    },
+    {
+        "name": "Tinghir",
+        "id": 110
+    },
+    {
+        "name": "Tinjdad",
+        "id": 34
+    },
+    {
+        "name": "Tissa",
+        "id": 27
+    },
+    {
+        "name": "Tizi Ousli",
+        "id": 47
+    },
+    {
+        "name": "Tiznit",
+        "id": 96
+    },
+    {
+        "name": "Youssoufia",
+        "id": 89
+    },
+    {
+        "name": "Zag",
+        "id": 93
+    },
+    {
+        "name": "Zagoura",
+        "id": 49
+    },
+    {
+        "name": "Zerhoune",
+        "id": 42
+    }
+]
