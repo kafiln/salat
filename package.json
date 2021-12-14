@@ -1,63 +1,38 @@
 {
-  "name": "salat",
-  "version": "0.2.0",
+  "name": "salat-2",
+  "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "@types/jest": "24.0.18",
-    "@types/node": "12.7.2",
-    "@types/react": "16.9.2",
-    "@types/react-dom": "16.9.0",
-    "@types/react-select": "^3.0.2",
-    "@types/reactstrap": "^8.4.2",
-    "@types/styled-components": "^5.1.0",
-    "axios": "^0.21.2",
-    "gh-pages": "^2.0.1",
-    "moment": "^2.24.0",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
-    "react-intl": "^4.6.10",
-    "react-scripts": "^3.4.1",
-    "react-select": "^3.0.4",
-    "react-switch": "^5.0.1",
-    "reactstrap": "^8.4.1",
-    "styled-components": "^5.1.1",
-    "tailwindcss": "^1.4.6",
-    "typescript": "^3.9.5"
-  },
   "scripts": {
-    "prestart": "npm run watch:css",
-    "prebuild": "npm run build:css",
-    "start": "react-scripts start",
-    "build": "cross-env GENERATE_SOURCEMAP=false react-scripts build",
-    "test": "react-scripts test",
-    "format": "prettier --write src/**/*.{js,ts,tsx}",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "build:css": "cross-env NODE_ENV=production postcss src/assets/styles/tailwind.css -o src/assets/styles/main.css",
-    "watch:css": "postcss src/assets/styles/tailwind.css -o src/assets/styles/main.css"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "jest --watch"
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "dependencies": {
+    "@chakra-ui/react": "^1.6.10",
+    "@emotion/react": "^11",
+    "@emotion/styled": "^11",
+    "dayjs": "^1.10.7",
+    "framer-motion": "^4",
+    "next": "12.0.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-icons": "^4.3.1",
+    "react-query": "^3.32.3",
+    "react-select": "^5.2.1"
   },
   "devDependencies": {
-    "autoprefixer": "^9.7.6",
-    "cross-env": "^7.0.2",
-    "gh-pages": "^2.2.0",
-    "postcss-cli": "^7.1.0",
-    "prettier": "^2.0.4",
-    "tailwindcss": "^1.4.0"
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.1.2",
+    "@types/node": "16.11.6",
+    "@types/react": "17.0.33",
+    "babel-jest": "^27.3.1",
+    "eslint": "7",
+    "eslint-config-next": "12.0.1",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^27.3.1",
+    "react-test-renderer": "^17.0.2",
+    "typescript": "4.4.4"
   }
 }
