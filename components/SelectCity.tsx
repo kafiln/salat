@@ -12,6 +12,13 @@ interface SelectCityProps {
   handleChange: (city: number) => void;
 }
 
+const customStyles = {
+  container: (provided: any, state: any) => ({
+    ...provided,
+    minWidth: "10rem",
+  }),
+};
+
 const SelectCity = ({ cities, city, handleChange }: SelectCityProps) => {
   const options = useMemo(() => {
     return cities.map((city) => ({ value: city.id, label: city.name }));
@@ -20,6 +27,7 @@ const SelectCity = ({ cities, city, handleChange }: SelectCityProps) => {
   return (
     <Select
       options={options}
+      styles={customStyles}
       instanceId="test"
       value={options.find((option: any) => option.value === city)}
       onChange={(item) => {

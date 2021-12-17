@@ -15,7 +15,7 @@ const PrayerItem = ({ prayer, isNext }: PrayerItemProps) => {
       borderColor="blue.500"
       rounded="sm"
       justifyContent="space-between"
-      {...(isNext ? { bgColor: "teal.300" } : {})}
+      {...(isNext && { bgColor: "teal.300" })}
     >
       <Text casing="capitalize">{prayer.name}</Text>
       <Text>{dayjs(prayer.time).format("HH:mm")}</Text>

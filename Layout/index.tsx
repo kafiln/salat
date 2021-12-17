@@ -1,6 +1,8 @@
-import { Box, Center, Flex, Text } from "@chakra-ui/layout";
+import { Box, HStack, Flex, Link as ChakraLink } from "@chakra-ui/layout";
 import ThemeToggle from "@components/ThemeToggle";
+import Link from "next/link";
 import React from "react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 const Header = () => {
   return (
@@ -12,9 +14,24 @@ const Header = () => {
 
 const Footer = () => {
   return (
-    <Center bgColor="gray.300" py={4} px={2}>
-      <Text>Kafil @2021</Text>
-    </Center>
+    <HStack
+      bgColor="gray.300"
+      py={4}
+      px={2}
+      spacing={2}
+      justifyContent="center"
+    >
+      <ChakraLink>
+        <Link href="https://github.com/kafiln/salati">
+          <FaGithub size="1.4em" />
+        </Link>
+      </ChakraLink>
+      <ChakraLink>
+        <Link href="https://github.com/kafiln/salati">
+          <FaLinkedin size="1.4em" />
+        </Link>
+      </ChakraLink>
+    </HStack>
   );
 };
 

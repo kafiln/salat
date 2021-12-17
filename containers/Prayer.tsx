@@ -59,7 +59,7 @@ const Prayer = () => {
     <Flex height="100%" direction="column">
       <VStack flexDir="column" spacing={4}>
         <Heading as="h1">Salati</Heading>
-        <Text as="p" size="xs">
+        <Text as="p" size="xs" textAlign="center">
           Your guide to learning prayer times in Morocco
         </Text>
         <SelectCity cities={cities} city={city} handleChange={handleChange} />
