@@ -9,7 +9,7 @@ interface PrayerCardProps {
 
 export const PrayerCard = ({ time, prayer, remaining }: PrayerCardProps) => {
   return (
-    <Box py={8} px={12} bgColor="blue.300" color="white" borderRadius={10}>
+    <Box py={6} px={6} bgColor="blue.300" color="white" borderRadius={10}>
       <VStack>
         <Text fontWeight="bold">{time}</Text>
         <Text fontWeight="bold" casing="capitalize">

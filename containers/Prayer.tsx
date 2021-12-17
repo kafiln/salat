@@ -44,7 +44,7 @@ const Prayer = () => {
     );
     const formattedTime = time.format("HH:mm");
     content = (
-      <VStack spacing={4} paddingTop={10}>
+      <VStack spacing={4} paddingY={4}>
         <PrayerCard
           remaining={remainingTime}
           time={formattedTime}
