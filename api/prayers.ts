@@ -1,4 +1,4 @@
-import { Prayer } from "@components/PrayerList";
+import { Prayer } from "@components/Prayer/PrayerList";
 import dayjs from "dayjs";
 
 const isDev = () => process.env.NODE_ENV === "development";
