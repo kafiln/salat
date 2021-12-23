@@ -1,7 +1,8 @@
+import { Text } from "@chakra-ui/react";
 import React from "react";
 
 const TimeDisplay = ({ time }: { time: string }) => {
-  return <div>{time}</div>;
+  return <Text fontSize="sm">{time}</Text>;
 };
 
 export default TimeDisplay;

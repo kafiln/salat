@@ -1,5 +1,4 @@
-import { Box, HStack, VStack, Text } from "@chakra-ui/layout";
-import dayjs from "dayjs";
+import { VStack } from "@chakra-ui/layout";
 import React from "react";
 import PrayerItem from "./PrayerItem";
 
@@ -15,7 +14,7 @@ export interface Prayer {
 
 const PrayerList = ({ prayers, next }: PrayerListProps) => {
   return (
-    <VStack spacing={1}>
+    <VStack>
       {prayers.map((prayer, key: number) => (
         <PrayerItem
           key={key}

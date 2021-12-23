@@ -1,8 +1,5 @@
-import { Box, HStack, Flex, Link as ChakraLink } from "@chakra-ui/layout";
-import ThemeToggle from "@components/ThemeToggle";
-import Link from "next/link";
+import { Box, Flex } from "@chakra-ui/layout";
 import React, { ReactElement } from "react";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 const DefaultLayout = ({
   children,
@@ -19,7 +16,6 @@ const DefaultLayout = ({
       justifyContent="space-between"
       direction="column"
       height="100vh"
-      overflow="hidden"
     >
       {header}
       <Box py={2} flex={1}>

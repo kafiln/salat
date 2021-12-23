@@ -17,8 +17,10 @@ const PrayerItem = ({ prayer, isNext }: PrayerItemProps) => {
       justifyContent="space-between"
       {...(isNext && { bgColor: "teal.300" })}
     >
-      <Text casing="capitalize">{prayer.name}</Text>
-      <Text>{dayjs(prayer.time).format("HH:mm")}</Text>
+      <Text fontSize="sm" casing="capitalize">
+        {prayer.name}
+      </Text>
+      <Text fontSize="sm">{dayjs(prayer.time).format("HH:mm")}</Text>
     </HStack>
   );
 };

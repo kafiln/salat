@@ -3,7 +3,7 @@ import ThemeToggle from "./ThemeToggle";
 
 const Header = () => {
   return (
-    <Flex justifyContent="flex-end" bgColor="gray.300" py={4} px={2}>
+    <Flex justifyContent="flex-end" bgColor="gray.300" p={2}>
       <ThemeToggle />
     </Flex>
   );
