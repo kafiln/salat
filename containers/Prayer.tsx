@@ -1,7 +1,7 @@
 import { Center, Flex, Heading, Text, VStack } from "@chakra-ui/layout";
 import { Spinner } from "@chakra-ui/spinner";
-import PrayerCard from "@components/PrayerCard";
-import PrayerList, { Prayer } from "@components/PrayerList";
+import PrayerCard from "@components/Prayer/PrayerCard";
+import PrayerList from "@components/Prayer/PrayerList";
 import SelectCity from "@components/SelectCity";
 import TimeDisplay from "@components/TimeDisplay";
 import useTime from "@hooks/useTime";

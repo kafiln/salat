@@ -1,4 +1,4 @@
-import { Box, VStack, Text } from "@chakra-ui/react";
+import { Box, Text, VStack } from "@chakra-ui/react";
 import { Prayer } from "./PrayerList";
 
 interface PrayerCardProps {
@@ -9,7 +9,14 @@ interface PrayerCardProps {
 
 export const PrayerCard = ({ time, prayer, remaining }: PrayerCardProps) => {
   return (
-    <Box py={6} px={6} bgColor="blue.300" color="white" borderRadius={10}>
+    <Box
+      width="10rem"
+      py={6}
+      px={6}
+      bgColor="blue.300"
+      color="white"
+      borderRadius={10}
+    >
       <VStack>
         <Text fontWeight="bold">{time}</Text>
         <Text fontWeight="bold" casing="capitalize">
