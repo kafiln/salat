@@ -1,5 +1,4 @@
 import { HStack, Link as ChakraLink } from "@chakra-ui/react";
-import Link from "next/link";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 const GITHUB_URL = "https://github.com/kafiln/salati";
@@ -14,15 +13,11 @@ const Footer = () => {
       spacing={2}
       justifyContent="center"
     >
-      <ChakraLink>
-        <Link href={GITHUB_URL}>
-          <FaGithub size="1.4em" />
-        </Link>
+      <ChakraLink href={GITHUB_URL} target="_blank">
+        <FaGithub size="1.4em" />
       </ChakraLink>
-      <ChakraLink>
-        <Link href={LINKEDIN_URL}>
-          <FaLinkedin size="1.4em" />
-        </Link>
+      <ChakraLink href={LINKEDIN_URL} target="_blank">
+        <FaLinkedin size="1.4em" />
       </ChakraLink>
     </HStack>
   );
