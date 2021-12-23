@@ -1,4 +1,4 @@
-import { Center, Flex, Heading, Text, VStack } from "@chakra-ui/layout";
+import { Center, Flex, Heading, VStack } from "@chakra-ui/layout";
 import { Spinner } from "@chakra-ui/spinner";
 import PrayerCard from "@components/Prayer/PrayerCard";
 import PrayerList from "@components/Prayer/PrayerList";
@@ -61,9 +61,6 @@ const Prayer = () => {
         <Heading as="h1" fontSize="md">
           Salati
         </Heading>
-        <Text fontSize="sm" textAlign="center">
-          Your guide to learning prayer times in Morocco
-        </Text>
         <SelectCity cities={cities} city={city} handleChange={handleChange} />
         <TimeDisplay time={time.format("MMMM D, YYYY")} />
       </VStack>

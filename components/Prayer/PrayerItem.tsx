@@ -1,4 +1,5 @@
 import { HStack, Text } from "@chakra-ui/react";
+import { useThemedColors } from "@hooks/useInvertColors";
 import dayjs from "dayjs";
 import { Prayer } from "./PrayerList";
 
@@ -7,6 +8,7 @@ interface PrayerItemProps {
   isNext?: boolean;
 }
 const PrayerItem = ({ prayer, isNext }: PrayerItemProps) => {
+  const colors = useThemedColors();
   return (
     <HStack
       width="100%"
@@ -15,7 +17,7 @@ const PrayerItem = ({ prayer, isNext }: PrayerItemProps) => {
       borderColor="blue.500"
       rounded="sm"
       justifyContent="space-between"
-      {...(isNext && { bgColor: "teal.300" })}
+      {...(isNext && { ...colors, fontWeight: "bold" })}
     >
       <Text fontSize="sm" casing="capitalize">
         {prayer.name}

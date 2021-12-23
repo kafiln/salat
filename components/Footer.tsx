@@ -1,4 +1,5 @@
 import { HStack, Link } from "@chakra-ui/react";
+import { useThemedColors } from "@hooks/useInvertColors";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 const items = [
@@ -13,8 +14,9 @@ const items = [
 ];
 
 const Footer = () => {
+  const colors = useThemedColors();
   return (
-    <HStack bgColor="gray.300" p={2} justifyContent="center">
+    <HStack p={2} justifyContent="center" {...colors}>
       {items.map(({ Icon, url }, index) => (
         <Link key={index} href={url} target="_blank" rel="noopener noreferrer">
           <Icon size="1.4em" />
