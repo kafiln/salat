@@ -17,7 +17,7 @@
     "@fontsource/raleway": "^4.5.0",
     "dayjs": "^1.10.7",
     "framer-motion": "^4",
-    "next": "^12.0.7",
+    "next": "^12.0.9",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-icons": "^4.3.1",
