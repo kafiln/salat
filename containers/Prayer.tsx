@@ -5,11 +5,11 @@ import PrayerList from "@components/Prayer/PrayerList";
 import SelectCity from "@components/SelectCity";
 import TimeDisplay from "@components/TimeDisplay";
 import useTime from "@hooks/useTime";
-import { getPrayers } from "api/prayers";
+import { getHijriDate, getPrayers } from "api/prayers";
 import { UseAppContext } from "context";
 import cities from "data/cities.json";
 import dayjs from "dayjs";
-import React, { useCallback, useState } from "react";
+import { useCallback, useState } from "react";
 import { useQuery } from "react-query";
 
 const Prayer = () => {
@@ -18,6 +18,7 @@ const Prayer = () => {
   const time = useTime();
   const [city, setCity] = useState(defaultCity);
   const { data: prayers } = useQuery(["prayers", city], () => getPrayers(city));
+  const { data: hijri } = useQuery(["hijri"], () => getHijriDate());
 
   let content = (
     <Center flex={1}>
@@ -62,7 +63,7 @@ const Prayer = () => {
           Salati
         </Heading>
         <SelectCity cities={cities} city={city} handleChange={handleChange} />
-        <TimeDisplay time={time.format("MMMM D, YYYY")} />
+        <TimeDisplay time={hijri} />
       </VStack>
       {content}
     </Flex>

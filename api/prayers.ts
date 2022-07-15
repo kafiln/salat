@@ -1,4 +1,5 @@
 import { Prayer } from "@components/Prayer/PrayerList";
+import axios from "axios";
 import dayjs from "dayjs";
 
 const isDev = () => process.env.NODE_ENV === "development";
@@ -14,9 +15,13 @@ const mapResponseToPrayers = (data: any): Prayer[] => {
     .splice(0, 6);
 };
 
-const BASE_URL = isDev()
-  ? "http://localhost:5000/"
-  : "https://maroc-salat.herokuapp.com/";
+const BASE_URL = "https://maroc-salat.herokuapp.com/";
+
+export const getHijriDate = async () => {
+  return await axios
+    .get(`https://apisearch.hadithm6.com/api/hijridate`)
+    .then((res) => res.data);
+};
 
 export const getPrayers = async (city: number) => {
   const today = dayjs();

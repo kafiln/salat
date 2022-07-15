@@ -15,6 +15,7 @@
     "@emotion/styled": "^11",
     "@fontsource/open-sans": "^4.5.2",
     "@fontsource/raleway": "^4.5.0",
+    "axios": "^0.27.2",
     "dayjs": "^1.10.7",
     "framer-motion": "^4",
     "next": "^12.0.7",
