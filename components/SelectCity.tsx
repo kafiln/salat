@@ -7,15 +7,16 @@ interface City {
 }
 
 interface SelectCityProps {
-  cities: City[];
   city: number;
   handleChange: (city: number) => void;
+  cities: City[];
 }
 
 const customStyles = {
   container: (provided: any, state: any) => ({
     ...provided,
     minWidth: "10rem",
+    direction: "rtl",
   }),
 };
 

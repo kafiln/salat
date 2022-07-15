@@ -4,11 +4,10 @@ import "@fontsource/raleway/500.css";
 import "@fontsource/raleway/700.css";
 import { AppState, LocalProvider } from "context";
 import type { AppProps } from "next/app";
-import React from "react";
 import theme from "theme";
 
 const initialState: AppState = {
-  city: 80,
+  city: 58,
   language: "ar",
 };
 

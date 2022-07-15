@@ -33,7 +33,7 @@ interface LocalProviderProps {
 
 export const AppContext = React.createContext<
   [AppState, React.Dispatch<Action>]
->([{ city: 80, language: "ar" }, () => {}]);
+>([{ city: 58, language: "ar" }, () => {}]);
 export const UseAppContext = () => useContext(AppContext);
 
 export const LocalProvider = ({

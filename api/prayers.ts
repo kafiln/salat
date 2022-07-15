@@ -2,20 +2,21 @@ import { Prayer } from "@components/Prayer/PrayerList";
 import axios from "axios";
 import dayjs from "dayjs";
 
-const isDev = () => process.env.NODE_ENV === "development";
+const mapResponseToPrayers = (data: any): Prayer[] =>
+  Object.keys(data[0]).map((key) => {
+    const [hours, minutes] = data[0][key].split(":");
+    return {
+      name: key,
+      time: dayjs()
+        .hour(hours)
+        .minute(minutes)
+        .second(0)
+        .millisecond(0)
+        .toString(),
+    };
+  });
 
-const mapResponseToPrayers = (data: any): Prayer[] => {
-  return Object.keys(data[0])
-    .map((key) => {
-      return {
-        name: key,
-        time: data[0][key],
-      };
-    })
-    .splice(0, 6);
-};
-
-const BASE_URL = "https://maroc-salat.herokuapp.com/";
+const BASE_URL = "https://apisearch.hadithm6.com/api/prieres/ville/";
 
 export const getHijriDate = async () => {
   return await axios
@@ -28,13 +29,8 @@ export const getPrayers = async (city: number) => {
   const month = today.month() + 1;
   const day = today.date();
 
-  const data = await fetch(
-    `${BASE_URL}prayer?city=${city}&month=${month}&day=${day}`
-  ).then((res) => res.json());
+  const data = await fetch(`${BASE_URL}${city}/${month}/${day}`).then((res) =>
+    res.json()
+  );
   return mapResponseToPrayers(data);
-};
-
-export const getAllCities = async () => {
-  const data = await fetch(`${BASE_URL}city`).then((res) => res.json());
-  return data;
 };

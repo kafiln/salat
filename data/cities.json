@@ -1,454 +1,1721 @@
 [
-    {
-        "name": "Agadir",
-        "id": 95
-    },
-    {
-        "name": "Aghram",
-        "id": 87
-    },
-    {
-        "name": "Ain Chair",
-        "id": 6
-    },
-    {
-        "name": "Akka",
-        "id": 85
-    },
-    {
-        "name": "Aknoul",
-        "id": 14
-    },
-    {
-        "name": "Alnif",
-        "id": 107
-    },
-    {
-        "name": "Aousserd",
-        "id": 109
-    },
-    {
-        "name": "Araich",
-        "id": 57
-    },
-    {
-        "name": "Arbaoua",
-        "id": 51
-    },
-    {
-        "name": "Arfoud",
-        "id": 19
-    },
-    {
-        "name": "Assa",
-        "id": 94
-    },
-    {
-        "name": "Assila",
-        "id": 54
-    },
-    {
-        "name": "Azemour",
-        "id": 86
-    },
-    {
-        "name": "Azilal",
-        "id": 65
-    },
-    {
-        "name": "Azrou",
-        "id": 37
-    },
-    {
-        "name": "Ben Slimane",
-        "id": 73
-    },
-    {
-        "name": "Bengrire",
-        "id": 82
-    },
-    {
-        "name": "Beni Mellal",
-        "id": 62
-    },
-    {
-        "name": "Berkane",
-        "id": 5
-    },
-    {
-        "name": "Berrchid",
-        "id": 78
-    },
-    {
-        "name": "Bouaarfa",
-        "id": 3
-    },
-    {
-        "name": "Bouanane",
-        "id": 10
-    },
-    {
-        "name": "Boujad",
-        "id": 108
-    },
-    {
-        "name": "Boujdour",
-        "id": 104
-    },
-    {
-        "name": "Boulemane",
-        "id": 28
-    },
-    {
-        "name": "Bourd",
-        "id": 18
-    },
-    {
-        "name": "Boutagit",
-        "id": 12
-    },
-    {
-        "name": "Bouznika",
-        "id": 74
-    },
-    {
-        "name": "Casablanca",
-        "id": 80
-    },
-    {
-        "name": "Chefchaouan",
-        "id": 38
-    },
-    {
-        "name": "Chtouka Ait Baha",
-        "id": 111
-    },
-    {
-        "name": "Dakhla",
-        "id": 105
-    },
-    {
-        "name": "Demnat",
-        "id": 72
-    },
-    {
-        "name": "El Hajeb",
-        "id": 41
-    },
-    {
-        "name": "El Hoceima",
-        "id": 15
-    },
-    {
-        "name": "El Jadida",
-        "id": 88
-    },
-    {
-        "name": "Errachidia",
-        "id": 23
-    },
-    {
-        "name": "Essaouira",
-        "id": 97
-    },
-    {
-        "name": "Feguig",
-        "id": 1
-    },
-    {
-        "name": "Fes",
-        "id": 32
-    },
-    {
-        "name": "Fnideq",
-        "id": 112
-    },
-    {
-        "name": "Fquih Ben Salah",
-        "id": 116
-    },
-    {
-        "name": "Guelmim",
-        "id": 98
-    },
-    {
-        "name": "Guelmima",
-        "id": 31
-    },
-    {
-        "name": "Guersif",
-        "id": 11
-    },
-    {
-        "name": "Ifrane",
-        "id": 35
-    },
-    {
-        "name": "Imouzar Kandar",
-        "id": 33
-    },
-    {
-        "name": "Jrada",
-        "id": 4
-    },
-    {
-        "name": "Kalaa Megouna ",
-        "id": 56
-    },
-    {
-        "name": "Kelaat Esraghna",
-        "id": 77
-    },
-    {
-        "name": "Kenitra",
-        "id": 67
-    },
-    {
-        "name": "Kesbat Tadla",
-        "id": 59
-    },
-    {
-        "name": "Khemissat",
-        "id": 55
-    },
-    {
-        "name": "Khenifra",
-        "id": 45
-    },
-    {
-        "name": "Khouribga",
-        "id": 70
-    },
-    {
-        "name": "Laayoune",
-        "id": 103
-    },
-    {
-        "name": "Lagouira",
-        "id": 106
-    },
-    {
-        "name": "Laksar Lakbire",
-        "id": 50
-    },
-    {
-        "name": "Lgara",
-        "id": 75
-    },
-    {
-        "name": "Marrakech",
-        "id": 84
-    },
-    {
-        "name": "Meknes",
-        "id": 43
-    },
-    {
-        "name": "Melilla",
-        "id": 9
-    },
-    {
-        "name": "Menzal Beni Yazgha",
-        "id": 25
-    },
-    {
-        "name": "Meskoura",
-        "id": 63
-    },
-    {
-        "name": "Midelet",
-        "id": 29
-    },
-    {
-        "name": "Missour",
-        "id": 16
-    },
-    {
-        "name": "Mohammedia",
-        "id": 76
-    },
-    {
-        "name": "Moulay Bouaaza",
-        "id": 58
-    },
-    {
-        "name": "Moulay Yaacoub",
-        "id": 36
-    },
-    {
-        "name": "Nador",
-        "id": 8
-    },
-    {
-        "name": "Ouarzazate",
-        "id": 71
-    },
-    {
-        "name": "Ouazzane",
-        "id": 44
-    },
-    {
-        "name": "Oued Amlil",
-        "id": 21
-    },
-    {
-        "name": "Oued Zem",
-        "id": 64
-    },
-    {
-        "name": "Oujda",
-        "id": 2
-    },
-    {
-        "name": "Rabat Sale",
-        "id": 69
-    },
-    {
-        "name": "Remani",
-        "id": 68
-    },
-    {
-        "name": "Rich",
-        "id": 24
-    },
-    {
-        "name": "Rissani",
-        "id": 20
-    },
-    {
-        "name": "Safi",
-        "id": 92
-    },
-    {
-        "name": "Sebta",
-        "id": 39
-    },
-    {
-        "name": "Sefrou",
-        "id": 30
-    },
-    {
-        "name": "Settat",
-        "id": 79
-    },
-    {
-        "name": "Sidi Ifni",
-        "id": 99
-    },
-    {
-        "name": "Sidi Kacem",
-        "id": 46
-    },
-    {
-        "name": "Sidi Slimane",
-        "id": 52
-    },
-    {
-        "name": "Sidi Yahya Lgharb",
-        "id": 60
-    },
-    {
-        "name": "Skhour Rehamna",
-        "id": 113
-    },
-    {
-        "name": "Smara",
-        "id": 101
-    },
-    {
-        "name": "Souq Arbia Gharb",
-        "id": 53
-    },
-    {
-        "name": "Tafraout",
-        "id": 91
-    },
-    {
-        "name": "Talouine",
-        "id": 81
-    },
-    {
-        "name": "Tandit",
-        "id": 13
-    },
-    {
-        "name": "Tanger",
-        "id": 48
-    },
-    {
-        "name": "Tantan",
-        "id": 100
-    },
-    {
-        "name": "Taounat",
-        "id": 26
-    },
-    {
-        "name": "Taourirt",
-        "id": 7
-    },
-    {
-        "name": "Taroudant",
-        "id": 90
-    },
-    {
-        "name": "Tata",
-        "id": 83
-    },
-    {
-        "name": "Taza",
-        "id": 17
-    },
-    {
-        "name": "Tehla",
-        "id": 22
-    },
-    {
-        "name": "Terfaya",
-        "id": 102
-    },
-    {
-        "name": "Tetouan",
-        "id": 40
-    },
-    {
-        "name": "Tiflet",
-        "id": 61
-    },
-    {
-        "name": "Tinghir",
-        "id": 110
-    },
-    {
-        "name": "Tinjdad",
-        "id": 34
-    },
-    {
-        "name": "Tissa",
-        "id": 27
-    },
-    {
-        "name": "Tizi Ousli",
-        "id": 47
-    },
-    {
-        "name": "Tiznit",
-        "id": 96
-    },
-    {
-        "name": "Youssoufia",
-        "id": 89
-    },
-    {
-        "name": "Zag",
-        "id": 93
-    },
-    {
-        "name": "Zagoura",
-        "id": 49
-    },
-    {
-        "name": "Zerhoune",
-        "id": 42
-    }
+  {
+    "id": 1,
+    "name": "الرباط",
+    "long_d": 6,
+    "long_m": 51,
+    "lat_d": 34,
+    "lat_m": 1,
+    "alt": 120
+  },
+  {
+    "id": 2,
+    "name": "الخميسات",
+    "long_d": 6,
+    "long_m": 5,
+    "lat_d": 33,
+    "lat_m": 50,
+    "alt": 460
+  },
+  {
+    "id": 3,
+    "name": "تيفلت",
+    "long_d": 6,
+    "long_m": 20,
+    "lat_d": 33,
+    "lat_m": 55,
+    "alt": 460
+  },
+  {
+    "id": 4,
+    "name": "الرماني",
+    "long_d": 6,
+    "long_m": 36,
+    "lat_d": 33,
+    "lat_m": 31,
+    "alt": 500
+  },
+  {
+    "id": 5,
+    "name": "والماس",
+    "long_d": 6,
+    "long_m": 0,
+    "lat_d": 33,
+    "lat_m": 25,
+    "alt": 1260
+  },
+  {
+    "id": 6,
+    "name": "بوزنيقة",
+    "long_d": 7,
+    "long_m": 10,
+    "lat_d": 33,
+    "lat_m": 48,
+    "alt": 100
+  },
+  {
+    "id": 7,
+    "name": "القنيطرة",
+    "long_d": 6,
+    "long_m": 36,
+    "lat_d": 34,
+    "lat_m": 15,
+    "alt": 200
+  },
+  {
+    "id": 8,
+    "name": "سيدي قاسم",
+    "long_d": 5,
+    "long_m": 43,
+    "lat_d": 34,
+    "lat_m": 13,
+    "alt": 450
+  },
+  {
+    "id": 9,
+    "name": "سيدي يحيى الغرب",
+    "long_d": 6,
+    "long_m": 19,
+    "lat_d": 34,
+    "lat_m": 19,
+    "alt": 200
+  },
+  {
+    "id": 10,
+    "name": "سيدي سليمان",
+    "long_d": 5,
+    "long_m": 57,
+    "lat_d": 34,
+    "lat_m": 16,
+    "alt": 100
+  },
+  {
+    "id": 11,
+    "name": "سوق أربعاء الغرب",
+    "long_d": 6,
+    "long_m": 19,
+    "lat_d": 34,
+    "lat_m": 19,
+    "alt": 100
+  },
+  {
+    "id": 12,
+    "name": "عرباوة",
+    "long_d": 5,
+    "long_m": 56,
+    "lat_d": 34,
+    "lat_m": 55,
+    "alt": 200
+  },
+  {
+    "id": 13,
+    "name": "مولاي بوسلهام",
+    "long_d": 6,
+    "long_m": 17,
+    "lat_d": 34,
+    "lat_m": 53,
+    "alt": 100
+  },
+  {
+    "id": 14,
+    "name": "طنجة",
+    "long_d": 5,
+    "long_m": 49,
+    "lat_d": 35,
+    "lat_m": 46,
+    "alt": 300
+  },
+  {
+    "id": 15,
+    "name": "تطوان",
+    "long_d": 5,
+    "long_m": 22,
+    "lat_d": 35,
+    "lat_m": 34,
+    "alt": 520
+  },
+  {
+    "id": 16,
+    "name": "العرائش",
+    "long_d": 6,
+    "long_m": 9,
+    "lat_d": 35,
+    "lat_m": 11,
+    "alt": 100
+  },
+  {
+    "id": 17,
+    "name": "أصيلة",
+    "long_d": 6,
+    "long_m": 3,
+    "lat_d": 35,
+    "lat_m": 28,
+    "alt": 120
+  },
+  {
+    "id": 18,
+    "name": "شفشاون",
+    "long_d": 5,
+    "long_m": 16,
+    "lat_d": 35,
+    "lat_m": 10,
+    "alt": 1150
+  },
+  {
+    "id": 19,
+    "name": "مرتيل",
+    "long_d": 5,
+    "long_m": 17,
+    "lat_d": 35,
+    "lat_m": 37,
+    "alt": 100
+  },
+  {
+    "id": 20,
+    "name": "المضيق",
+    "long_d": 5,
+    "long_m": 20,
+    "lat_d": 35,
+    "lat_m": 41,
+    "alt": 100
+  },
+  {
+    "id": 21,
+    "name": "القصر الكبير",
+    "long_d": 5,
+    "long_m": 55,
+    "lat_d": 35,
+    "lat_m": 0,
+    "alt": 150
+  },
+  {
+    "id": 22,
+    "name": "القصر الصغير",
+    "long_d": 5,
+    "long_m": 34,
+    "lat_d": 35,
+    "lat_m": 50,
+    "alt": 150
+  },
+  {
+    "id": 23,
+    "name": "الحسيمة",
+    "long_d": 3,
+    "long_m": 56,
+    "lat_d": 35,
+    "lat_m": 15,
+    "alt": 200
+  },
+  {
+    "id": 24,
+    "name": "سبتة",
+    "long_d": 5,
+    "long_m": 21,
+    "lat_d": 35,
+    "lat_m": 53,
+    "alt": 500
+  },
+  {
+    "id": 25,
+    "name": "الفنيدق",
+    "long_d": 5,
+    "long_m": 22,
+    "lat_d": 35,
+    "lat_m": 51,
+    "alt": 250
+  },
+  {
+    "id": 26,
+    "name": "الجبهة",
+    "long_d": 4,
+    "long_m": 40,
+    "lat_d": 35,
+    "lat_m": 12,
+    "alt": 250
+  },
+  {
+    "id": 27,
+    "name": "واد لاو",
+    "long_d": 5,
+    "long_m": 6,
+    "lat_d": 35,
+    "lat_m": 26,
+    "alt": 100
+  },
+  {
+    "id": 28,
+    "name": "باب برد",
+    "long_d": 4,
+    "long_m": 53,
+    "lat_d": 35,
+    "lat_m": 0,
+    "alt": 1230
+  },
+  {
+    "id": 29,
+    "name": "وزان",
+    "long_d": 5,
+    "long_m": 35,
+    "lat_d": 34,
+    "lat_m": 48,
+    "alt": 700
+  },
+  {
+    "id": 30,
+    "name": "بوسكور",
+    "long_d": 3,
+    "long_m": 36,
+    "lat_d": 34,
+    "lat_m": 42,
+    "alt": 400
+  },
+  {
+    "id": 31,
+    "name": "وجدة",
+    "long_d": 1,
+    "long_m": 56,
+    "lat_d": 34,
+    "lat_m": 41,
+    "alt": 730
+  },
+  {
+    "id": 32,
+    "name": "بركان",
+    "long_d": 2,
+    "long_m": 21,
+    "lat_d": 34,
+    "lat_m": 55,
+    "alt": 200
+  },
+  {
+    "id": 33,
+    "name": "فكيك",
+    "long_d": 1,
+    "long_m": 14,
+    "lat_d": 32,
+    "lat_m": 7,
+    "alt": 900
+  },
+  {
+    "id": 34,
+    "name": "بوعرفة",
+    "long_d": 1,
+    "long_m": 58,
+    "lat_d": 32,
+    "lat_m": 32,
+    "alt": 900
+  },
+  {
+    "id": 35,
+    "name": "كرسيف",
+    "long_d": 3,
+    "long_m": 22,
+    "lat_d": 34,
+    "lat_m": 13,
+    "alt": 400
+  },
+  {
+    "id": 36,
+    "name": "جرادة",
+    "long_d": 2,
+    "long_m": 10,
+    "lat_d": 34,
+    "lat_m": 19,
+    "alt": 1070
+  },
+  {
+    "id": 37,
+    "name": "عين الشعير",
+    "long_d": 2,
+    "long_m": 31,
+    "lat_d": 32,
+    "lat_m": 12,
+    "alt": 900
+  },
+  {
+    "id": 38,
+    "name": "تاوريرت",
+    "long_d": 2,
+    "long_m": 53,
+    "lat_d": 34,
+    "lat_m": 25,
+    "alt": 1000
+  },
+  {
+    "id": 39,
+    "name": "الناظور",
+    "long_d": 2,
+    "long_m": 56,
+    "lat_d": 35,
+    "lat_m": 11,
+    "alt": 200
+  },
+  {
+    "id": 40,
+    "name": "مليلية",
+    "long_d": 2,
+    "long_m": 58,
+    "lat_d": 35,
+    "lat_m": 18,
+    "alt": 100
+  },
+  {
+    "id": 41,
+    "name": "دبدو",
+    "long_d": 3,
+    "long_m": 1,
+    "lat_d": 34,
+    "lat_m": 0,
+    "alt": 1100
+  },
+  {
+    "id": 42,
+    "name": "سلوان",
+    "long_d": 2,
+    "long_m": 56,
+    "lat_d": 35,
+    "lat_m": 4,
+    "alt": 300
+  },
+  {
+    "id": 43,
+    "name": "بني أنصار",
+    "long_d": 2,
+    "long_m": 55,
+    "lat_d": 35,
+    "lat_m": 16,
+    "alt": 200
+  },
+  {
+    "id": 44,
+    "name": "فرخانة",
+    "long_d": 2,
+    "long_m": 59,
+    "lat_d": 35,
+    "lat_m": 17,
+    "alt": 200
+  },
+  {
+    "id": 45,
+    "name": "تالسينت",
+    "long_d": 3,
+    "long_m": 26,
+    "lat_d": 32,
+    "lat_m": 32,
+    "alt": 1450
+  },
+  {
+    "id": 46,
+    "name": "تندرارة",
+    "long_d": 2,
+    "long_m": 0,
+    "lat_d": 33,
+    "lat_m": 3,
+    "alt": 1470
+  },
+  {
+    "id": 47,
+    "name": "العيون الشرقية",
+    "long_d": 2,
+    "long_m": 30,
+    "lat_d": 34,
+    "lat_m": 35,
+    "alt": 620
+  },
+  {
+    "id": 48,
+    "name": "بني ادرار",
+    "long_d": 1,
+    "long_m": 59,
+    "lat_d": 34,
+    "lat_m": 49,
+    "alt": 520
+  },
+  {
+    "id": 49,
+    "name": "السعيدية",
+    "long_d": 2,
+    "long_m": 15,
+    "lat_d": 35,
+    "lat_m": 11,
+    "alt": 100
+  },
+  {
+    "id": 50,
+    "name": "رأس الماء",
+    "long_d": 2,
+    "long_m": 25,
+    "lat_d": 35,
+    "lat_m": 9,
+    "alt": 100
+  },
+  {
+    "id": 51,
+    "name": "تافوغالت",
+    "long_d": 2,
+    "long_m": 24,
+    "lat_d": 34,
+    "lat_m": 48,
+    "alt": 890
+  },
+  {
+    "id": 52,
+    "name": "فزوان",
+    "long_d": 2,
+    "long_m": 12,
+    "lat_d": 34,
+    "lat_m": 55,
+    "alt": 800
+  },
+  {
+    "id": 53,
+    "name": "أحفير",
+    "long_d": 2,
+    "long_m": 6,
+    "lat_d": 34,
+    "lat_m": 57,
+    "alt": 300
+  },
+  {
+    "id": 54,
+    "name": "زايو",
+    "long_d": 2,
+    "long_m": 43,
+    "lat_d": 34,
+    "lat_m": 56,
+    "alt": 600
+  },
+  {
+    "id": 55,
+    "name": "دريوش",
+    "long_d": 3,
+    "long_m": 23,
+    "lat_d": 34,
+    "lat_m": 58,
+    "alt": 600
+  },
+  {
+    "id": 56,
+    "name": "بني تجيت",
+    "long_d": 3,
+    "long_m": 28,
+    "lat_d": 32,
+    "lat_m": 18,
+    "alt": 1360
+  },
+  {
+    "id": 57,
+    "name": "بوعنان",
+    "long_d": 3,
+    "long_m": 3,
+    "lat_d": 32,
+    "lat_m": 3,
+    "alt": 860
+  },
+  {
+    "id": 58,
+    "name": "الدار البيضاء",
+    "long_d": 7,
+    "long_m": 40,
+    "lat_d": 33,
+    "lat_m": 34,
+    "alt": 200
+  },
+  {
+    "id": 59,
+    "name": "المحمدية",
+    "long_d": 7,
+    "long_m": 24,
+    "lat_d": 33,
+    "lat_m": 42,
+    "alt": 100
+  },
+  {
+    "id": 60,
+    "name": "بن سليمان",
+    "long_d": 7,
+    "long_m": 8,
+    "lat_d": 33,
+    "lat_m": 37,
+    "alt": 300
+  },
+  {
+    "id": 61,
+    "name": "سطات",
+    "long_d": 7,
+    "long_m": 38,
+    "lat_d": 33,
+    "lat_m": 0,
+    "alt": 410
+  },
+  {
+    "id": 62,
+    "name": "الكارة",
+    "long_d": 7,
+    "long_m": 14,
+    "lat_d": 33,
+    "lat_m": 17,
+    "alt": 420
+  },
+  {
+    "id": 63,
+    "name": "البروج",
+    "long_d": 7,
+    "long_m": 12,
+    "lat_d": 32,
+    "lat_m": 30,
+    "alt": 500
+  },
+  {
+    "id": 64,
+    "name": "ابن أحمد",
+    "long_d": 7,
+    "long_m": 15,
+    "lat_d": 33,
+    "lat_m": 4,
+    "alt": 650
+  },
+  {
+    "id": 65,
+    "name": "برشيد",
+    "long_d": 7,
+    "long_m": 35,
+    "lat_d": 33,
+    "lat_m": 16,
+    "alt": 250
+  },
+  {
+    "id": 66,
+    "name": "الجديدة",
+    "long_d": 8,
+    "long_m": 31,
+    "lat_d": 33,
+    "lat_m": 15,
+    "alt": 100
+  },
+  {
+    "id": 67,
+    "name": "أزمور",
+    "long_d": 8,
+    "long_m": 21,
+    "lat_d": 33,
+    "lat_m": 17,
+    "alt": 150
+  },
+  {
+    "id": 68,
+    "name": "سيدي بنور",
+    "long_d": 8,
+    "long_m": 26,
+    "lat_d": 32,
+    "lat_m": 40,
+    "alt": 190
+  },
+  {
+    "id": 69,
+    "name": "خميس الزمامرة",
+    "long_d": 8,
+    "long_m": 43,
+    "lat_d": 32,
+    "lat_m": 37,
+    "alt": 200
+  },
+  {
+    "id": 70,
+    "name": "خنيفرة",
+    "long_d": 5,
+    "long_m": 41,
+    "lat_d": 32,
+    "lat_m": 56,
+    "alt": 1000
+  },
+  {
+    "id": 71,
+    "name": "مولاي بوعزة",
+    "long_d": 6,
+    "long_m": 12,
+    "lat_d": 33,
+    "lat_m": 14,
+    "alt": 900
+  },
+  {
+    "id": 72,
+    "name": "زاوية أحنصال",
+    "long_d": 6,
+    "long_m": 7,
+    "lat_d": 31,
+    "lat_m": 50,
+    "alt": 2500
+  },
+  {
+    "id": 73,
+    "name": "بني ملال",
+    "long_d": 6,
+    "long_m": 22,
+    "lat_d": 32,
+    "lat_m": 20,
+    "alt": 1200
+  },
+  {
+    "id": 74,
+    "name": "أزيلال",
+    "long_d": 6,
+    "long_m": 35,
+    "lat_d": 31,
+    "lat_m": 57,
+    "alt": 1700
+  },
+  {
+    "id": 75,
+    "name": "الفقيه بنصالح",
+    "long_d": 6,
+    "long_m": 42,
+    "lat_d": 32,
+    "lat_m": 30,
+    "alt": 500
+  },
+  {
+    "id": 76,
+    "name": "دمنات",
+    "long_d": 7,
+    "long_m": 1,
+    "lat_d": 31,
+    "lat_m": 44,
+    "alt": 1700
+  },
+  {
+    "id": 77,
+    "name": "القصيبة",
+    "long_d": 6,
+    "long_m": 3,
+    "lat_d": 32,
+    "lat_m": 34,
+    "alt": 1300
+  },
+  {
+    "id": 78,
+    "name": "قصبة تادلة",
+    "long_d": 6,
+    "long_m": 17,
+    "lat_d": 32,
+    "lat_m": 36,
+    "alt": 540
+  },
+  {
+    "id": 79,
+    "name": "خريبكة",
+    "long_d": 6,
+    "long_m": 55,
+    "lat_d": 32,
+    "lat_m": 53,
+    "alt": 830
+  },
+  {
+    "id": 80,
+    "name": "وادي زم",
+    "long_d": 6,
+    "long_m": 35,
+    "lat_d": 32,
+    "lat_m": 52,
+    "alt": 880
+  },
+  {
+    "id": 81,
+    "name": "فاس",
+    "long_d": 5,
+    "long_m": 1,
+    "lat_d": 34,
+    "lat_m": 4,
+    "alt": 450
+  },
+  {
+    "id": 82,
+    "name": "صفرو",
+    "long_d": 4,
+    "long_m": 51,
+    "lat_d": 33,
+    "lat_m": 50,
+    "alt": 1000
+  },
+  {
+    "id": 83,
+    "name": "مولاي يعقوب",
+    "long_d": 5,
+    "long_m": 11,
+    "lat_d": 34,
+    "lat_m": 5,
+    "alt": 400
+  },
+  {
+    "id": 84,
+    "name": "بولمان",
+    "long_d": 4,
+    "long_m": 44,
+    "lat_d": 33,
+    "lat_m": 22,
+    "alt": 2500
+  },
+  {
+    "id": 85,
+    "name": "ميسور",
+    "long_d": 4,
+    "long_m": 1,
+    "lat_d": 33,
+    "lat_m": 3,
+    "alt": 900
+  },
+  {
+    "id": 86,
+    "name": "رباط الخير",
+    "long_d": 4,
+    "long_m": 25,
+    "lat_d": 33,
+    "lat_m": 49,
+    "alt": 1500
+  },
+  {
+    "id": 87,
+    "name": "المنزل بني يازغة",
+    "long_d": 4,
+    "long_m": 33,
+    "lat_d": 33,
+    "lat_m": 50,
+    "alt": 1050
+  },
+  {
+    "id": 88,
+    "name": "إموزار كندر",
+    "long_d": 5,
+    "long_m": 1,
+    "lat_d": 33,
+    "lat_m": 44,
+    "alt": 1520
+  },
+  {
+    "id": 89,
+    "name": "تازة",
+    "long_d": 4,
+    "long_m": 1,
+    "lat_d": 34,
+    "lat_m": 13,
+    "alt": 900
+  },
+  {
+    "id": 90,
+    "name": "تاونات",
+    "long_d": 4,
+    "long_m": 39,
+    "lat_d": 34,
+    "lat_m": 32,
+    "alt": 800
+  },
+  {
+    "id": 91,
+    "name": "أكنول",
+    "long_d": 3,
+    "long_m": 53,
+    "lat_d": 34,
+    "lat_m": 39,
+    "alt": 1350
+  },
+  {
+    "id": 92,
+    "name": "تيزي وسلي",
+    "long_d": 3,
+    "long_m": 48,
+    "lat_d": 34,
+    "lat_m": 46,
+    "alt": 1450
+  },
+  {
+    "id": 93,
+    "name": "بورد",
+    "long_d": 4,
+    "long_m": 6,
+    "lat_d": 34,
+    "lat_m": 44,
+    "alt": 900
+  },
+  {
+    "id": 94,
+    "name": "تاهلة",
+    "long_d": 4,
+    "long_m": 26,
+    "lat_d": 34,
+    "lat_m": 3,
+    "alt": 520
+  },
+  {
+    "id": 95,
+    "name": "تيسة",
+    "long_d": 4,
+    "long_m": 41,
+    "lat_d": 34,
+    "lat_m": 18,
+    "alt": 310
+  },
+  {
+    "id": 96,
+    "name": "قرية با محمد",
+    "long_d": 5,
+    "long_m": 13,
+    "lat_d": 34,
+    "lat_m": 22,
+    "alt": 250
+  },
+  {
+    "id": 97,
+    "name": "كتامة",
+    "long_d": 4,
+    "long_m": 38,
+    "lat_d": 34,
+    "lat_m": 53,
+    "alt": 1750
+  },
+  {
+    "id": 98,
+    "name": "واد أمليل",
+    "long_d": 4,
+    "long_m": 17,
+    "lat_d": 34,
+    "lat_m": 11,
+    "alt": 400
+  },
+  {
+    "id": 99,
+    "name": "مكناس",
+    "long_d": 5,
+    "long_m": 35,
+    "lat_d": 33,
+    "lat_m": 54,
+    "alt": 600
+  },
+  {
+    "id": 100,
+    "name": "يفرن",
+    "long_d": 5,
+    "long_m": 7,
+    "lat_d": 33,
+    "lat_m": 32,
+    "alt": 1500
+  },
+  {
+    "id": 101,
+    "name": "الحاجب",
+    "long_d": 5,
+    "long_m": 23,
+    "lat_d": 33,
+    "lat_m": 41,
+    "alt": 1160
+  },
+  {
+    "id": 102,
+    "name": "زرهون",
+    "long_d": 5,
+    "long_m": 32,
+    "lat_d": 34,
+    "lat_m": 3,
+    "alt": 860
+  },
+  {
+    "id": 103,
+    "name": "آزرو",
+    "long_d": 5,
+    "long_m": 14,
+    "lat_d": 33,
+    "lat_m": 26,
+    "alt": 1430
+  },
+  {
+    "id": 104,
+    "name": "مراكش",
+    "long_d": 8,
+    "long_m": 2,
+    "lat_d": 31,
+    "lat_m": 38,
+    "alt": 600
+  },
+  {
+    "id": 105,
+    "name": "قلعة السراغنة",
+    "long_d": 7,
+    "long_m": 25,
+    "lat_d": 32,
+    "lat_m": 3,
+    "alt": 550
+  },
+  {
+    "id": 106,
+    "name": "الصويرة",
+    "long_d": 9,
+    "long_m": 47,
+    "lat_d": 31,
+    "lat_m": 31,
+    "alt": 120
+  },
+  {
+    "id": 107,
+    "name": "شيشاوة",
+    "long_d": 8,
+    "long_m": 46,
+    "lat_d": 31,
+    "lat_m": 33,
+    "alt": 500
+  },
+  {
+    "id": 108,
+    "name": "بنجرير",
+    "long_d": 7,
+    "long_m": 58,
+    "lat_d": 32,
+    "lat_m": 14,
+    "alt": 550
+  },
+  {
+    "id": 109,
+    "name": "الرحامنة",
+    "long_d": 7,
+    "long_m": 55,
+    "lat_d": 32,
+    "lat_m": 29,
+    "alt": 750
+  },
+  {
+    "id": 110,
+    "name": "تمنار",
+    "long_d": 9,
+    "long_m": 41,
+    "lat_d": 31,
+    "lat_m": 0,
+    "alt": 450
+  },
+  {
+    "id": 111,
+    "name": "آسفي",
+    "long_d": 9,
+    "long_m": 15,
+    "lat_d": 32,
+    "lat_m": 18,
+    "alt": 150
+  },
+  {
+    "id": 112,
+    "name": "الوليدية",
+    "long_d": 9,
+    "long_m": 2,
+    "lat_d": 32,
+    "lat_m": 43,
+    "alt": 100
+  },
+  {
+    "id": 113,
+    "name": "اليوسفية",
+    "long_d": 8,
+    "long_m": 32,
+    "lat_d": 32,
+    "lat_m": 15,
+    "alt": 460
+  },
+  {
+    "id": 114,
+    "name": "تسلطانت",
+    "long_d": 7,
+    "long_m": 57,
+    "lat_d": 31,
+    "lat_m": 33,
+    "alt": 600
+  },
+  {
+    "id": 115,
+    "name": "تامصلوحت",
+    "long_d": 8,
+    "long_m": 6,
+    "lat_d": 31,
+    "lat_m": 30,
+    "alt": 600
+  },
+  {
+    "id": 116,
+    "name": "قطارة",
+    "long_d": 8,
+    "long_m": 10,
+    "lat_d": 31,
+    "lat_m": 52,
+    "alt": 600
+  },
+  {
+    "id": 117,
+    "name": "أكادير",
+    "long_d": 9,
+    "long_m": 34,
+    "lat_d": 30,
+    "lat_m": 23,
+    "alt": 300
+  },
+  {
+    "id": 118,
+    "name": "تارودانت",
+    "long_d": 8,
+    "long_m": 48,
+    "lat_d": 30,
+    "lat_m": 29,
+    "alt": 300
+  },
+  {
+    "id": 119,
+    "name": "تزنيت",
+    "long_d": 9,
+    "long_m": 44,
+    "lat_d": 29,
+    "lat_m": 42,
+    "alt": 300
+  },
+  {
+    "id": 120,
+    "name": "إغرم",
+    "long_d": 8,
+    "long_m": 28,
+    "lat_d": 30,
+    "lat_m": 5,
+    "alt": 2000
+  },
+  {
+    "id": 121,
+    "name": "تالوين",
+    "long_d": 7,
+    "long_m": 56,
+    "lat_d": 30,
+    "lat_m": 32,
+    "alt": 1450
+  },
+  {
+    "id": 122,
+    "name": "تافراوت",
+    "long_d": 8,
+    "long_m": 59,
+    "lat_d": 29,
+    "lat_m": 43,
+    "alt": 1550
+  },
+  {
+    "id": 123,
+    "name": "طاطا",
+    "long_d": 7,
+    "long_m": 59,
+    "lat_d": 29,
+    "lat_m": 45,
+    "alt": 720
+  },
+  {
+    "id": 124,
+    "name": "أقا",
+    "long_d": 8,
+    "long_m": 15,
+    "lat_d": 29,
+    "lat_m": 24,
+    "alt": 1500
+  },
+  {
+    "id": 125,
+    "name": "فم لحصن",
+    "long_d": 8,
+    "long_m": 54,
+    "lat_d": 29,
+    "lat_m": 2,
+    "alt": 1040
+  },
+  {
+    "id": 126,
+    "name": "بويكرة",
+    "long_d": 9,
+    "long_m": 22,
+    "lat_d": 30,
+    "lat_m": 13,
+    "alt": 150
+  },
+  {
+    "id": 127,
+    "name": "أولاد تايمة",
+    "long_d": 9,
+    "long_m": 13,
+    "lat_d": 30,
+    "lat_m": 24,
+    "alt": 300
+  },
+  {
+    "id": 128,
+    "name": "الرشيدية",
+    "long_d": 4,
+    "long_m": 27,
+    "lat_d": 31,
+    "lat_m": 56,
+    "alt": 1000
+  },
+  {
+    "id": 129,
+    "name": "الريصاني",
+    "long_d": 4,
+    "long_m": 16,
+    "lat_d": 31,
+    "lat_m": 16,
+    "alt": 1000
+  },
+  {
+    "id": 130,
+    "name": "أرفود",
+    "long_d": 4,
+    "long_m": 14,
+    "lat_d": 31,
+    "lat_m": 25,
+    "alt": 1000
+  },
+  {
+    "id": 131,
+    "name": "تنديت",
+    "long_d": 3,
+    "long_m": 38,
+    "lat_d": 33,
+    "lat_m": 40,
+    "alt": 750
+  },
+  {
+    "id": 132,
+    "name": "كلميمة",
+    "long_d": 4,
+    "long_m": 57,
+    "lat_d": 31,
+    "lat_m": 42,
+    "alt": 1000
+  },
+  {
+    "id": 133,
+    "name": "إملشيل",
+    "long_d": 5,
+    "long_m": 37,
+    "lat_d": 32,
+    "lat_m": 9,
+    "alt": 2200
+  },
+  {
+    "id": 134,
+    "name": "تنجداد",
+    "long_d": 5,
+    "long_m": 2,
+    "lat_d": 31,
+    "lat_m": 30,
+    "alt": 1000
+  },
+  {
+    "id": 135,
+    "name": "الريش",
+    "long_d": 4,
+    "long_m": 28,
+    "lat_d": 32,
+    "lat_m": 16,
+    "alt": 1350
+  },
+  {
+    "id": 136,
+    "name": "ميدلت",
+    "long_d": 4,
+    "long_m": 45,
+    "lat_d": 32,
+    "lat_m": 41,
+    "alt": 1610
+  },
+  {
+    "id": 137,
+    "name": "زاكورة",
+    "long_d": 5,
+    "long_m": 51,
+    "lat_d": 30,
+    "lat_m": 19,
+    "alt": 800
+  },
+  {
+    "id": 138,
+    "name": "ورزازات",
+    "long_d": 6,
+    "long_m": 56,
+    "lat_d": 30,
+    "lat_m": 55,
+    "alt": 1200
+  },
+  {
+    "id": 139,
+    "name": "تنغير",
+    "long_d": 5,
+    "long_m": 32,
+    "lat_d": 31,
+    "lat_m": 30,
+    "alt": 1500
+  },
+  {
+    "id": 140,
+    "name": "هسكورة",
+    "long_d": 6,
+    "long_m": 33,
+    "lat_d": 31,
+    "lat_m": 4,
+    "alt": 1250
+  },
+  {
+    "id": 141,
+    "name": "قلعة مكونة",
+    "long_d": 6,
+    "long_m": 9,
+    "lat_d": 31,
+    "lat_m": 14,
+    "alt": 1500
+  },
+  {
+    "id": 142,
+    "name": "أكدز",
+    "long_d": 6,
+    "long_m": 27,
+    "lat_d": 30,
+    "lat_m": 42,
+    "alt": 1550
+  },
+  {
+    "id": 143,
+    "name": "بومالن دادس",
+    "long_d": 6,
+    "long_m": 0,
+    "lat_d": 31,
+    "lat_m": 22,
+    "alt": 1600
+  },
+  {
+    "id": 144,
+    "name": "النيف",
+    "long_d": 5,
+    "long_m": 11,
+    "lat_d": 31,
+    "lat_m": 7,
+    "alt": 880
+  },
+  {
+    "id": 145,
+    "name": "أسول",
+    "long_d": 5,
+    "long_m": 11,
+    "lat_d": 31,
+    "lat_m": 56,
+    "alt": 2800
+  },
+  {
+    "id": 146,
+    "name": "أمسمرير",
+    "long_d": 5,
+    "long_m": 49,
+    "lat_d": 31,
+    "lat_m": 42,
+    "alt": 2100
+  },
+  {
+    "id": 147,
+    "name": "تازارين",
+    "long_d": 5,
+    "long_m": 34,
+    "lat_d": 30,
+    "lat_m": 46,
+    "alt": 500
+  },
+  {
+    "id": 148,
+    "name": "سيدي إفني",
+    "long_d": 10,
+    "long_m": 11,
+    "lat_d": 29,
+    "lat_m": 23,
+    "alt": 350
+  },
+  {
+    "id": 149,
+    "name": "كلميم",
+    "long_d": 10,
+    "long_m": 4,
+    "lat_d": 28,
+    "lat_m": 59,
+    "alt": 650
+  },
+  {
+    "id": 150,
+    "name": "أسا",
+    "long_d": 9,
+    "long_m": 27,
+    "lat_d": 28,
+    "lat_m": 34,
+    "alt": 300
+  },
+  {
+    "id": 151,
+    "name": "الزاك",
+    "long_d": 9,
+    "long_m": 18,
+    "lat_d": 28,
+    "lat_m": 1,
+    "alt": 400
+  },
+  {
+    "id": 152,
+    "name": "طانطان",
+    "long_d": 11,
+    "long_m": 7,
+    "lat_d": 28,
+    "lat_m": 26,
+    "alt": 300
+  },
+  {
+    "id": 153,
+    "name": "بويزكارن",
+    "long_d": 9,
+    "long_m": 44,
+    "lat_d": 29,
+    "lat_m": 11,
+    "alt": 580
+  },
+  {
+    "id": 154,
+    "name": "المحبس",
+    "long_d": 9,
+    "long_m": 3,
+    "lat_d": 27,
+    "lat_m": 24,
+    "alt": 450
+  },
+  {
+    "id": 155,
+    "name": "لمسيد",
+    "long_d": 10,
+    "long_m": 48,
+    "lat_d": 28,
+    "lat_m": 1,
+    "alt": 500
+  },
+  {
+    "id": 156,
+    "name": "العيون",
+    "long_d": 13,
+    "long_m": 14,
+    "lat_d": 27,
+    "lat_m": 9,
+    "alt": 100
+  },
+  {
+    "id": 157,
+    "name": "السمارة",
+    "long_d": 11,
+    "long_m": 41,
+    "lat_d": 26,
+    "lat_m": 46,
+    "alt": 300
+  },
+  {
+    "id": 158,
+    "name": "بوجدور",
+    "long_d": 14,
+    "long_m": 32,
+    "lat_d": 26,
+    "lat_m": 8,
+    "alt": 100
+  },
+  {
+    "id": 159,
+    "name": "طرفاية",
+    "long_d": 12,
+    "long_m": 56,
+    "lat_d": 27,
+    "lat_m": 56,
+    "alt": 100
+  },
+  {
+    "id": 160,
+    "name": "تفاريتي",
+    "long_d": 10,
+    "long_m": 34,
+    "lat_d": 26,
+    "lat_m": 10,
+    "alt": 1000
+  },
+  {
+    "id": 161,
+    "name": "بوكراع",
+    "long_d": 12,
+    "long_m": 50,
+    "lat_d": 26,
+    "lat_m": 22,
+    "alt": 300
+  },
+  {
+    "id": 162,
+    "name": "كلتة زمور",
+    "long_d": 12,
+    "long_m": 22,
+    "lat_d": 25,
+    "lat_m": 8,
+    "alt": 300
+  },
+  {
+    "id": 163,
+    "name": "أمكالة",
+    "long_d": 11,
+    "long_m": 24,
+    "lat_d": 26,
+    "lat_m": 10,
+    "alt": 300
+  },
+  {
+    "id": 164,
+    "name": "أخفنير",
+    "long_d": 12,
+    "long_m": 3,
+    "lat_d": 28,
+    "lat_m": 3,
+    "alt": 300
+  },
+  {
+    "id": 165,
+    "name": "الداخلة",
+    "long_d": 15,
+    "long_m": 59,
+    "lat_d": 23,
+    "lat_m": 42,
+    "alt": 150
+  },
+  {
+    "id": 166,
+    "name": "الكويرة",
+    "long_d": 17,
+    "long_m": 6,
+    "lat_d": 20,
+    "lat_m": 50,
+    "alt": 100
+  },
+  {
+    "id": 167,
+    "name": "أوسرد",
+    "long_d": 14,
+    "long_m": 18,
+    "lat_d": 22,
+    "lat_m": 33,
+    "alt": 300
+  },
+  {
+    "id": 168,
+    "name": "بئر كندوز",
+    "long_d": 16,
+    "long_m": 28,
+    "lat_d": 21,
+    "lat_m": 37,
+    "alt": 300
+  },
+  {
+    "id": 169,
+    "name": "بئر أنزاران",
+    "long_d": 14,
+    "long_m": 32,
+    "lat_d": 23,
+    "lat_m": 54,
+    "alt": 400
+  },
+  {
+    "id": 301,
+    "name": "خميس سيدي عبد الجليل",
+    "long_d": 4,
+    "long_m": 35,
+    "lat_d": 34,
+    "lat_m": 6,
+    "alt": 590
+  },
+  {
+    "id": 302,
+    "name": "أولاد عياد",
+    "long_d": 4,
+    "long_m": 36,
+    "lat_d": 34,
+    "lat_m": 5,
+    "alt": 300
+  },
+  {
+    "id": 303,
+    "name": "تاهلة",
+    "long_d": 4,
+    "long_m": 25,
+    "lat_d": 34,
+    "lat_m": 3,
+    "alt": 520
+  },
+  {
+    "id": 304,
+    "name": "مطماطة",
+    "long_d": 4,
+    "long_m": 33,
+    "lat_d": 34,
+    "lat_m": 6,
+    "alt": 150
+  },
+  {
+    "id": 305,
+    "name": "إيمنتانوت",
+    "long_d": 8,
+    "long_m": 51,
+    "lat_d": 31,
+    "lat_m": 11,
+    "alt": 900
+  },
+  {
+    "id": 306,
+    "name": "سيدي غانم",
+    "long_d": 9,
+    "long_m": 27,
+    "lat_d": 31,
+    "lat_m": 18,
+    "alt": 1000
+  },
+  {
+    "id": 307,
+    "name": "تفنتان",
+    "long_d": 7,
+    "long_m": 31,
+    "lat_d": 31,
+    "lat_m": 21,
+    "alt": 400
+  },
+  {
+    "id": 308,
+    "name": "آيت القاق",
+    "long_d": 7,
+    "long_m": 47,
+    "lat_d": 31,
+    "lat_m": 14,
+    "alt": 2600
+  },
+  {
+    "id": 309,
+    "name": "أكدال أملشيل",
+    "long_d": 5,
+    "long_m": 29,
+    "lat_d": 32,
+    "lat_m": 1,
+    "alt": 2200
+  },
+  {
+    "id": 310,
+    "name": "اكودال املشيل ميدلت",
+    "long_d": 5,
+    "long_m": 29,
+    "lat_d": 32,
+    "lat_m": 1,
+    "alt": 1200
+  },
+  {
+    "id": 311,
+    "name": "أكايوار",
+    "long_d": 7,
+    "long_m": 49,
+    "lat_d": 31,
+    "lat_m": 16,
+    "alt": 1200
+  },
+  {
+    "id": 312,
+    "name": "عين العودة",
+    "long_d": 6,
+    "long_m": 47,
+    "lat_d": 33,
+    "lat_m": 48,
+    "alt": 200
+  },
+  {
+    "id": 313,
+    "name": "أسكين",
+    "long_d": 7,
+    "long_m": 46,
+    "lat_d": 31,
+    "lat_m": 20,
+    "alt": 1100
+  },
+  {
+    "id": 314,
+    "name": "آيت ورير",
+    "long_d": 7,
+    "long_m": 39,
+    "lat_d": 31,
+    "lat_m": 34,
+    "alt": 700
+  },
+  {
+    "id": 315,
+    "name": "زاوية مولاي ابراهيم",
+    "long_d": 7,
+    "long_m": 58,
+    "lat_d": 31,
+    "lat_m": 17,
+    "alt": 1200
+  },
+  {
+    "id": 316,
+    "name": "تولكولت",
+    "long_d": 9,
+    "long_m": 4,
+    "lat_d": 31,
+    "lat_m": 14,
+    "alt": 1200
+  },
+  {
+    "id": 317,
+    "name": "إيكس",
+    "long_d": 7,
+    "long_m": 51,
+    "lat_d": 30,
+    "lat_m": 57,
+    "alt": 2500
+  },
+  {
+    "id": 318,
+    "name": "كرس",
+    "long_d": 7,
+    "long_m": 38,
+    "lat_d": 31,
+    "lat_m": 32,
+    "alt": 2000
+  },
+  {
+    "id": 319,
+    "name": "تيسنت",
+    "long_d": 7,
+    "long_m": 18,
+    "lat_d": 29,
+    "lat_m": 53,
+    "alt": 1400
+  },
+  {
+    "id": 320,
+    "name": "فم زكيد",
+    "long_d": 6,
+    "long_m": 52,
+    "lat_d": 30,
+    "lat_m": 5,
+    "alt": 1500
+  },
+  {
+    "id": 321,
+    "name": "قصر إيش",
+    "long_d": 1,
+    "long_m": 1,
+    "lat_d": 32,
+    "lat_m": 31,
+    "alt": 1250
+  },
+  {
+    "id": 322,
+    "name": "إيمين ثلاث",
+    "long_d": 6,
+    "long_m": 32,
+    "lat_d": 31,
+    "lat_m": 38,
+    "alt": 1000
+  }
 ]
