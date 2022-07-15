@@ -1,9 +1,9 @@
 import { Center, Flex, Heading, VStack } from "@chakra-ui/layout";
 import { Spinner } from "@chakra-ui/spinner";
+import HijriDateDisplay from "@components/HijriDateDisplay";
 import PrayerCard from "@components/Prayer/PrayerCard";
 import PrayerList from "@components/Prayer/PrayerList";
 import SelectCity from "@components/SelectCity";
-import TimeDisplay from "@components/TimeDisplay";
 import useTime from "@hooks/useTime";
 import { getHijriDate, getPrayers } from "api/prayers";
 import { UseAppContext } from "context";
@@ -63,7 +63,7 @@ const Prayer = () => {
           Salati
         </Heading>
         <SelectCity cities={cities} city={city} handleChange={handleChange} />
-        <TimeDisplay time={hijri} />
+        <HijriDateDisplay date={hijri} />
       </VStack>
       {content}
     </Flex>
