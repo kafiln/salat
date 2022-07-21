@@ -1,4 +1,4 @@
-import { Center, Flex, Heading, VStack } from "@chakra-ui/layout";
+import { Center, Flex, VStack } from "@chakra-ui/layout";
 import { Spinner } from "@chakra-ui/spinner";
 import HijriDateDisplay from "@components/HijriDateDisplay";
 import PrayerCard from "@components/Prayer/PrayerCard";
@@ -59,9 +59,6 @@ const Prayer = () => {
   return (
     <Flex height="100%" direction="column">
       <VStack flexDir="column" spacing={4}>
-        <Heading as="h1" fontSize="md">
-          Salati
-        </Heading>
         <SelectCity cities={cities} city={city} handleChange={handleChange} />
         <HijriDateDisplay date={hijri} />
       </VStack>
