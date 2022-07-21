@@ -1,5 +1,5 @@
 import { Box, Flex } from "@chakra-ui/layout";
-import React, { ReactElement } from "react";
+import { ReactElement } from "react";
 
 const DefaultLayout = ({
   children,
@@ -12,7 +12,7 @@ const DefaultLayout = ({
 }) => {
   return (
     <Flex
-      spacing={4}
+      gap={4}
       justifyContent="space-between"
       direction="column"
       height="100vh"

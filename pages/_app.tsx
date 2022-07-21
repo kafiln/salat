@@ -3,7 +3,6 @@ import "@fontsource/open-sans/300.css";
 import "@fontsource/raleway/500.css";
 import "@fontsource/raleway/700.css";
 import { AppState, LocalProvider } from "context";
-import type { AppProps } from "next/app";
 import theme from "theme";
 
 const initialState: AppState = {
@@ -11,11 +10,13 @@ const initialState: AppState = {
   language: "ar",
 };
 
-const MyApp = ({ Component, pageProps }: AppProps) => {
+const MyApp = ({ Component, pageProps }: any) => {
   return (
     <ChakraProvider theme={theme}>
       <LocalProvider initialState={initialState}>
-        <Component {...pageProps} />
+        <>
+          <Component {...pageProps} />
+        </>
       </LocalProvider>
     </ChakraProvider>
   );
