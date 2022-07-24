@@ -10,7 +10,7 @@ import { getHijriDate, getPrayers } from "api/prayers";
 import { UseAppContext } from "context";
 import cities from "data/cities.json";
 import dayjs from "dayjs";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useQuery } from "react-query";
 
 const getCityName = (city: number) => {
@@ -20,11 +20,22 @@ const getCityName = (city: number) => {
 
 const Prayer = () => {
   const [state] = UseAppContext();
+  // const toast = useToast();
+  // const id = "test-toast";
+
   const { city: defaultCity } = state;
   const time = useTime();
   const [city, setCity] = useState(defaultCity);
   const { data: prayers } = useQuery(["prayers", city], () => getPrayers(city));
   const { data: hijri } = useQuery(["hijri"], () => getHijriDate());
+
+  useEffect(() => {
+    if (!("Notification" in window)) {
+      console.log("This browser does not support desktop notification");
+    } else {
+      Notification.requestPermission();
+    }
+  }, []);
 
   let content = (
     <Center flex={1}>
@@ -49,6 +60,24 @@ const Prayer = () => {
     const remainingTime = dayjs(dayjs(nextPrayer.time).diff(time)).format(
       "HH:mm:ss"
     );
+
+    //TODO: add notification
+    if (remainingTime === "00:00:00") {
+      const description = `${nextPrayer.name} is now`;
+      // console.log(description);
+      // if (!toast.isActive(id)) {
+      //   toast({
+      //     title: "Prayer Time",
+      //     description,
+      //     status: "success",
+      //     duration: 9000,
+      //     isClosable: true,
+      //   });
+      // }
+      new Notification("Salati", {
+        body: description,
+      });
+    }
     const formattedTime = time.format("HH:mm");
     content = (
       <VStack spacing={4} paddingY={4}>
