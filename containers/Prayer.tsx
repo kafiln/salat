@@ -2,6 +2,7 @@ import { Center, Flex, VStack } from "@chakra-ui/layout";
 import { Spinner } from "@chakra-ui/spinner";
 import HijriDateDisplay from "@components/HijriDateDisplay";
 import PrayerCard from "@components/Prayer/PrayerCard";
+import PrayerFooter from "@components/Prayer/PrayerFooter";
 import PrayerList from "@components/Prayer/PrayerList";
 import SelectCity from "@components/SelectCity";
 import useTime from "@hooks/useTime";
@@ -11,6 +12,11 @@ import cities from "data/cities.json";
 import dayjs from "dayjs";
 import { useCallback, useState } from "react";
 import { useQuery } from "react-query";
+
+const getCityName = (city: number) => {
+  const cityName = cities.find((c) => c.id === city);
+  return cityName ? cityName.name : "";
+};
 
 const Prayer = () => {
   const [state] = UseAppContext();
@@ -52,6 +58,7 @@ const Prayer = () => {
           prayer={nextPrayer}
         />
         <PrayerList prayers={prayers} next={nextPrayer} />
+        <PrayerFooter city={getCityName(city)} />
       </VStack>
     );
   }

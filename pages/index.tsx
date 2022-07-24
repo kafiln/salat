@@ -1,9 +1,8 @@
-import Header from "@components/Header";
 import Footer from "@components/Footer";
+import Header from "@components/Header";
 import Prayer from "containers/Prayer";
 import DefaultLayout from "Layout";
 import type { NextPage } from "next";
-import React from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
 
 const Home: NextPage = () => {

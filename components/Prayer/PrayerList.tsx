@@ -1,5 +1,4 @@
 import { VStack } from "@chakra-ui/layout";
-import React from "react";
 import PrayerItem from "./PrayerItem";
 
 interface PrayerListProps {
@@ -14,7 +13,7 @@ export interface Prayer {
 
 const PrayerList = ({ prayers, next }: PrayerListProps) => {
   return (
-    <VStack>
+    <VStack minW={"10rem"}>
       {prayers.map((prayer, key: number) => (
         <PrayerItem
           key={key}
