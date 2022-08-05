@@ -4,7 +4,6 @@ import {
   Spacer,
   Table,
   TableCaption,
-  TableContainer,
   Tbody,
   Td,
   Th,
@@ -61,48 +60,42 @@ const Monthly = () => {
         <>
           <Spacer my={2} />
           <Container>
-            <TableContainer>
-              <Table size="sm" borderColor={"gray.400"}>
-                <TableCaption>
-                  حصة الصلاة {data[0].arabic_month} الخاصة بمدينة{" "}
-                  {getCityName(city)}
-                </TableCaption>
-                <Thead>
-                  <Tr>
-                    {Object.values(data[0])
-                      .reverse()
-                      .map((header: any, index: number) => {
-                        return (
-                          <Th bgColor="gray.300" key={index}>
-                            {header}
-                          </Th>
-                        );
-                      })}
-                  </Tr>
-                </Thead>
-                <Tbody>
-                  {data.slice(1).map((row: any, index: number) => {
+            <Table size="sm" borderColor={"gray.400"} dir="rtl">
+              <TableCaption>
+                حصة الصلاة {data[0].arabic_month} الخاصة بمدينة{" "}
+                {getCityName(city)}
+              </TableCaption>
+              <Thead>
+                <Tr>
+                  {Object.values(data[0]).map((header: any, index: number) => {
                     return (
-                      <Tr
-                        key={index}
-                        {...(dayIsFriday(row.day_name) && {
-                          bgColor: "gray.100",
-                        })}
-                        {...(isToday(row.arabic_month, hirjiDay) && {
-                          fontWeight: "bold",
-                        })}
-                      >
-                        {Object.values(row)
-                          .reverse()
-                          .map((cell: any, index: number) => {
-                            return <Td key={index}>{cell}</Td>;
-                          })}
-                      </Tr>
+                      <Th bgColor="gray.300" key={index}>
+                        {header}
+                      </Th>
                     );
                   })}
-                </Tbody>
-              </Table>
-            </TableContainer>
+                </Tr>
+              </Thead>
+              <Tbody>
+                {data.slice(1).map((row: any, index: number) => {
+                  return (
+                    <Tr
+                      key={index}
+                      {...(dayIsFriday(row.day_name) && {
+                        bgColor: "gray.100",
+                      })}
+                      {...(isToday(row.arabic_month, hirjiDay) && {
+                        fontWeight: "bold",
+                      })}
+                    >
+                      {Object.values(row).map((cell: any, index: number) => {
+                        return <Td key={index}>{cell}</Td>;
+                      })}
+                    </Tr>
+                  );
+                })}
+              </Tbody>
+            </Table>
           </Container>
         </>
       )}

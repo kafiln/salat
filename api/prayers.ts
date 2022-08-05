@@ -5,7 +5,7 @@ import dayjs from "dayjs";
 const values = [
   "day_name",
   "arabic_month",
-  // "month",
+  "month",
   "fajr",
   "chorouq",
   "dohr",
@@ -36,6 +36,7 @@ const mapResponseToMonthlyPrayers = (data: any): any => {
     const result: any = {};
     const children = Array.from(item.children);
     values.forEach((value: string, index) => {
+      // skip month
       if (index === 2) return;
       result[value] = children[index].innerHTML.replace(/\s/g, "");
     });
@@ -66,7 +67,5 @@ export const getPrayers = async (city: number) => {
 
 export const getMonthlyPrayers = async (city: number) => {
   const data = await fetch(`${MONTHLY_URL}${city}`).then((res) => res.text());
-  const mappedData = mapResponseToMonthlyPrayers(data);
-  console.log(mappedData);
-  return mappedData;
+  return mapResponseToMonthlyPrayers(data);
 };
