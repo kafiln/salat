@@ -1,6 +1,6 @@
 import Footer from "@components/Footer";
 import Header from "@components/Header";
-import Prayer from "containers/Prayer";
+import Monthly from "containers/Monthly";
 import DefaultLayout from "Layout";
 import type { NextPage } from "next";
 import { QueryClient, QueryClientProvider } from "react-query";
@@ -10,7 +10,7 @@ const Home: NextPage = () => {
   return (
     <DefaultLayout header={<Header />} footer={<Footer />}>
       <QueryClientProvider client={queryClient}>
-        <Prayer />
+        <Monthly />
       </QueryClientProvider>
     </DefaultLayout>
   );
