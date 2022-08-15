@@ -1,5 +1,6 @@
 import { Center, Flex } from "@chakra-ui/layout";
 import {
+  Button,
   Container,
   Spacer,
   Table,
@@ -14,8 +15,9 @@ import { Spinner } from "@chakra-ui/spinner";
 import { getHijriDate, getMonthlyPrayers } from "api/prayers";
 import { UseAppContext } from "context";
 import { getCityName } from "data/cityService";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useQuery } from "react-query";
+import ReactToPrint from "react-to-print";
 
 const dayIsFriday = (day: string) => day === "الجمعة";
 const isToday = (day: string, hijriDay: number) => day === hijriDay.toString();
@@ -33,6 +35,8 @@ const Monthly = () => {
   const { data: hijri } = useQuery(["hijri"], () => getHijriDate());
   const [_, hirjiDay, HijriMonth, ...rest] = (hijri || "").split(" ");
 
+  const componentRef = useRef();
+
   return (
     <Flex height="100%" direction="column">
       {isLoading && (
@@ -42,45 +46,53 @@ const Monthly = () => {
       )}
       {data && hijri && (
         <>
-          <Spacer my={2} />
-          <Container>
-            <Table size="sm" borderColor={"gray.400"} dir="rtl">
-              <TableCaption>
-                حصة الصلاة {data[0].arabic_month} الخاصة بمدينة{" "}
-                {getCityName(city)}
-              </TableCaption>
-              <Thead>
-                <Tr>
-                  {Object.values(data[0]).map((header: any, index: number) => {
+          <ReactToPrint
+            trigger={() => <Button>Print </Button>}
+            content={() => componentRef.current}
+          />
+          <div ref={componentRef}>
+            <Spacer my={2} />
+            <Container>
+              <Table size="sm" borderColor={"gray.400"} dir="rtl">
+                <TableCaption>
+                  حصة الصلاة {data[0].arabic_month} الخاصة بمدينة{" "}
+                  {getCityName(city)}
+                </TableCaption>
+                <Thead>
+                  <Tr>
+                    {Object.values(data[0]).map(
+                      (header: any, index: number) => {
+                        return (
+                          <Th bgColor="gray.300" key={index}>
+                            {header}
+                          </Th>
+                        );
+                      }
+                    )}
+                  </Tr>
+                </Thead>
+                <Tbody>
+                  {data.slice(1).map((row: any, index: number) => {
                     return (
-                      <Th bgColor="gray.300" key={index}>
-                        {header}
-                      </Th>
+                      <Tr
+                        key={index}
+                        {...(dayIsFriday(row.day_name) && {
+                          bgColor: "gray.100",
+                        })}
+                        {...(isToday(row.arabic_month, hirjiDay) && {
+                          fontWeight: "bold",
+                        })}
+                      >
+                        {Object.values(row).map((cell: any, index: number) => {
+                          return <Td key={index}>{cell}</Td>;
+                        })}
+                      </Tr>
                     );
                   })}
-                </Tr>
-              </Thead>
-              <Tbody>
-                {data.slice(1).map((row: any, index: number) => {
-                  return (
-                    <Tr
-                      key={index}
-                      {...(dayIsFriday(row.day_name) && {
-                        bgColor: "gray.100",
-                      })}
-                      {...(isToday(row.arabic_month, hirjiDay) && {
-                        fontWeight: "bold",
-                      })}
-                    >
-                      {Object.values(row).map((cell: any, index: number) => {
-                        return <Td key={index}>{cell}</Td>;
-                      })}
-                    </Tr>
-                  );
-                })}
-              </Tbody>
-            </Table>
-          </Container>
+                </Tbody>
+              </Table>
+            </Container>
+          </div>
         </>
       )}
     </Flex>
