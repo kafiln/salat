@@ -1,8 +1,11 @@
 import React, { useContext, useReducer } from "react";
 
+export type Periodicity = "MONTHLY" | "DAILY";
+
 export interface AppState {
   city: number;
   language: string;
+  periodicity: Periodicity;
 }
 
 type Action =
@@ -13,12 +16,18 @@ type Action =
   | {
       type: "SET_LANGUAGE";
       payload: string;
+    }
+  | {
+      type: "TOGGLE_PERIODICITY";
     };
 
 const reducer = (state: AppState, action: Action): AppState => {
   switch (action.type) {
     case "SET_CITY":
       return { ...state, city: action.payload };
+    case "TOGGLE_PERIODICITY":
+      const periodicity = state.periodicity === "MONTHLY" ? "DAILY" : "MONTHLY";
+      return { ...state, periodicity };
     case "SET_LANGUAGE":
       return { ...state, language: action.payload };
     default:
@@ -33,7 +42,7 @@ interface LocalProviderProps {
 
 export const AppContext = React.createContext<
   [AppState, React.Dispatch<Action>]
->([{ city: 58, language: "ar" }, () => {}]);
+>([{ city: 58, language: "ar", periodicity: "DAILY" }, () => {}]);
 export const UseAppContext = () => useContext(AppContext);
 
 export const LocalProvider = ({
@@ -52,6 +61,11 @@ export const useCity = (): number => {
   return state.city;
 };
 
+export const usePeriodicity = (): Periodicity => {
+  const [state, _] = useContext(AppContext);
+  return state.periodicity;
+};
+
 export const useLanguage = (): string => {
   const [state, _] = useContext(AppContext);
   return state.language;
@@ -60,6 +74,10 @@ export const useLanguage = (): string => {
 export const setGlobalCity = (city: number): Action => ({
   type: "SET_CITY",
   payload: city,
+});
+
+export const togglePeriodicity = (): Action => ({
+  type: "TOGGLE_PERIODICITY",
 });
 
 export const useAppDispatch = () => {
