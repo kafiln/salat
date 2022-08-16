@@ -9,7 +9,6 @@ import { getPrayers } from "api/prayers";
 import { UseAppContext } from "context";
 import { getCityName } from "data/cityService";
 import dayjs from "dayjs";
-import { useState } from "react";
 import { useQuery } from "react-query";
 
 const getPrayerInfo = (prayers: any, time: any) => {
@@ -35,8 +34,7 @@ const Daily = () => {
 
   // Get data
   const [state] = UseAppContext();
-  const { city: defaultCity } = state;
-  const [city, _] = useState(defaultCity);
+  const { city } = state;
 
   // Get date from API
   const { data: prayers, isLoading } = useQuery(["prayers", city], () =>

@@ -12,28 +12,24 @@ import {
   Tr,
 } from "@chakra-ui/react";
 import { Spinner } from "@chakra-ui/spinner";
-import { getHijriDate, getMonthlyPrayers } from "api/prayers";
+import { getMonthlyPrayers } from "api/prayers";
 import { UseAppContext } from "context";
 import { getCityName } from "data/cityService";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { useQuery } from "react-query";
 import ReactToPrint from "react-to-print";
 
 const dayIsFriday = (day: string) => day === "الجمعة";
-const isToday = (day: string, hijriDay: number) => day === hijriDay.toString();
 
 const Monthly = () => {
   // Get data
   const [state] = UseAppContext();
-  const { city: defaultCity } = state;
-  const [city, setCity] = useState(defaultCity);
+  const { city } = state;
 
   // Get date from API
   const { data, isLoading } = useQuery(["monthlyPrayers", city], () =>
     getMonthlyPrayers(city)
   );
-  const { data: hijri } = useQuery(["hijri"], () => getHijriDate());
-  const [_, hirjiDay, HijriMonth, ...rest] = (hijri || "").split(" ");
 
   const componentRef = useRef();
 
@@ -44,19 +40,29 @@ const Monthly = () => {
           <Spinner size="xl" />
         </Center>
       )}
-      {data && hijri && (
+      {data && (
         <>
           <ReactToPrint
-            trigger={() => <Button>Print </Button>}
+            trigger={() => <Button py={2}>تحميل </Button>}
+            // @ts-ignore
             content={() => componentRef.current}
           />
+          {/* @ts-ignore */}
           <div ref={componentRef}>
             <Spacer my={2} />
             <Container>
-              <Table size="sm" borderColor={"gray.400"} dir="rtl">
-                <TableCaption>
-                  حصة الصلاة {data[0].arabic_month} الخاصة بمدينة{" "}
-                  {getCityName(city)}
+              <Table
+                size="sm"
+                dir="rtl"
+                borderWidth={1}
+                borderColor={"gray.100"}
+              >
+                <TableCaption placement="top" fontSize={"md"}>
+                  <>
+                    {`حصة الصلاة لشهر ${
+                      data[0].arabic_month
+                    } الخاصة بمدينة ${getCityName(city)}`}
+                  </>
                 </TableCaption>
                 <Thead>
                   <Tr>
@@ -78,9 +84,6 @@ const Monthly = () => {
                         key={index}
                         {...(dayIsFriday(row.day_name) && {
                           bgColor: "gray.100",
-                        })}
-                        {...(isToday(row.arabic_month, hirjiDay) && {
-                          fontWeight: "bold",
                         })}
                       >
                         {Object.values(row).map((cell: any, index: number) => {
