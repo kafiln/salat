@@ -1,13 +1,11 @@
 import { VStack } from "@chakra-ui/layout";
 import { Center, Flex, Spinner } from "@chakra-ui/react";
 import PrayerCard from "@components/Prayer/PrayerCard";
-import PrayerFooter from "@components/Prayer/PrayerFooter";
 import PrayerList from "@components/Prayer/PrayerList";
 import useNotificationsPermission from "@hooks/useNotificationsPermission";
 import useTime from "@hooks/useTime";
 import { getPrayers } from "api/prayers";
 import { UseAppContext } from "context";
-import { getCityName } from "data/cityService";
 import dayjs from "dayjs";
 import { useQuery } from "react-query";
 
@@ -59,7 +57,6 @@ const Daily = () => {
             prayer={nextPrayer}
           />
           <PrayerList prayers={prayers} next={nextPrayer} />
-          <PrayerFooter city={getCityName(city)} />
         </VStack>
       )}
     </Flex>

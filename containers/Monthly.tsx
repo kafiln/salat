@@ -2,7 +2,6 @@ import { Center, Flex } from "@chakra-ui/layout";
 import {
   Button,
   Container,
-  Spacer,
   Table,
   TableCaption,
   Tbody,
@@ -43,59 +42,61 @@ const Monthly = () => {
       {data && (
         <>
           <ReactToPrint
-            trigger={() => <Button py={2}>تحميل </Button>}
+            trigger={() => (
+              <Button
+                sx={{
+                  position: "absolute",
+                  right: "0",
+                }}
+                colorScheme="teal"
+                size="sm"
+              >
+                تحميل
+              </Button>
+            )}
             // @ts-ignore
             content={() => componentRef.current}
           />
           {/* @ts-ignore */}
-          <div ref={componentRef}>
-            <Spacer my={2} />
-            <Container>
-              <Table
-                size="sm"
-                dir="rtl"
-                borderWidth={1}
-                borderColor={"gray.100"}
-              >
-                <TableCaption placement="top" fontSize={"md"}>
-                  <>
-                    {`حصة الصلاة لشهر ${
-                      data[0].arabic_month
-                    } الخاصة بمدينة ${getCityName(city)}`}
-                  </>
-                </TableCaption>
-                <Thead>
-                  <Tr>
-                    {Object.values(data[0]).map(
-                      (header: any, index: number) => {
-                        return (
-                          <Th bgColor="gray.300" key={index}>
-                            {header}
-                          </Th>
-                        );
-                      }
-                    )}
-                  </Tr>
-                </Thead>
-                <Tbody>
-                  {data.slice(1).map((row: any, index: number) => {
+          <Container ref={componentRef}>
+            <Table size="sm" dir="rtl" borderWidth={1} borderColor={"gray.100"}>
+              <TableCaption placement="top" fontSize={"md"}>
+                <>
+                  {`حصة الصلاة لشهر ${
+                    data[0].arabic_month
+                  } الخاصة بمدينة ${getCityName(city)}`}
+                </>
+              </TableCaption>
+              <Thead>
+                <Tr>
+                  {Object.values(data[0]).map((header: any, index: number) => {
                     return (
-                      <Tr
-                        key={index}
-                        {...(dayIsFriday(row.day_name) && {
-                          bgColor: "gray.100",
-                        })}
-                      >
-                        {Object.values(row).map((cell: any, index: number) => {
-                          return <Td key={index}>{cell}</Td>;
-                        })}
-                      </Tr>
+                      <Th bgColor="gray.300" key={index}>
+                        {header}
+                      </Th>
                     );
                   })}
-                </Tbody>
-              </Table>
-            </Container>
-          </div>
+                </Tr>
+              </Thead>
+              <Tbody>
+                {data.slice(1).map((row: any, index: number) => {
+                  return (
+                    <Tr
+                      key={index}
+                      {...(dayIsFriday(row.day_name) && {
+                        bgColor: "gray.100",
+                      })}
+                    >
+                      {Object.values(row).map((cell: any, index: number) => {
+                        return <Td key={index}>{cell}</Td>;
+                      })}
+                    </Tr>
+                  );
+                })}
+              </Tbody>
+            </Table>
+          </Container>
+          {/* </div> */}
         </>
       )}
     </Flex>
