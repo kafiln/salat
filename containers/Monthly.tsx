@@ -15,6 +15,7 @@ import { getMonthlyPrayers } from "api/prayers";
 import { UseAppContext } from "context";
 import { getCityName } from "data/cityService";
 import { useRef } from "react";
+import { FaPrint } from "react-icons/fa";
 import { useQuery } from "react-query";
 import ReactToPrint from "react-to-print";
 
@@ -44,9 +45,11 @@ const Monthly = () => {
           <ReactToPrint
             trigger={() => (
               <Button
+                rightIcon={<FaPrint />}
                 sx={{
                   position: "absolute",
-                  right: "0",
+                  right: "50%",
+                  top: "4px",
                 }}
                 colorScheme="teal"
                 size="sm"
