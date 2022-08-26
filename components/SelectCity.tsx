@@ -15,13 +15,14 @@ interface SelectCityProps {
 
 const SelectCity = ({ cities, city, handleChange }: SelectCityProps) => {
   const options = useMemo(() => {
-    return cities.map((city) => ({ value: city.id, label: city.name }));
+    return cities
+      .map((city) => ({ value: city.id, label: city.name }))
+      .sort((a, b) => a.label.localeCompare(b.label));
   }, [cities]);
 
   return (
     <Box minW={"20rem"} dir="rtl">
       <Select
-        // size={"lg"}
         options={options}
         instanceId="test"
         value={options.find((option: any) => option.value === city)}
