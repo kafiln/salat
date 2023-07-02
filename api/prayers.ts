@@ -28,25 +28,8 @@ const mapResponseToPrayers = (data: any): Prayer[] =>
     };
   });
 
-const mapResponseToMonthlyPrayers = (data: any): any => {
-  const root = document.createElement("html");
-  root.innerHTML = data;
-  const items = root.querySelectorAll("#horaire > tbody > tr");
-  return Array.from(items).map((item) => {
-    const result: any = {};
-    const children = Array.from(item.children);
-    values.forEach((value: string, index) => {
-      // skip month
-      if (index === 2) return;
-      result[value] = children[index].innerHTML.replace(/\s/g, "");
-    });
-    return result;
-  });
-};
-
 const BASE_URL = "https://apisearch.hadithm6.com/api/prieres/ville/";
-const MONTHLY_URL =
-  "https://cors-anywhere-kafil.herokuapp.com/https://habous.gov.ma/prieres/horaire_hijri_2.php?ville=";
+const MONTHLY_URL = "https://salat-monthly.vercel.app/api/";
 
 export const getHijriDate = async () => {
   return await axios
@@ -66,6 +49,8 @@ export const getPrayers = async (city: number) => {
 };
 
 export const getMonthlyPrayers = async (city: number) => {
-  const data = await fetch(`${MONTHLY_URL}${city}`).then((res) => res.text());
-  return mapResponseToMonthlyPrayers(data);
+  const { data } = await fetch(`${MONTHLY_URL}${city}`).then((res) =>
+    res.json()
+  );
+  return data;
 };
