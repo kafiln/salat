@@ -3,7 +3,7 @@ import React, { useContext, useReducer } from "react";
 export type Periodicity = "MONTHLY" | "DAILY";
 
 export interface AppState {
-  city: number;
+  city?: number;
   language: string;
   periodicity: Periodicity;
 }
@@ -43,7 +43,7 @@ interface LocalProviderProps {
 
 export const AppContext = React.createContext<
   [AppState, React.Dispatch<Action>]
->([{ city: 58, language: "ar", periodicity: "DAILY" }, () => {}]);
+>([{ language: "ar", periodicity: "DAILY" }, () => {}]);
 export const UseAppContext = () => useContext(AppContext);
 
 export const LocalProvider = ({
@@ -57,7 +57,7 @@ export const LocalProvider = ({
   );
 };
 
-export const useCity = (): number => {
+export const useCity = (): number | undefined => {
   const [state, _] = useContext(AppContext);
   return state.city;
 };

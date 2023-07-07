@@ -6,7 +6,6 @@ import { AppState, LocalProvider } from "context";
 import theme from "theme";
 
 const initialState: AppState = {
-  city: 58,
   language: "ar",
   periodicity: "DAILY",
 };

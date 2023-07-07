@@ -36,11 +36,13 @@ const Main = () => {
           isDaily={isDaily}
           onClick={() => dispatch(togglePeriodicity())}
         />
-        <SelectCity cities={cities} city={city} handleChange={handleChange} />
+        {city && (
+          <SelectCity cities={cities} city={city} handleChange={handleChange} />
+        )}
         <HijriDateDisplay date={hijri} />
       </VStack>
       {isDaily ? <Daily /> : <Monthly />}
-      <PrayerFooter city={getCityName(city)} />
+      {city && <PrayerFooter city={getCityName(city)} />}
     </Flex>
   );
 };

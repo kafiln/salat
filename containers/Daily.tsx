@@ -35,8 +35,12 @@ const Daily = () => {
   const { city } = state;
 
   // Get date from API
-  const { data: prayers, isLoading } = useQuery(["prayers", city], () =>
-    getPrayers(city)
+  const { data: prayers, isLoading } = useQuery(
+    ["prayers", city],
+    () => getPrayers(Number(city)),
+    {
+      enabled: Boolean(city),
+    }
   );
 
   const { remainingTime, nextPrayer } = getPrayerInfo(prayers, time);
