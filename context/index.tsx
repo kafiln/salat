@@ -24,6 +24,7 @@ type Action =
 const reducer = (state: AppState, action: Action): AppState => {
   switch (action.type) {
     case "SET_CITY":
+      localStorage.setItem("city", String(action.payload));
       return { ...state, city: action.payload };
     case "TOGGLE_PERIODICITY":
       const periodicity = state.periodicity === "MONTHLY" ? "DAILY" : "MONTHLY";

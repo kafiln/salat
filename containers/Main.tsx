@@ -6,6 +6,7 @@ import SelectCity from "@components/SelectCity";
 import { getHijriDate } from "api/prayers";
 import { UseAppContext, setGlobalCity, togglePeriodicity } from "context";
 import { getAllCities, getCityName } from "data/cityService";
+import { useEffect } from "react";
 import { useQuery } from "react-query";
 import Daily from "./Daily";
 import Monthly from "./Monthly";
@@ -22,6 +23,11 @@ const Main = () => {
       dispatch(setGlobalCity(city));
     }
   };
+
+  useEffect(() => {
+    const savedCity = localStorage.getItem("city") || 58;
+    dispatch(setGlobalCity(Number(savedCity)));
+  }, []);
 
   return (
     <Flex height="100%" direction="column">
