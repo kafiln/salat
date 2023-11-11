@@ -15,7 +15,7 @@
     "@emotion/styled": "^11",
     "@fontsource/open-sans": "^5.0.3",
     "@fontsource/raleway": "^5.0.3",
-    "axios": "^1.4.0",
+    "axios": "^1.6.0",
     "chakra-react-select": "^4.1.4",
     "dayjs": "^1.10.7",
     "framer-motion": "^10.12.18",
