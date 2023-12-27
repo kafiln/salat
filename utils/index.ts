@@ -1,3 +1,5 @@
+import { Prayer } from "@components/Prayer/PrayerList";
+import dayjs from "dayjs";
 import { JSDOM } from "jsdom";
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
@@ -16,6 +18,19 @@ const VALUES = [
 const MONTHLY_URL = "https://habous.gov.ma/prieres/horaire_hijri_2.php?ville=";
 const DAILY_URL = "https://www.habous.gov.ma/prieres/horaire_hijri_fr.php?ville=";
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+
+const mapResponseToPrayers = (data: any): Prayer[] =>
+    Object.keys(data).map((key) => {
+        const [hours, minutes] = data[key].split(":");
+        return {
+            name: key,
+            time: dayjs()
+                .hour(hours)
+                .minute(minutes)
+                .second(0)
+                .millisecond(0)
+        };
+    });
 
 
 export const getMonthlyPrayers = async (city: number) => {
@@ -46,11 +61,10 @@ const mapResponseToMonthlyPrayers = (data: any): any => {
 };
 
 const mapResponseToDailyPrayers = (data: any): any => {
-
     const dom = new JSDOM(data);
     const items = dom.window.document.querySelectorAll('#horaire > tbody > tr.cournt > td')
     const times = Array.from(items).slice(3).map(i => i.innerHTML.replace(/\s/g, ""))
     const result: Record<string, string> = {};
     [...VALUES].splice(3).forEach((key, index) => result[key] = times[index])
-    return result;
+    return mapResponseToPrayers(result);
 };

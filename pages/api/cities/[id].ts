@@ -5,7 +5,6 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     const { id } = req.query;
     const data = await getCityById(Number(id));
-    if (data) return res.json(data);
-
-    return res.status(404).send('Not found')
+    if (!data) return res.status(404).send(`City with id ${id} does not exist`)
+    return res.json(data);
 }
