@@ -11,17 +11,17 @@ interface PrayerItemProps {
 //TODO: replace by i18n
 export const toArabic = (name: string) => {
   switch (name) {
-    case "Fajr":
+    case "fajr":
       return "الفجر";
-    case "Chorouq":
+    case "chorouq":
       return "الشروق ";
-    case "Dhuhr":
+    case "dohr":
       return "الظهر";
-    case "Asr":
+    case "asr":
       return "العصر";
-    case "Maghrib":
+    case "maghrib":
       return "المغرب";
-    case "Ishae":
+    case "ishae":
       return "العشاء";
     default:
       return "";
