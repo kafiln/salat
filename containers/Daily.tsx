@@ -1,23 +1,24 @@
 import { VStack } from "@chakra-ui/layout";
 import { Center, Flex, Spinner } from "@chakra-ui/react";
 import PrayerCard from "@components/Prayer/PrayerCard";
-import PrayerList from "@components/Prayer/PrayerList";
-import useNotificationsPermission from "@hooks/useNotificationsPermission";
+import PrayerList, { Prayer } from "@components/Prayer/PrayerList";
 import useTime from "@hooks/useTime";
 import { getPrayers } from "client/prayers";
 import { UseAppContext } from "context";
-import dayjs from "dayjs";
+import dayjs, { Dayjs } from "dayjs";
+import utc from 'dayjs/plugin/utc';
 import { useQuery } from "react-query";
 
-const getPrayerInfo = (prayers: any, time: any) => {
+dayjs.extend(utc)
+
+
+const getPrayerInfo = (prayers: any, time: Dayjs) => {
   if (!prayers) return { remainingTime: "", nextPrayer: null };
-  const nextPrayers = prayers.filter((prayer: any) => {
+  const followingPrayers = prayers.filter((prayer: Prayer) => {
     return dayjs(prayer.time).isAfter(time);
   });
-  const nextPrayer = nextPrayers.length > 0 ? nextPrayers[0] : prayers[0];
-  const remainingTime = dayjs(dayjs(nextPrayer.time).diff(time)).format(
-    "HH:mm:ss"
-  );
+  const nextPrayer = followingPrayers.length > 0 ? followingPrayers[0] : { ...prayers[0], time: prayers[0].time.add(1, "day") };
+  const remainingTime = dayjs((nextPrayer.time).diff(time)).utc().format('HH:mm:ss')
 
   return {
     remainingTime,
@@ -27,7 +28,6 @@ const getPrayerInfo = (prayers: any, time: any) => {
 
 const Daily = () => {
   // Hooks
-  useNotificationsPermission();
   const time = useTime();
 
   // Get data

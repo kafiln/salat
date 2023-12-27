@@ -1,4 +1,5 @@
 import { VStack } from "@chakra-ui/layout";
+import { Dayjs } from "dayjs";
 import PrayerItem from "./PrayerItem";
 
 interface PrayerListProps {
@@ -8,7 +9,7 @@ interface PrayerListProps {
 
 export interface Prayer {
   name: string;
-  time: string;
+  time: Dayjs;
 }
 
 const PrayerList = ({ prayers, next }: PrayerListProps) => {
