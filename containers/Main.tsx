@@ -1,13 +1,10 @@
 import { Flex, VStack } from "@chakra-ui/react";
-import HijriDateDisplay from "@components/HijriDateDisplay";
 import Periodicity from "@components/Periodicity";
 import PrayerFooter from "@components/Prayer/PrayerFooter";
 import SelectCity from "@components/SelectCity";
-import { getHijriDate } from "api/prayers";
 import { UseAppContext, setGlobalCity, togglePeriodicity } from "context";
 import { getAllCities, getCityName } from "data/cityService";
 import { useEffect } from "react";
-import { useQuery } from "react-query";
 import Daily from "./Daily";
 import Monthly from "./Monthly";
 
@@ -16,7 +13,6 @@ const Main = () => {
   const cities = getAllCities();
   const { city, periodicity } = state;
   const isDaily = periodicity === "DAILY";
-  const { data: hijri } = useQuery(["hijri"], () => getHijriDate());
 
   const handleChange = (city: number) => {
     if (city) {
@@ -39,7 +35,6 @@ const Main = () => {
         {city && (
           <SelectCity cities={cities} city={city} handleChange={handleChange} />
         )}
-        <HijriDateDisplay date={hijri} />
       </VStack>
       {isDaily ? <Daily /> : <Monthly />}
       {city && <PrayerFooter city={getCityName(city)} />}

@@ -11,7 +11,7 @@ import {
   Tr,
 } from "@chakra-ui/react";
 import { Spinner } from "@chakra-ui/spinner";
-import { getMonthlyPrayers } from "api/prayers";
+import { getMonthlyPrayers } from "client/prayers";
 import { UseAppContext } from "context";
 import { getCityName } from "data/cityService";
 import { useRef } from "react";

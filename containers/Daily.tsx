@@ -4,7 +4,7 @@ import PrayerCard from "@components/Prayer/PrayerCard";
 import PrayerList from "@components/Prayer/PrayerList";
 import useNotificationsPermission from "@hooks/useNotificationsPermission";
 import useTime from "@hooks/useTime";
-import { getPrayers } from "api/prayers";
+import { getPrayers } from "client/prayers";
 import { UseAppContext } from "context";
 import dayjs from "dayjs";
 import { useQuery } from "react-query";
