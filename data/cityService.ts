@@ -8,3 +8,8 @@ export const getCityName = (city: number) => {
 export const getAllCities = () => {
   return cities;
 };
+
+
+export const getCityById = (id: number) => {
+  return cities.find(i => i.id === id)
+};
