@@ -21,7 +21,6 @@
     "framer-motion": "^10.12.18",
     "jsdom": "^23.0.1",
     "next": "^13.4.7",
-    "node-fetch": "^3.3.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.3.1",
