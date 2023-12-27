@@ -1,7 +1,6 @@
 import { Prayer } from "@components/Prayer/PrayerList";
 import dayjs from "dayjs";
 import { JSDOM } from "jsdom";
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
 const VALUES = [
     "day_name",
@@ -17,7 +16,6 @@ const VALUES = [
 
 const MONTHLY_URL = "https://habous.gov.ma/prieres/horaire_hijri_2.php?ville=";
 const DAILY_URL = "https://www.habous.gov.ma/prieres/horaire_hijri_fr.php?ville=";
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
 const mapResponseToPrayers = (data: any): Prayer[] =>
     Object.keys(data).map((key) => {
