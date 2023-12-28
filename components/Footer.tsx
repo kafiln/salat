@@ -5,7 +5,7 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 const items = [
   {
     Icon: FaGithub,
-    url: "https://github.com/kafiln/salati",
+    url: "https://github.com/kafiln/salat",
   },
   {
     Icon: FaLinkedin,
