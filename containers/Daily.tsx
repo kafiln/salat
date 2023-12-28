@@ -12,7 +12,7 @@ import { useQuery } from "react-query";
 dayjs.extend(utc)
 
 
-const getPrayerInfo = (prayers: Prayer[], time: Dayjs) => {
+const getPrayerInfo = (prayers: Prayer[] | undefined, time: Dayjs) => {
   if (!prayers) return { remainingTime: "", nextPrayer: null };
   const followingPrayers = prayers.filter((prayer: Prayer) => {
     return dayjs(prayer.time).isAfter(time);

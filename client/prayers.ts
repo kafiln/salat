@@ -20,9 +20,10 @@ const DAILY_URL = "/api/daily/";
 
 
 export const getPrayers = async (city: number) => {
-  return await fetch(`${DAILY_URL}${city}`).then((res) =>
+  const data = await fetch(`${DAILY_URL}${city}`).then((res) =>
     res.json()
   );
+  return mapResponseToPrayers(data)
 };
 
 export const getMonthlyPrayers = async (city: number) => {
