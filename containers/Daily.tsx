@@ -12,13 +12,13 @@ import { useQuery } from "react-query";
 dayjs.extend(utc)
 
 
-const getPrayerInfo = (prayers: any, time: Dayjs) => {
+const getPrayerInfo = (prayers: Prayer[], time: Dayjs) => {
   if (!prayers) return { remainingTime: "", nextPrayer: null };
   const followingPrayers = prayers.filter((prayer: Prayer) => {
     return dayjs(prayer.time).isAfter(time);
   });
   const nextPrayer = followingPrayers.length > 0 ? followingPrayers[0] : { ...prayers[0], time: prayers[0].time.add(1, "day") };
-  const remainingTime = dayjs((nextPrayer.time).diff(time)).utc().format('HH:mm:ss')
+  const remainingTime = dayjs(dayjs(nextPrayer.time).diff(time)).utc().format('HH:mm:ss')
 
   return {
     remainingTime,
@@ -53,7 +53,7 @@ const Daily = () => {
         </Center>
       )}
 
-      {prayers && prayers.length > 0 && (
+      {prayers && prayers.length > 0 && nextPrayer && (
         <VStack spacing={4} paddingY={4}>
           <PrayerCard
             remaining={remainingTime}

@@ -1,15 +1,28 @@
+import { Prayer } from "@components/Prayer/PrayerList";
 import dayjs from "dayjs";
+
+
+const mapResponseToPrayers = (data: any): Prayer[] =>
+  Object.keys(data).map((key) => {
+    const [hours, minutes] = data[key].split(":");
+    return {
+      name: key,
+      time: dayjs()
+        .hour(hours)
+        .minute(minutes)
+        .second(0)
+        .millisecond(0)
+    };
+  });
 
 const MONTHLY_URL = "/api/monthly/";
 const DAILY_URL = "/api/daily/";
 
 
 export const getPrayers = async (city: number) => {
-  const data = await fetch(`${DAILY_URL}${city}`).then((res) =>
+  return await fetch(`${DAILY_URL}${city}`).then((res) =>
     res.json()
   );
-
-  return data.map((item: any) => ({ ...item, time: dayjs(item.time) }))
 };
 
 export const getMonthlyPrayers = async (city: number) => {
