@@ -5,16 +5,17 @@ import PrayerItem from "./PrayerItem";
 interface PrayerListProps {
   prayers: Prayer[];
   next: Prayer;
+  bgColor?: string;
 }
 
 export interface Prayer {
-  name: string;
+  name: "fajr" | "chorouq" | "dohr" | "asr" | "maghrib" | "ishae";
   time: Dayjs;
 }
 
-const PrayerList = ({ prayers, next }: PrayerListProps) => {
+const PrayerList = ({ prayers, next, bgColor }: PrayerListProps) => {
   return (
-    <VStack minW={"10rem"}>
+    <VStack minW={"10rem"} bgColor={bgColor}>
       {prayers.map((prayer, key: number) => (
         <PrayerItem
           key={key}
