@@ -1,5 +1,6 @@
 import { VStack } from "@chakra-ui/layout";
 import { Center, Flex, HStack, Spinner } from "@chakra-ui/react";
+import CityCard from "@components/Prayer/CityCard";
 import PrayerCard from "@components/Prayer/PrayerCard";
 import PrayerList, { Prayer } from "@components/Prayer/PrayerList";
 import useTime from "@hooks/useTime";
@@ -17,11 +18,11 @@ const calculatePrayersForCity = (city: number): Prayer[] => {
   const { latitude, longitude } = getCityById(city);
   const coordinates = new Coordinates(latitude, longitude);
   let params = new CalculationParameters("Other", 19.1, 17);
-  // params.methodAdjustments = {
-  //   ...params.methodAdjustments,
-  //   dhuhr: 5,
-  //   maghrib: 7,
-  // };
+  params.methodAdjustments = {
+    ...params.methodAdjustments,
+    dhuhr: 5,
+  };
+
   const date = new Date();
   const prayerTimes = new PrayerTimes(coordinates, date, params);
   return [
@@ -100,11 +101,14 @@ const Daily = () => {
 
       {prayers && prayers.length > 0 && nextPrayer && (
         <VStack spacing={4} paddingY={4}>
-          <PrayerCard
-            remaining={remainingTime}
-            time={time.format("HH:mm")}
-            prayer={nextPrayer}
-          />
+          <HStack>
+            <PrayerCard
+              remaining={remainingTime}
+              time={time.format("HH:mm")}
+              prayer={nextPrayer}
+            />
+            {city && <CityCard city={getCityById(city)}></CityCard>}
+          </HStack>
           <HStack>
             <PrayerList prayers={prayers} next={nextPrayer} />
             {city && (
