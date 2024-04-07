@@ -19,7 +19,7 @@ const cityMapper = (city: City) => {
   return {
     id: city.id,
     name: city.name,
-    longitude: Number(`${city.long_d}.${city.long_m}`),
+    longitude: -Number(`${city.long_d}.${city.long_m}`),
     latitude: Number(`${city.lat_d}.${city.lat_m}`),
     elevation: city.alt,
   };
