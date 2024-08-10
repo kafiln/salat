@@ -15,17 +15,22 @@ const VALUES = [
 const MONTHLY_URL = "https://habous.gov.ma/prieres/horaire_hijri_2.php?ville=";
 const DAILY_URL = "https://www.habous.gov.ma/prieres/horaire-api.php?ville=";
 
-export const getMonthlyPrayers = async (city: number) => {
-  const data = await fetch(`${MONTHLY_URL}${city}`)
+const getDataByCity = async (
+  city: number,
+  url: string,
+  parseFn: (data: any) => any
+) => {
+  const data = await fetch(`${url}${city}`)
     .then((res: { text: () => any }) => res.text())
     .catch((e) => console.log(e));
-  return parseMonthlyPrayers(data);
+  return parseFn(data);
+};
+
+export const getMonthlyPrayers = async (city: number) => {
+  return getDataByCity(city, MONTHLY_URL, parseMonthlyPrayers);
 };
 export const getDailyPrayers = async (city: number) => {
-  const data = await fetch(`${DAILY_URL}${city}`)
-    .then((res: { text: () => any }) => res.text())
-    .catch((e) => console.log(e));
-  return parseDailyPrayers(data);
+  return getDataByCity(city, DAILY_URL, parseDailyPrayers);
 };
 
 const parseMonthlyPrayers = (data: any) => {
@@ -45,7 +50,9 @@ const parseMonthlyPrayers = (data: any) => {
 
 const parseDailyPrayers = (data: any) => {
   return parseResponse(data, "table > tbody > tr > td", (items, $) => {
-    const times = items.filter((_, i) => i % 2).map((i) => $(i).text().trim());
+    const times = items
+      .filter((_: any, i: number) => i % 2)
+      .map((i: any) => $(i).text().trim());
     const result: Record<string, string> = {};
     [...VALUES].splice(3).forEach((key, index) => (result[key] = times[index]));
     return result;
