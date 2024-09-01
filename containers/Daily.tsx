@@ -6,19 +6,23 @@ import useTime from "@hooks/useTime";
 import { getPrayers } from "client/prayers";
 import { UseAppContext } from "context";
 import dayjs, { Dayjs } from "dayjs";
-import utc from 'dayjs/plugin/utc';
+import utc from "dayjs/plugin/utc";
 import { useQuery } from "react-query";
 
-dayjs.extend(utc)
-
+dayjs.extend(utc);
 
 const getPrayerInfo = (prayers: Prayer[] | undefined, time: Dayjs) => {
   if (!prayers) return { remainingTime: "", nextPrayer: null };
   const followingPrayers = prayers.filter((prayer: Prayer) => {
     return dayjs(prayer.time).isAfter(time);
   });
-  const nextPrayer = followingPrayers.length > 0 ? followingPrayers[0] : { ...prayers[0], time: prayers[0].time.add(1, "day") };
-  const remainingTime = dayjs(dayjs(nextPrayer.time).diff(time)).utc().format('HH:mm:ss')
+  const nextPrayer =
+    followingPrayers.length > 0
+      ? followingPrayers[0]
+      : { ...prayers[0], time: prayers[0].time.add(1, "day") };
+  const remainingTime = dayjs(dayjs(nextPrayer.time).diff(time))
+    .utc()
+    .format("HH:mm:ss");
 
   return {
     remainingTime,
@@ -57,7 +61,7 @@ const Daily = () => {
         <VStack spacing={4} paddingY={4}>
           <PrayerCard
             remaining={remainingTime}
-            time={time.format("HH:mm")}
+            time={nextPrayer.time.format("HH:mm")}
             prayer={nextPrayer}
           />
           <PrayerList prayers={prayers} next={nextPrayer} />

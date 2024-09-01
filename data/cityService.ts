@@ -26,7 +26,7 @@ const cityMapper = (city: City) => {
 };
 
 export const getAllCities = () => {
-  return cities.map(cityMapper);
+  return cities.map(cityMapper).sort((a, b) => a.name.localeCompare(b.name));
 };
 
 export const getCityById = (id: number) => {
