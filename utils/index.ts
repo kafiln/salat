@@ -18,7 +18,7 @@ const DAILY_URL = "https://www.habous.gov.ma/prieres/horaire-api.php?ville=";
 const getDataByCity = async (
   city: number,
   url: string,
-  parseFn: (data: any) => any
+  parseFn: (data: any) => any,
 ) => {
   try {
     const response = await fetch(`${url}${city}`, { timeout: 10000 });
@@ -69,7 +69,7 @@ const parseDailyPrayers = (data: any) => {
 const parseResponse = (
   data: any,
   path: string,
-  parsingFn: (a: any, b: any) => any
+  parsingFn: (a: any, b: any) => any,
 ) => {
   const $ = load(data);
   const items = $(path);

@@ -7,7 +7,7 @@ export default async function handler(
 ) {
   try {
     const { id } = req.query;
-    
+
     if (!id || Array.isArray(id)) {
       return res.status(400).json({ error: "Invalid city ID" });
     }
@@ -18,7 +18,7 @@ export default async function handler(
     }
 
     const data = await getDailyPrayers(cityId);
-    
+
     if (!data) {
       return res.status(500).json({ error: "Failed to fetch prayer times" });
     }
