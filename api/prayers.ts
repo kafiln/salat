@@ -19,7 +19,7 @@ export const getPrayers = async (city: number) => {
   return mapResponseToPrayers(data);
 };
 export const getHIJRI = async () => {
-  const data = await fetch(`${HIJRI}`).then((res) => res.text());
+  const data = await fetch(`${HIJRI}`).then((res) => res.json());
   return data;
 };
 
