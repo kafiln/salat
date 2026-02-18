@@ -39,7 +39,7 @@ const Main = () => {
         {city && (
           <SelectCity cities={cities} city={city} handleChange={handleChange} />
         )}
-        <HijriDateDisplay date={hijri} />
+        {hijri && <HijriDateDisplay date={hijri} />}
       </VStack>
       {isDaily ? <Daily /> : <Monthly />}
       {city && <PrayerFooter city={getCityName(city)} />}
