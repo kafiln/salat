@@ -3,7 +3,7 @@ import HijriDateDisplay from "@components/HijriDateDisplay";
 import Periodicity from "@components/Periodicity";
 import PrayerFooter from "@components/Prayer/PrayerFooter";
 import SelectCity from "@components/SelectCity";
-import { getHijriDate } from "api/prayers";
+import { getHIJRI } from "api/prayers";
 import { UseAppContext, setGlobalCity, togglePeriodicity } from "context";
 import { getAllCities, getCityName } from "data/cityService";
 import { useEffect } from "react";
@@ -16,7 +16,7 @@ const Main = () => {
   const cities = getAllCities();
   const { city, periodicity } = state;
   const isDaily = periodicity === "DAILY";
-  const { data: hijri } = useQuery(["hijri"], () => getHijriDate());
+  const { data: hijri } = useQuery(["hijri"], () => getHIJRI());
 
   const handleChange = (city: number) => {
     if (city) {
