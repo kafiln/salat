@@ -21,7 +21,7 @@ const getDataByCity = async (
   parseFn: (data: any) => any,
 ) => {
   try {
-    const response = await fetch(`${url}${city}`, { timeout: 10000 });
+    const response = await fetch(`${url}${city}`);
     if (!response.ok) {
       throw new Error(`API returned status ${response.status}`);
     }
