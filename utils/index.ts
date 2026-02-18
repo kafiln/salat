@@ -20,10 +20,17 @@ const getDataByCity = async (
   url: string,
   parseFn: (data: any) => any
 ) => {
-  const data = await fetch(`${url}${city}`)
-    .then((res: { text: () => any }) => res.text())
-    .catch((e) => console.log(e));
-  return parseFn(data);
+  try {
+    const response = await fetch(`${url}${city}`, { timeout: 10000 });
+    if (!response.ok) {
+      throw new Error(`API returned status ${response.status}`);
+    }
+    const data = await response.text();
+    return parseFn(data);
+  } catch (error) {
+    console.error(`Error fetching from ${url}:`, error);
+    return null;
+  }
 };
 
 export const getMonthlyPrayers = async (city: number) => {
