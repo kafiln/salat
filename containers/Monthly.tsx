@@ -11,13 +11,13 @@ import {
   Tr,
 } from "@chakra-ui/react";
 import { Spinner } from "@chakra-ui/spinner";
-import { getMonthlyPrayers } from "api/prayers";
 import { UseAppContext } from "context";
 import { getCityName } from "data/cityService";
 import { useRef } from "react";
 import { FaPrint } from "react-icons/fa";
 import { useQuery } from "react-query";
 import ReactToPrint from "react-to-print";
+import { getMonthlyPrayers } from "services/api";
 
 const dayIsFriday = (day: string) => day === "الجمعة";
 
@@ -75,9 +75,8 @@ const Monthly = () => {
               >
                 <TableCaption placement="top" fontSize={"md"}>
                   <>
-                    {`حصة الصلاة لشهر ${
-                      data[0].arabic_month
-                    } الخاصة بمدينة ${getCityName(city)}`}
+                    {`حصة الصلاة لشهر ${data[0].arabic_month
+                      } الخاصة بمدينة ${getCityName(city)}`}
                   </>
                 </TableCaption>
                 <Thead>

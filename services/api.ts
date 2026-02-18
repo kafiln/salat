@@ -10,14 +10,15 @@ const mapResponseToPrayers = (data: any): Prayer[] =>
     };
   });
 
-const MONTHLY_URL = "/api/monthly/";
-const DAILY_URL = "/api/daily/";
+const MONTHLY_URL = "/api/monthly?id=";
+const DAILY_URL = "/api/daily?id=";
 const HIJRI = "/api/hijri";
 
 export const getPrayers = async (city: number) => {
   const data = await fetch(`${DAILY_URL}${city}`).then((res) => res.json());
   return mapResponseToPrayers(data);
 };
+
 export const getHIJRI = async () => {
   const data = await fetch(`${HIJRI}`).then((res) => res.json());
   return data;

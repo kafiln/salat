@@ -3,11 +3,11 @@ import { Center, Flex, Spinner } from "@chakra-ui/react";
 import PrayerCard from "@components/Prayer/PrayerCard";
 import PrayerList, { Prayer } from "@components/Prayer/PrayerList";
 import useTime from "@hooks/useTime";
-import { getPrayers } from "api/prayers";
 import { UseAppContext } from "context";
 import dayjs, { Dayjs } from "dayjs";
 import utc from "dayjs/plugin/utc";
 import { useQuery } from "react-query";
+import { getPrayers } from "services/api";
 
 dayjs.extend(utc);
 

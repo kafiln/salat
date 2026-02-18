@@ -3,11 +3,11 @@ import HijriDateDisplay from "@components/HijriDateDisplay";
 import Periodicity from "@components/Periodicity";
 import PrayerFooter from "@components/Prayer/PrayerFooter";
 import SelectCity from "@components/SelectCity";
-import { getHIJRI } from "api/prayers";
 import { UseAppContext, setGlobalCity, togglePeriodicity } from "context";
 import { getAllCities, getCityName } from "data/cityService";
 import { useEffect } from "react";
 import { useQuery } from "react-query";
+import { getHIJRI } from "services/api";
 import Daily from "./Daily";
 import Monthly from "./Monthly";
 
