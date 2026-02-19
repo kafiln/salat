@@ -1,4 +1,3 @@
-import { VStack } from "@chakra-ui/layout";
 import { Dayjs } from "dayjs";
 import PrayerItem from "./PrayerItem";
 
@@ -14,7 +13,7 @@ export interface Prayer {
 
 const PrayerList = ({ prayers, next }: PrayerListProps) => {
   return (
-    <VStack minW={"10rem"}>
+    <div className="flex flex-col gap-2 min-w-[10rem]">
       {prayers.map((prayer, key: number) => (
         <PrayerItem
           key={key}
@@ -22,7 +21,7 @@ const PrayerList = ({ prayers, next }: PrayerListProps) => {
           isNext={prayer.name === next.name}
         />
       ))}
-    </VStack>
+    </div>
   );
 };
 

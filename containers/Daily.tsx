@@ -1,11 +1,10 @@
-import { VStack } from "@chakra-ui/layout";
-import { Center, Flex, Spinner } from "@chakra-ui/react";
 import PrayerCard from "@components/Prayer/PrayerCard";
 import PrayerList, { Prayer } from "@components/Prayer/PrayerList";
 import useTime from "@hooks/useTime";
 import { UseAppContext } from "context";
 import dayjs, { Dayjs } from "dayjs";
 import utc from "dayjs/plugin/utc";
+import { Loader2 } from "lucide-react";
 import { useQuery } from "react-query";
 import { getPrayers } from "services/api";
 
@@ -50,24 +49,24 @@ const Daily = () => {
   const { remainingTime, nextPrayer } = getPrayerInfo(prayers, time);
 
   return (
-    <Flex height="100%" direction="column">
+    <div className="flex flex-col h-full">
       {isLoading && (
-        <Center flex={1}>
-          <Spinner size="xl" />
-        </Center>
+        <div className="flex flex-1 items-center justify-center">
+          <Loader2 className="h-8 w-8 animate-spin text-primary" />
+        </div>
       )}
 
       {prayers && prayers.length > 0 && nextPrayer && (
-        <VStack spacing={4} paddingY={4}>
+        <div className="flex flex-col items-center gap-4 py-4">
           <PrayerCard
             remaining={remainingTime}
             time={nextPrayer.time.format("HH:mm")}
             prayer={nextPrayer}
           />
           <PrayerList prayers={prayers} next={nextPrayer} />
-        </VStack>
+        </div>
       )}
-    </Flex>
+    </div>
   );
 };
 

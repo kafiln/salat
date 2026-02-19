@@ -1,8 +1,7 @@
-import { Text } from "@chakra-ui/react";
 import React from "react";
 
 const HijriDateDisplay = ({ date }: { date: string }) => {
-  return <Text>{date}</Text>;
+  return <p className="text-sm text-muted-foreground">{date}</p>;
 };
 
 export default React.memo(HijriDateDisplay);

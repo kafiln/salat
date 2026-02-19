@@ -1,4 +1,4 @@
-import { HStack, Switch, Text } from "@chakra-ui/react";
+import { Switch } from "@/components/ui/switch";
 
 const Periodicity = ({
   onClick,
@@ -8,11 +8,11 @@ const Periodicity = ({
   isDaily: boolean;
 }) => {
   return (
-    <HStack>
-      <Text>الحصة الشهرية</Text>
-      <Switch isChecked={isDaily} onChange={onClick} />
-      <Text>الأوقات اليوم</Text>
-    </HStack>
+    <div className="flex items-center gap-3">
+      <span className="text-sm font-medium">الحصة الشهرية</span>
+      <Switch checked={isDaily} onCheckedChange={onClick} />
+      <span className="text-sm font-medium">الأوقات اليوم</span>
+    </div>
   );
 };
 

@@ -13,6 +13,12 @@
       ],
       "@hooks/*": [
         "hooks/*"
+      ],
+      "@/lib/*": [
+        "lib/*"
+      ],
+      "@/components/*": [
+        "components/*"
       ]
     },
     "allowJs": true,

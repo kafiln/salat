@@ -1,4 +1,3 @@
-import { Box, Flex } from "@chakra-ui/layout";
 import { ReactElement } from "react";
 
 const DefaultLayout = ({
@@ -11,18 +10,11 @@ const DefaultLayout = ({
   footer: ReactElement;
 }) => {
   return (
-    <Flex
-      gap={4}
-      justifyContent="space-between"
-      direction="column"
-      height="100vh"
-    >
+    <div className="flex flex-col min-h-screen justify-between gap-4">
       {header}
-      <Box py={2} flex={1}>
-        {children}
-      </Box>
+      <div className="py-2 flex-1">{children}</div>
       {footer}
-    </Flex>
+    </div>
   );
 };
 

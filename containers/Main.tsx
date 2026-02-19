@@ -1,4 +1,3 @@
-import { Flex, VStack } from "@chakra-ui/react";
 import HijriDateDisplay from "@components/HijriDateDisplay";
 import Periodicity from "@components/Periodicity";
 import PrayerFooter from "@components/Prayer/PrayerFooter";
@@ -30,8 +29,8 @@ const Main = () => {
   }, []);
 
   return (
-    <Flex height="100%" direction="column">
-      <VStack flexDir="column" spacing={4}>
+    <div className="flex flex-col h-full">
+      <div className="flex flex-col items-center gap-4">
         <Periodicity
           isDaily={isDaily}
           onClick={() => dispatch(togglePeriodicity())}
@@ -40,10 +39,10 @@ const Main = () => {
           <SelectCity cities={cities} city={city} handleChange={handleChange} />
         )}
         {hijri && <HijriDateDisplay date={hijri} />}
-      </VStack>
+      </div>
       {isDaily ? <Daily /> : <Monthly />}
       {city && <PrayerFooter city={getCityName(city)} />}
-    </Flex>
+    </div>
   );
 };
 

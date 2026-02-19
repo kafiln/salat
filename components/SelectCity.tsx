@@ -1,5 +1,10 @@
-import { Box } from "@chakra-ui/react";
-import { Select } from "chakra-react-select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import React, { useMemo } from "react";
 
 interface City {
@@ -20,20 +25,26 @@ const SelectCity = ({ cities, city, handleChange }: SelectCityProps) => {
       .sort((a, b) => a.label.localeCompare(b.label));
   }, [cities]);
 
+  const selectedLabel = options.find((o) => o.value === city)?.label;
+
   return (
-    <Box minW={"20rem"} dir="rtl">
+    <div className="min-w-[20rem]" dir="rtl">
       <Select
-        options={options}
-        instanceId="test"
-        value={options.find((option: any) => option.value === city)}
-        onChange={(item) => {
-          const city = item?.value;
-          if (city) {
-            handleChange(city);
-          }
-        }}
-      />
-    </Box>
+        value={String(city)}
+        onValueChange={(val) => handleChange(Number(val))}
+      >
+        <SelectTrigger>
+          <SelectValue placeholder="اختر المدينة">{selectedLabel}</SelectValue>
+        </SelectTrigger>
+        <SelectContent>
+          {options.map((option) => (
+            <SelectItem key={option.value} value={String(option.value)}>
+              {option.label}
+            </SelectItem>
+          ))}
+        </SelectContent>
+      </Select>
+    </div>
   );
 };
 

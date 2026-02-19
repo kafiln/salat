@@ -1,13 +1,11 @@
-import { Flex, Text } from "@chakra-ui/react";
-
 const PrayerFooter = ({ city }: { city: string }) => {
   return (
-    <Flex justifyContent={"center"} alignItems="center" direction={"column"}>
-      <Text> مواقيت الصلاة بمدينة {city}</Text>
-      <Text fontSize="sm" color={"gray.500"}>
+    <div className="flex flex-col items-center justify-center">
+      <p>مواقيت الصلاة بمدينة {city}</p>
+      <p className="text-sm text-muted-foreground">
         حسب توقيت وزارة الاوقاف والشؤون الاسلامية بالمغرب
-      </Text>
-    </Flex>
+      </p>
+    </div>
   );
 };
 

@@ -1,4 +1,4 @@
-import { Box, Text, VStack } from "@chakra-ui/react";
+import { Card, CardContent } from "@/components/ui/card";
 import { useThemedColors } from "@hooks/useInvertColors";
 import { toArabic } from "./PrayerItem";
 import { Prayer } from "./PrayerList";
@@ -12,17 +12,15 @@ interface PrayerCardProps {
 export const PrayerCard = ({ time, prayer, remaining }: PrayerCardProps) => {
   const colors = useThemedColors();
   return (
-    <Box width="10rem" p={6} borderRadius={10} {...colors}>
-      <VStack>
-        <Text fontWeight="bold" casing="capitalize">
+    <Card className={`w-40 ${colors.className}`}>
+      <CardContent className="flex flex-col items-center gap-2 p-6">
+        <span className="font-bold capitalize">
           {toArabic(prayer.name)}
-        </Text>
-        <Text fontWeight="bold" fontSize="xl">
-          - {remaining}
-        </Text>
-        <Text fontWeight="bold">{time}</Text>
-      </VStack>
-    </Box>
+        </span>
+        <span className="font-bold text-xl">- {remaining}</span>
+        <span className="font-bold">{time}</span>
+      </CardContent>
+    </Card>
   );
 };
 

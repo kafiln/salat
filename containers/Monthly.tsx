@@ -1,20 +1,17 @@
-import { Center, Flex } from "@chakra-ui/layout";
+import { Button } from "@/components/ui/button";
 import {
-  Button,
-  Container,
   Table,
+  TableBody,
   TableCaption,
-  Tbody,
-  Td,
-  Th,
-  Thead,
-  Tr,
-} from "@chakra-ui/react";
-import { Spinner } from "@chakra-ui/spinner";
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 import { UseAppContext } from "context";
 import { getCityName } from "data/cityService";
+import { Loader2, Printer } from "lucide-react";
 import { useRef } from "react";
-import { FaPrint } from "react-icons/fa";
 import { useQuery } from "react-query";
 import ReactToPrint from "react-to-print";
 import { getMonthlyPrayers } from "services/api";
@@ -35,86 +32,78 @@ const Monthly = () => {
     }
   );
 
-  const componentRef = useRef();
+  const componentRef = useRef<HTMLDivElement>(null);
 
   return (
-    <Flex height="100%" direction="column">
+    <div className="flex flex-col h-full">
       {isLoading && (
-        <Center flex={1}>
-          <Spinner size="xl" />
-        </Center>
+        <div className="flex flex-1 items-center justify-center">
+          <Loader2 className="h-8 w-8 animate-spin text-primary" />
+        </div>
       )}
       {data && (
         <>
           <ReactToPrint
             trigger={() => (
               <Button
-                rightIcon={<FaPrint />}
-                sx={{
-                  position: "absolute",
-                  right: "50%",
-                  top: "4px",
-                }}
-                colorScheme="teal"
+                variant="default"
                 size="sm"
+                className="absolute right-1/2 top-1 gap-2"
               >
                 تحميل
+                <Printer className="h-4 w-4" />
               </Button>
             )}
-            // @ts-ignore
             content={() => componentRef.current}
           />
-          {/* @ts-ignore */}
-          <Container ref={componentRef}>
+          <div ref={componentRef} className="max-w-4xl mx-auto">
             {city && (
-              <Table
-                size="sm"
-                dir="rtl"
-                borderWidth={1}
-                borderColor={"gray.100"}
-              >
-                <TableCaption placement="top" fontSize={"md"}>
-                  <>
-                    {`حصة الصلاة لشهر ${data[0].arabic_month
-                      } الخاصة بمدينة ${getCityName(city)}`}
-                  </>
+              <Table dir="rtl" className="border border-border">
+                <TableCaption className="caption-top text-base mb-4">
+                  {`حصة الصلاة لشهر ${data[0].arabic_month} الخاصة بمدينة ${getCityName(city)}`}
                 </TableCaption>
-                <Thead>
-                  <Tr>
+                <TableHeader>
+                  <TableRow>
                     {Object.values(data[0]).map(
                       (header: any, index: number) => {
                         return (
-                          <Th bgColor="gray.300" key={index}>
+                          <TableHead
+                            key={index}
+                            className="bg-muted font-semibold text-foreground"
+                          >
                             {header}
-                          </Th>
+                          </TableHead>
                         );
                       }
                     )}
-                  </Tr>
-                </Thead>
-                <Tbody>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
                   {data.slice(1).map((row: any, index: number) => {
                     return (
-                      <Tr
+                      <TableRow
                         key={index}
-                        {...(dayIsFriday(row.day_name) && {
-                          bgColor: "gray.100",
-                        })}
+                        className={
+                          dayIsFriday(row.day_name) ? "bg-muted/50" : ""
+                        }
                       >
-                        {Object.values(row).map((cell: any, index: number) => {
-                          return <Td key={index}>{cell}</Td>;
-                        })}
-                      </Tr>
+                        {Object.values(row).map(
+                          (cell: any, index: number) => {
+                            return (
+                              <TableCell key={index}>{cell}</TableCell>
+                            );
+                          }
+                        )}
+                      </TableRow>
                     );
                   })}
-                </Tbody>
+                </TableBody>
               </Table>
             )}
-          </Container>
-          {/* </div> */}
+          </div>
         </>
       )}
-    </Flex>
+    </div>
   );
 };
 

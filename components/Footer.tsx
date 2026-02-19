@@ -1,4 +1,3 @@
-import { HStack, Link } from "@chakra-ui/react";
 import { useThemedColors } from "@hooks/useInvertColors";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 
@@ -16,13 +15,13 @@ const items = [
 const Footer = () => {
   const colors = useThemedColors();
   return (
-    <HStack p={2} justifyContent="center" {...colors}>
+    <div className={`flex items-center justify-center gap-4 p-2 ${colors.className}`}>
       {items.map(({ Icon, url }, index) => (
-        <Link key={index} href={url} target="_blank" rel="noopener noreferrer">
+        <a key={index} href={url} target="_blank" rel="noopener noreferrer">
           <Icon size="1.4em" />
-        </Link>
+        </a>
       ))}
-    </HStack>
+    </div>
   );
 };
 

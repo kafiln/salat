@@ -1,11 +1,12 @@
-import { useColorModeValue } from "@chakra-ui/react"
+import { useTheme } from "next-themes";
 
 export const useThemedColors = () => {
- const bgColor = useColorModeValue('black', 'white')
- const color = useColorModeValue('white', 'black')
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
 
- return {
-    color,
-    bgColor
- }
-}
+  return {
+    className: isDark
+      ? "bg-white text-black"
+      : "bg-black text-white",
+  };
+};

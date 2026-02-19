@@ -1,4 +1,3 @@
-import { HStack, Text } from "@chakra-ui/react";
 import { useThemedColors } from "@hooks/useInvertColors";
 import dayjs from "dayjs";
 import { Prayer } from "./PrayerList";
@@ -31,21 +30,13 @@ export const toArabic = (name: string) => {
 const PrayerItem = ({ prayer, isNext }: PrayerItemProps) => {
   const colors = useThemedColors();
   return (
-    <HStack
-      p={2}
-      border={2}
-      borderColor="blue.500"
-      rounded="sm"
-      flexDir="row-reverse"
-      justifyContent="space-between"
-      width={"100%"}
-      {...(isNext && { ...colors, fontWeight: "bold" })}
+    <div
+      className={`flex items-center justify-between flex-row-reverse p-2 rounded-sm border-2 border-primary/30 w-full ${isNext ? `${colors.className} font-bold` : ""
+        }`}
     >
-      <Text fontSize="sm" casing="capitalize">
-        {toArabic(prayer.name)}
-      </Text>
-      <Text fontSize="sm">{dayjs(prayer.time).format("HH:mm")}</Text>
-    </HStack>
+      <span className="text-sm capitalize">{toArabic(prayer.name)}</span>
+      <span className="text-sm">{dayjs(prayer.time).format("HH:mm")}</span>
+    </div>
   );
 };
 

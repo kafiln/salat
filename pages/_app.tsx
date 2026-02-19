@@ -1,9 +1,9 @@
-import { ChakraProvider } from "@chakra-ui/react";
 import "@fontsource/open-sans/300.css";
 import "@fontsource/raleway/500.css";
 import "@fontsource/raleway/700.css";
 import { AppState, LocalProvider } from "context";
-import theme from "theme";
+import { ThemeProvider } from "next-themes";
+import "../styles/globals.css";
 
 const initialState: AppState = {
   language: "ar",
@@ -12,13 +12,13 @@ const initialState: AppState = {
 
 const MyApp = ({ Component, pageProps }: any) => {
   return (
-    <ChakraProvider theme={theme}>
+    <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
       <LocalProvider initialState={initialState}>
         <>
           <Component {...pageProps} />
         </>
       </LocalProvider>
-    </ChakraProvider>
+    </ThemeProvider>
   );
 };
 
